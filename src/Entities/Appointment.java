@@ -2,7 +2,8 @@ package Entities;
 
 public class Appointment {
     private String appointmentId;
-    private String
+    private String patientId;
+    private
 
 
 

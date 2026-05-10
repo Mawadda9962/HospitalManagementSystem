@@ -50,7 +50,7 @@ public class PatientService {
         patient p  =getPatientById(patientId);
         if (p != null){
             patients.remove(p);
-
+            System.out.println(Constant.PATIENT_REMOVE_SUCCESSFULLY);
         }
     }
 

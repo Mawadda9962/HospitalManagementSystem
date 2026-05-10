@@ -8,6 +8,9 @@ public class Appointment {
     private String doctorId;
     private LocalDate appointmentDate;
     private String appointmentTime;
+    private String status;
+    private String reason;
+
 
 
 

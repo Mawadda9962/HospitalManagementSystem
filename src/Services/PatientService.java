@@ -42,6 +42,9 @@ public class PatientService {
         System.out.print("Enter Email: ");
         String email = scanner.nextLine();
 
+        System.out.print("Enter Address: ");
+        String address = scanner.nextLine();
+
 
 
 

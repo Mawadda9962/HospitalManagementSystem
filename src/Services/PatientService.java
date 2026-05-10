@@ -32,9 +32,14 @@ public class PatientService {
         return null;
     }
 
+    //Calling the existing getPatientById method
     public void editPatient(String patientId, patient updatedPatient)
     {
         patient existing = getPatientById(patientId);
+        if (existing != null){
+            int index = patients.indexOf(existing);
+
+        }
 
     }
 

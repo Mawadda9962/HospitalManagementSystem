@@ -47,7 +47,8 @@ public class PatientService {
 
     //Remove patient from the list
     public void removePatient(String patientId){
-
+        patient p  =getPatientById(patientId);
+        if ()
     }
 
 

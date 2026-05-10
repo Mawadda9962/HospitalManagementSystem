@@ -79,10 +79,9 @@ public class Patient extends Person{
     public void setAppointments(List appointments) {
         this.appointments = appointments;
     }
-}
-
-
 
 
 }
-}
+
+
+

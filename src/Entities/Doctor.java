@@ -26,10 +26,24 @@ public class Doctor extends Person {
 
     @Override
     public void displayInfo(){
+        super.displayInfo();
+        System.out.println("--- Doctor Specific Details ---");
+        System.out.println("Doctor ID: " + doctorId);
+        System.out.println("Specialization: " + specialization);
+        System.out.println("Qualification: " + qualification);
+        System.out.println("Experience: " + experienceYears + " years");
+        System.out.println("Department: " + departmentId);
+        System.out.println("Consultation Fee: " + consultationFee);
+        System.out.println("Assigned Patients: " + assignedPatients);
+        System.out.println("--------------------------------");
 
     }
 
-    public void assignPatient(){
+    public void assignPatient(String patientId){
+        if (assignedPatients != null){
+            assignedPatients.add(patientId);
+            System.out.println();
+        }
 
     }
 

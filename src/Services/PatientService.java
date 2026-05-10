@@ -34,19 +34,18 @@ public class PatientService {
         return null;
     }
 
-    //Calling the existing getPatientById method
+    //Calling the existing getPatientById method (Editing the patient)
     public void editPatient(String patientId, patient updatedPatient)
     {
         patient existing = getPatientById(patientId);
         if (existing != null){
             int index = patients.indexOf(existing);
             patients.set(index,updatedPatient);
-            System.out.println(Constant.);
-
-
+            System.out.println(Constant.PATIENT_UPDATED_SUCCESSFULLY);
         }
-
     }
+
+    //Remove patient
 
 
 

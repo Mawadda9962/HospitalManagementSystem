@@ -48,10 +48,20 @@ public class PatientService {
         System.out.print("Enter Hospital Patient ID: ");
         String pId = scanner.nextLine();
 
+        System.out.print("Enter Blood Group: ");
+        String bloodGroup = scanner.nextLine();
+
+        System.out.print("Enter Emergency Contact: ");
+        String emergencyContact = scanner.nextLine();
+
+        System.out.print("Enter Insurance ID: ");
+        String insuranceId = scanner.nextLine();
 
 
-
-
+        LocalDate registrationDate = LocalDate.now();
+        List<String> allergies = new ArrayList<>();
+        List<String> medicalRecords = new ArrayList<>();
+        List<String> appointments = new ArrayList<>();
 
         patient patient = new patient(id, fname, lname, dateOfBirth);
 

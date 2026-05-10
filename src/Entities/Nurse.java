@@ -10,7 +10,8 @@ public class Nurse {
     private String departmentId;
     private double consultationFee;
     private List availableSlots;
-    private
+    private List assignedPatients;
+
 
 
 

@@ -20,7 +20,7 @@ public class Doctor extends Person {
         this.experienceYears = experienceYears;
         this.departmentId = departmentId;
         this.consultationFee = consultationFee;
-        this.availableSlots = availableSlots;j
+        this.availableSlots = availableSlots;
         this.assignedPatients = assignedPatients;
     }
 

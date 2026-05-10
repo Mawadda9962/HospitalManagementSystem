@@ -9,7 +9,8 @@ public class MedicalRecord {
     private LocalDate visitDate;
     private String diagnosis;
     private String prescription;
-    private String
+    private String testResults;
+    private String notes
 
 
 }

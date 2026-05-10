@@ -78,7 +78,9 @@ public class Department {
     }
 
     public void assignDoctor(Doctor doctor){
-        if (doctor != null)
+        if (doctor != null){
+
+        }
 
 
     }

@@ -1,5 +1,6 @@
 package Entities;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class Patient extends Person{
@@ -7,13 +8,12 @@ public class Patient extends Person{
     private String patientId;
     private String bloodGroup;
     private List emergencyContact;
-    private String registrationDate;
+    private LocalDate registrationDate;
     private String insuranceId;
     private List medicalRecords;
     private List appointments;
 
-
-    public Patient(String id, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address, String patientId, String bloodGroup, List emergencyContact, String registrationDate, String insuranceId, List medicalRecords, List appointments) {
+    public Patient(String id, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address, String patientId, String bloodGroup, List emergencyContact, LocalDate registrationDate, String insuranceId, List medicalRecords, List appointments) {
         super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address);
         this.patientId = patientId;
         this.bloodGroup = bloodGroup;
@@ -48,20 +48,12 @@ public class Patient extends Person{
         this.emergencyContact = emergencyContact;
     }
 
-    public String getRegistrationDate() {
+    public LocalDate getRegistrationDate() {
         return registrationDate;
     }
 
-    public void setRegistrationDate(String registrationDate) {
+    public void setRegistrationDate(LocalDate registrationDate) {
         this.registrationDate = registrationDate;
-    }
-
-    public List getMedicalRecords() {
-        return medicalRecords;
-    }
-
-    public void setMedicalRecords(List medicalRecords) {
-        this.medicalRecords = medicalRecords;
     }
 
     public String getInsuranceId() {
@@ -72,6 +64,14 @@ public class Patient extends Person{
         this.insuranceId = insuranceId;
     }
 
+    public List getMedicalRecords() {
+        return medicalRecords;
+    }
+
+    public void setMedicalRecords(List medicalRecords) {
+        this.medicalRecords = medicalRecords;
+    }
+
     public List getAppointments() {
         return appointments;
     }
@@ -80,6 +80,16 @@ public class Patient extends Person{
         this.appointments = appointments;
     }
 
+    @Override
+    public void displayInfo(){
+
+    }
+
+    public void addMedicalRecord(){
+
+    }
+
+    public void
 
 }
 

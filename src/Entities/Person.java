@@ -1,5 +1,7 @@
 package Entities;
 
+import java.util.Objects;
+
 public class Person {
     private String id;
     private  String firstName;
@@ -85,6 +87,10 @@ public class Person {
         this.address = address;
     }
 
+ public void displayInfo(){
+ }
+
+
     @Override
     public String toString() {
         return "Person{" +
@@ -99,5 +105,15 @@ public class Person {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(id, person.id) && Objects.equals(firstName, person.firstName) && Objects.equals(lastName, person.lastName) && Objects.equals(dateOfBirth, person.dateOfBirth) && Objects.equals(gender, person.gender) && Objects.equals(phoneNumber, person.phoneNumber) && Objects.equals(email, person.email) && Objects.equals(address, person.address);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address);
+    }
 }

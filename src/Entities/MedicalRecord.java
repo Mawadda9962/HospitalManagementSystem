@@ -10,7 +10,8 @@ public class MedicalRecord {
     private String diagnosis;
     private String prescription;
     private String testResults;
-    private String notes
+    private String notes;
+
 
 
 }

@@ -36,6 +36,9 @@ public class PatientService {
         System.out.print("Enter Gender: ");
         String gender = scanner.nextLine();
 
+        System.out.print("Enter Phone Number: ");
+        String phoneNumber = scanner.nextLine();
+
 
         patient patient = new patient(id, fname, lname, dateOfBirth);
 

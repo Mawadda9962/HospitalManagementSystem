@@ -39,11 +39,9 @@ public class Patient extends Person{
         appointments.add(appoinment);
 
     }
-    public void updateInsurance(){
+    public void updateInsurance(String newInsuranceId){
         if (insuranceId != null){
-            String newInsuranceId = "";
             this.insuranceId =newInsuranceId;
-
         }
 
 

@@ -12,16 +12,15 @@ public class PatientService {
     static Scanner scanner = new Scanner(System.in);
     static List<patient> patients = new ArrayList<>();
 
-
     public void addPatient() {
-        System.out.println("********** Added New Patient =====");
+        System.out.println("********** Added New Patient ********");
         System.out.println("Enter Patient id :");
         String id = scanner.nextLine();
 
         patient p = getPatientById(id);
         if (p != null) {
             System.out.println("ID already exit ");
-            return; // Stop execution if ID exists
+            return;
         }
 
         System.out.print("Enter First Name: ");
@@ -57,21 +56,29 @@ public class PatientService {
         System.out.print("Enter Insurance ID: ");
         String insuranceId = scanner.nextLine();
 
-
+        // Initialize lists and automatic data
         LocalDate registrationDate = LocalDate.now();
         List<String> allergies = new ArrayList<>();
         List<String> medicalRecords = new ArrayList<>();
         List<String> appointments = new ArrayList<>();
 
-        patient patient = new patient(id, fname, lname, dateOfBirth);
 
-        patients.add(patient);
+        patient newPatient = new patient(
+                id, fname, lname, dateOfBirth.toString(), gender, phoneNumber, email, address,
+                insuranceId, pId, bloodGroup, new ArrayList<>(), registrationDate,
+                medicalRecords, appointments
+        );
+
+        // Add the newly created object to the list
+        patients.add(newPatient);
         System.out.println(Constant.PATIENT_ADDED_SUCCESSFULLY);
     }
 
     public patient getPatientById(String patientId) {
         for (patient p : patients) {
-            if (p.getId().equals(patientId)) {
+            // Note: Use getPatientId() if you are searching by hospital ID
+            // or getId() if searching by the base Person ID.
+            if (p.getPatientId().equals(patientId)) {
                 return p;
             }
         }
@@ -81,10 +88,10 @@ public class PatientService {
     public void editPatient(String patientId, patient updatedPatient) {
         if (patientId != null) {
             for (int i = 0; i < patients.size(); i++) {
-                if (patients.get(i).getId().equals(patientId)) {
+                if (patients.get(i).getPatientId().equals(patientId)) {
                     patients.set(i, updatedPatient);
-                    System.out.println(Constant.PATIENT_UPDATED);
-                    return; // Exit after updating
+                    System.out.println(Constant.PATIENT_UPDATED_SUCCESSFULLY);
+                    return;
                 }
             }
         }
@@ -93,7 +100,6 @@ public class PatientService {
 
     public void removePatient(String patientId) {
         patient p = getPatientById(patientId);
-        // Check if p is not null before accessing its methods
         if (p != null) {
             patients.remove(p);
             System.out.println(Constant.PATIENT_REMOVE_SUCCESSFULLY);
@@ -106,7 +112,8 @@ public class PatientService {
         System.out.println("Search Results:");
         List<patient> foundPatients = new ArrayList<>();
         for (patient p : patients) {
-            if (p.getFirstName().toLowerCase().contains(name.toLowerCase())) {
+            if (p.getFirstName().toLowerCase().contains(name.toLowerCase()) ||
+                    p.getLastName().toLowerCase().contains(name.toLowerCase())) {
                 p.displayInfo();
                 foundPatients.add(p);
             }

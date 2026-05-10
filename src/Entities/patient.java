@@ -15,7 +15,7 @@ public class patient extends Person{
     private List<String> medicalRecords;
     private List<String> appointments;
 
-    public patient(String id, String firstName, String lastName, LocalDate registrationDate) {
+    public patient(String id, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address, String insuranceId, String patientId, String bloodGroup, List<String> emergencyContact, LocalDate registrationDate, List<String> medicalRecords, List<String> appointments) {
         super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address);
         this.insuranceId = insuranceId;
         this.patientId = patientId;
@@ -114,6 +114,5 @@ public class patient extends Person{
     }
 
 }
-
 
 

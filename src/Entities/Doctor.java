@@ -9,8 +9,8 @@ public class Doctor extends Person {
     private int experienceYears;
     private String departmentId;
     private double consultationFee;
-    private List availableSlots;
-    private List assignedPatients;
+    private List<String> availableSlots;
+    private List<String> assignedPatients;
 
     public Doctor(String id, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address, String doctorId, String specialization, String qualification, int experienceYears, String departmentId, double consultationFee, List availableSlots, List assignedPatients) {
         super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address);

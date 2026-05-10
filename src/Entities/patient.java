@@ -1,5 +1,7 @@
 package Entities;
 
+import Utiles.Constant;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -105,7 +107,7 @@ public class patient extends Person{
     public void updateInsurance(String newInsuranceId){
         if (insuranceId != null){
             this.insuranceId =newInsuranceId;
-            System.out.println("Insurance updated successfully");
+            System.out.println(Constant.INSURANCE_UPDATED_SUCCESSFULLY);
         }
 
 

@@ -50,11 +50,19 @@ public class Doctor extends Person {
     public void removePatient(String patientId){
         if (assignedPatients != null){
             assignedPatients.remove(patientId);
+            System.out.println("Patient" +patientId + "Removed");
+        }else{
+            System.out.println("Patient not found in assigned list");
         }
 
     }
 
-    public void updateAvailability(){
+    public void updateAvailability(String newSlot){
+        if (availableSlots != null){
+            availableSlots.add(newSlot);
+            System.out.println("New availability slot added: ");
+        }
+
 
     }
 

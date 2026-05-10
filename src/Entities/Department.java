@@ -83,6 +83,9 @@ public class Department {
     public void  assignNurse(){
 
     }
+    public void updateBedAvailability(){
+
+    }
 
 
 }

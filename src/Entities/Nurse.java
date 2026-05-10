@@ -6,7 +6,8 @@ public class Nurse {
     private String qualification;
     private int experienceYears;
     private String departmentId;
-    private
+    private double consultationFee;
+
 
 
 }

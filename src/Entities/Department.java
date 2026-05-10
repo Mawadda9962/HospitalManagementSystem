@@ -76,4 +76,9 @@ public class Department {
     public void setAvailableBeds(int availableBeds) {
         this.availableBeds = availableBeds;
     }
+
+    public void assignDoctor(){
+
+    }
+
 }

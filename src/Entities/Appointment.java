@@ -90,4 +90,10 @@ public class Appointment {
     public void displayInfo(){
 
     }
+
+    public void reschedule(){
+
+
+    }
+
 }

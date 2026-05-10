@@ -5,9 +5,12 @@ import Utiles.Constant;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class PatientService {
+
+    Scanner sr = new Scanner();
 
     //List to store all patients
     private static List<patient> patients = new ArrayList<>();

@@ -7,6 +7,7 @@ public class Department {
     private String departmentName;
     private String headDoctorId;
     private List<Doctor> doctors;
+    private List<Nurse> nurses;
     private
 
 

@@ -10,7 +10,6 @@ import java.util.regex.Pattern;
 
 public class PatientService {
 
-    Scanner sr = new Scanner();
 
     //List to store all patients
     private static List<patient> patients = new ArrayList<>();
@@ -41,6 +40,9 @@ public class PatientService {
         patient existing = getPatientById(patientId);
         if (existing != null){
             int index = patients.indexOf(existing);
+            patients.set(index,updatedPatient);
+            System.out.println(Constant.);
+
 
         }
 

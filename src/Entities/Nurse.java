@@ -22,4 +22,13 @@ public class Nurse {
         this.availableSlots = availableSlots;
         this.assignedPatients = assignedPatients;
     }
+
+    @Override
+    public void displayInfo(){
+
+    }
+
+    public void assignPatient(){
+
+    }
 }

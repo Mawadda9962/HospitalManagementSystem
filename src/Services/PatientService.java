@@ -2,11 +2,20 @@ package Services;
 
 import Entities.patient;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class PatientService {
-    public patient addPatient(){
         Scanner scanner = new Scanner(System.in);
+        static List <patient> patients = new ArrayList<>();
+
+
+        public void addPatient(){
+            System.out.println("****** ADD NEW PATIENT ********");
+            System.out.println("Enter patient id: ");
+
+
 
     }
 

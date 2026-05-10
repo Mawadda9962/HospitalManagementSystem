@@ -98,6 +98,8 @@ public class Appointment {
     public void cancel(){
 
     }
-    public
+    public void complete(){
+
+    }
 
 }

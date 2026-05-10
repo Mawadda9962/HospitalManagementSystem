@@ -87,5 +87,7 @@ public class Appointment {
         this.notes = notes;
     }
 
-    public void
+    public void displayInfo(){
+
+    }
 }

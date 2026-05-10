@@ -88,17 +88,35 @@ public class Appointment {
     }
 
     public void displayInfo(){
+        System.out.println("======= APPOINTMENT DETAILS =======");
+        System.out.println("ID        : " + appointmentId);
+        System.out.println("Status    : " + status);
+        System.out.println("Date/Time : " + appointmentDate + " at " + appointmentTime);
+        System.out.println("Patient ID: " + patientId);
+        System.out.println("Doctor ID : " + doctorId);
+        System.out.println("Reason    : " + reason);
+        if (notes != null && !notes.isEmpty()) {
+            System.out.println("Notes     : " + notes);
+        }
+        System.out.println("===================================");
 
     }
 
-    public void reschedule(){
+    public void reschedule(LocalDate newData, String newTime){
+        this.appointmentDate = newData;
+        this.appointmentTime = newTime;
+        this.status = "Rescheduled";
 
     }
 
     public void cancel(){
+        this.status = "Cancelled";
+        System.out.println("Appointment " + appointmentId + "has been cancelled");
 
     }
     public void complete(){
+        this.status = "Complete";
+        System.out.println("Appointment " + appointmentId + "has been completed");
 
     }
 

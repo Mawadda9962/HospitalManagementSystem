@@ -101,4 +101,18 @@ public class MedicalRecord {
         System.out.println("==============================");
 
     }
+
+    @Override
+    public String toString() {
+        return "MedicalRecord{" +
+                "recordId='" + recordId + '\'' +
+                ", patientId='" + patientId + '\'' +
+                ", doctorId='" + doctorId + '\'' +
+                ", visitDate=" + visitDate +
+                ", diagnosis='" + diagnosis + '\'' +
+                ", prescription='" + prescription + '\'' +
+                ", testResults='" + testResults + '\'' +
+                ", notes='" + notes + '\'' +
+                '}';
+    }
 }

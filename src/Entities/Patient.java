@@ -24,7 +24,61 @@ public class Patient extends Person{
         this.appointments = appointments;
     }
 
+    public String getPatientId() {
+        return patientId;
+    }
 
+    public void setPatientId(String patientId) {
+        this.patientId = patientId;
+    }
+
+    public String getBloodGroup() {
+        return bloodGroup;
+    }
+
+    public void setBloodGroup(String bloodGroup) {
+        this.bloodGroup = bloodGroup;
+    }
+
+    public List getEmergencyContact() {
+        return emergencyContact;
+    }
+
+    public void setEmergencyContact(List emergencyContact) {
+        this.emergencyContact = emergencyContact;
+    }
+
+    public String getRegistrationDate() {
+        return registrationDate;
+    }
+
+    public void setRegistrationDate(String registrationDate) {
+        this.registrationDate = registrationDate;
+    }
+
+    public List getMedicalRecords() {
+        return medicalRecords;
+    }
+
+    public void setMedicalRecords(List medicalRecords) {
+        this.medicalRecords = medicalRecords;
+    }
+
+    public String getInsuranceId() {
+        return insuranceId;
+    }
+
+    public void setInsuranceId(String insuranceId) {
+        this.insuranceId = insuranceId;
+    }
+
+    public List getAppointments() {
+        return appointments;
+    }
+
+    public void setAppointments(List appointments) {
+        this.appointments = appointments;
+    }
 }
 
 

@@ -20,6 +20,46 @@ public class Nurse extends Person {
         this.assignedPatients = assignedPatients;
     }
 
+    public String getNurseId() {
+        return nurseId;
+    }
+
+    public void setNurseId(String nurseId) {
+        this.nurseId = nurseId;
+    }
+
+    public String getDepartmentId() {
+        return departmentId;
+    }
+
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
+    }
+
+    public String getQualification() {
+        return qualification;
+    }
+
+    public void setQualification(String qualification) {
+        this.qualification = qualification;
+    }
+
+    public String getShift() {
+        return shift;
+    }
+
+    public void setShift(String shift) {
+        this.shift = shift;
+    }
+
+    public List<String> getAssignedPatients() {
+        return assignedPatients;
+    }
+
+    public void setAssignedPatients(List<String> assignedPatients) {
+        this.assignedPatients = assignedPatients;
+    }
+
     @Override
     public void displayInfo(){
         super.displayInfo(); // Calls Person's displayInfo
@@ -43,4 +83,5 @@ public class Nurse extends Person {
                 ", assignedPatients=" + assignedPatients +
                 '}';
     }
+
 }

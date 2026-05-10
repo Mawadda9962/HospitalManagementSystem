@@ -95,6 +95,9 @@ public class Appointment {
 
     }
 
-    public void
+    public void cancel(){
+
+    }
+    public
 
 }

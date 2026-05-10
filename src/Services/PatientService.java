@@ -1,6 +1,7 @@
 package Services;
 
 import Entities.patient;
+import Utiles.Constant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,9 +12,12 @@ public class PatientService {
     //List to store all patients
     private static List<patient> patients = new ArrayList<>();
 
-    //Addign
+    //Adding a new patient to the list
     public void addPatient(patient p){
-        if (p)
+        if (p != null){
+            patients.add(p);
+            System.out.println(Constant.PATIENT_ADDED_SUCCESSFULLY + p.getFirstName());
+        }
 
 
     }

@@ -8,7 +8,8 @@ public class Department {
     private String headDoctorId;
     private List<Doctor> doctors;
     private List<Nurse> nurses;
-    private
+    private int bedCapacity;
+
 
 
 

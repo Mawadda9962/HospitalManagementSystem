@@ -4,6 +4,7 @@ import Entities.patient;
 import Utiles.Constant;
 
 import java.util.ArrayList;
+import java.util.Formattable;
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -47,11 +48,23 @@ public class PatientService {
 
     //Remove patient from the list
     public void removePatient(String patientId){
-        patient p  =getPatientById(patientId);
+        patient p  = getPatientById(patientId);
         if (p != null){
             patients.remove(p);
             System.out.println(Constant.PATIENT_REMOVE_SUCCESSFULLY);
         }
+    }
+
+    public void displayAllPatients(){
+        if (patients.isEmpty()){
+            System.out.println(Constant.NO_PATIENT_REGISTERED);
+            return;
+        }
+        System.out.println("******* ALL PATIENTS *******");
+        for (patient p : patients){
+            p.displayInfo();
+        }
+
     }
 
 

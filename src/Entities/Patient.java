@@ -27,16 +27,24 @@ public class Patient extends Person{
     @Override
     public void displayInfo(){
 
-    }
-
-    public void addMedicalRecord(){
 
     }
 
-    public void addAppointment(){
+    public void addMedicalRecord(String medicalRecorde){
+        medicalRecords.add(medicalRecorde);
+
+    }
+
+    public void addAppointment(String appoinment){
+        appointments.add(appoinment);
 
     }
     public void updateInsurance(){
+        if (insuranceId != null){
+            String newInsuranceId = "";
+            this.insuranceId =newInsuranceId;
+
+        }
 
 
     }

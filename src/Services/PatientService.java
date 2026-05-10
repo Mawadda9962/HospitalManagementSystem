@@ -14,13 +14,18 @@ public class PatientService {
 
     //Adding a new patient to the list
     public void addPatient(patient p){
-        if (p != null){
+        if (p != null) {
             patients.add(p);
             System.out.println(Constant.PATIENT_ADDED_SUCCESSFULLY + p.getFirstName());
         }
 
+    }
+
+    public patient getPatientById(String patientId){
 
     }
+
+
 
 
 

@@ -22,7 +22,12 @@ public class PatientService {
     }
 
     public patient getPatientById(String patientId){
-
+        for (patient p : patients){
+            if (p.getPatientId().equals(patientId)){
+                return p;
+            }
+        }
+        System.out.println();
     }
 
 

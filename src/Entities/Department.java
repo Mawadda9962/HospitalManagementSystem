@@ -9,6 +9,8 @@ public class Department {
     private List<Doctor> doctors;
     private List<Nurse> nurses;
     private int bedCapacity;
+    private int availableBeds;
+
 
 
 

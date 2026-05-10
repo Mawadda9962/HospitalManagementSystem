@@ -12,6 +12,14 @@ public class MedicalRecord {
     private String testResults;
     private String notes;
 
-
-
+    public MedicalRecord(String patientId, String recordId, String doctorId, LocalDate visitDate, String diagnosis, String prescription, String notes, String testResults) {
+        this.patientId = patientId;
+        this.recordId = recordId;
+        this.doctorId = doctorId;
+        this.visitDate = visitDate;
+        this.diagnosis = diagnosis;
+        this.prescription = prescription;
+        this.notes = notes;
+        this.testResults = testResults;
+    }
 }

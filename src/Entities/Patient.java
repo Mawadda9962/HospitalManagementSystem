@@ -7,7 +7,7 @@ public class Patient extends Person{
     private String patientId;
     private String bloodGroup;
     private List emergencyContact;
-    private LocalDate registrationDate;
+    private String registrationDate;
     private String insuranceId;
     private List medicalRecords;
     private List appointments;
@@ -15,8 +15,7 @@ public class Patient extends Person{
 
 
 
-    public Patient(String id, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address) {
-        super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address);
+
     }
 
 

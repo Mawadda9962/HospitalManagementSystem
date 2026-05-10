@@ -10,6 +10,8 @@ public class Appointment {
     private String appointmentTime;
     private String status;
     private String reason;
+    private String notes;
+
 
 
 

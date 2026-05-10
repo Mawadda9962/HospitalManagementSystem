@@ -45,7 +45,10 @@ public class PatientService {
         }
     }
 
-    //Remove patient
+    //Remove patient from the list
+    public void removePatient(String patientId){
+
+    }
 
 
 

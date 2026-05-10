@@ -79,12 +79,16 @@ public class Department {
 
     public void assignDoctor(Doctor doctor){
         if (doctor != null){
-
+            doctors.add(doctor);
+            System.out.println("Dr. " + doctor.getLastName() + " assigned to " + departmentName);
         }
 
-
     }
-    public void  assignNurse(){
+    public void  assignNurse(Nurse nurse){
+        if (nurses != null){
+            nurses.add(nurse);
+            System.out.println("Nurse " + nurse.getLastName() + " assigned to " + departmentName);
+        }
 
     }
     public void updateBedAvailability(){

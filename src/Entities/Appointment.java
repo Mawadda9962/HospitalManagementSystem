@@ -106,6 +106,8 @@ public class Appointment {
         this.appointmentDate = newData;
         this.appointmentTime = newTime;
         this.status = "Rescheduled";
+        System.out.println("Appointment has been rescheduled");
+
 
     }
 

@@ -77,7 +77,9 @@ public class Department {
         this.availableBeds = availableBeds;
     }
 
-    public void assignDoctor(){
+    public void assignDoctor(Doctor doctor){
+        if (doctor != null)
+
 
     }
     public void  assignNurse(){

@@ -10,6 +10,7 @@ public class Patient extends Person{
     private LocalDate registrationDate;
     private String insuranceId;
     private List medicalRecords;
+    private List appointments;
 
 
 

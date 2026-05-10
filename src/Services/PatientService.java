@@ -31,11 +31,12 @@ public class PatientService {
         String lname = scanner.nextLine();
 
         System.out.println("Enter date Of Birth (YYYY-MM-DD):");
-        // We use LocalDate.parse to turn the String input into a LocalDate object
         LocalDate dateOfBirth = LocalDate.parse(scanner.nextLine());
 
-        // Creating the patient object using the collected data
-        // Note: Make sure your Patient entity constructor matches this order
+        System.out.print("Enter Gender: ");
+        String gender = scanner.nextLine();
+
+
         patient patient = new patient(id, fname, lname, dateOfBirth);
 
         patients.add(patient);
@@ -77,8 +78,8 @@ public class PatientService {
 
     public List<patient> searchPatientsByName(String name) {
         System.out.println("Search Results:");
-        List<Patient> foundPatients = new ArrayList<>();
-        for (Patient p : patients) {
+        List<patient> foundPatients = new ArrayList<>();
+        for (patient p : patients) {
             if (p.getFirstName().toLowerCase().contains(name.toLowerCase())) {
                 p.displayInfo();
                 foundPatients.add(p);
@@ -93,7 +94,7 @@ public class PatientService {
             return;
         }
         System.out.println("===== All Patient =====");
-        for (Patient p : patients) {
+        for (patient p : patients) {
             p.displayInfo();
         }
     }

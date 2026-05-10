@@ -1,76 +1,13 @@
 package Services;
 
 import Entities.patient;
-import Utiles.Constant;
 
-import java.util.ArrayList;
-import java.util.Formattable;
-import java.util.List;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class PatientService {
-
-
-    //List to store all patients
-    private static List<patient> patients = new ArrayList<>();
-
-    //Adding a new patient to the list
-    public void addPatient(patient p){
-        if (p != null) {
-            patients.add(p);
-            System.out.println(Constant.PATIENT_ADDED_SUCCESSFULLY + p.getFirstName());
-        }
+    public patient addPatient(){
+        Scanner scanner = new Scanner(System.in);
 
     }
-
-    //Searching for a patient by their ID
-    public patient getPatientById(String patientId){
-        for (patient p : patients){
-            if (p.getPatientId().equals(patientId)){
-                return p;
-            }
-        }
-        System.out.println("Patient with ID " + patientId + "not found.");
-        return null;
-    }
-
-    //Calling the existing getPatientById method (Editing the patient)
-    public void editPatient(String patientId, patient updatedPatient)
-    {
-        patient existing = getPatientById(patientId);
-        if (existing != null){
-            int index = patients.indexOf(existing);
-            patients.set(index,updatedPatient);
-            System.out.println(Constant.PATIENT_UPDATED_SUCCESSFULLY);
-        }
-    }
-
-    //Remove patient from the list
-    public void removePatient(String patientId){
-        patient p  = getPatientById(patientId);
-        if (p != null){
-            patients.remove(p);
-            System.out.println(Constant.PATIENT_REMOVE_SUCCESSFULLY);
-        }
-    }
-
-    public void displayAllPatients(){
-        if (patients.isEmpty()){
-            System.out.println(Constant.NO_PATIENT_REGISTERED);
-            return;
-        }
-        System.out.println("******* ALL PATIENTS *******");
-        for (patient p : patients){
-            p.displayInfo();
-        }
-
-    }
-
-
-
-
-
-
 
 }

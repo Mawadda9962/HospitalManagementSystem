@@ -8,7 +8,7 @@ public class Nurse extends Person {
     private String departmentId;
     private String shift;
     private String qualification;
-    private List assignedPatients;
+    private List<String> assignedPatients;
 
 
     public Nurse(String id, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address, String nurseId, String departmentId, String shift, String qualification, List assignedPatients) {
@@ -18,5 +18,21 @@ public class Nurse extends Person {
         this.shift = shift;
         this.qualification = qualification;
         this.assignedPatients = assignedPatients;
+    }
+
+    @Override
+    public void displayInfo(){
+
+    }
+
+    @Override
+    public String toString() {
+        return "Nurse{" +
+                "nurseId='" + nurseId + '\'' +
+                ", departmentId='" + departmentId + '\'' +
+                ", shift='" + shift + '\'' +
+                ", qualification='" + qualification + '\'' +
+                ", assignedPatients=" + assignedPatients +
+                '}';
     }
 }

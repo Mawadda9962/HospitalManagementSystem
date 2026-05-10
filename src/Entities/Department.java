@@ -80,5 +80,9 @@ public class Department {
     public void assignDoctor(){
 
     }
+    public void  assignNurse(){
+
+    }
+
 
 }

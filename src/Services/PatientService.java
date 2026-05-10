@@ -45,6 +45,11 @@ public class PatientService {
         System.out.print("Enter Address: ");
         String address = scanner.nextLine();
 
+        System.out.print("Enter Hospital Patient ID: ");
+        String pId = scanner.nextLine();
+
+
+
 
 
 

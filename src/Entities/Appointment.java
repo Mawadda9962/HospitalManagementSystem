@@ -93,7 +93,8 @@ public class Appointment {
 
     public void reschedule(){
 
-
     }
+
+    public
 
 }

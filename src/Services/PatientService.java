@@ -21,14 +21,23 @@ public class PatientService {
 
     }
 
+    //Searching for a patient by their ID
     public patient getPatientById(String patientId){
         for (patient p : patients){
             if (p.getPatientId().equals(patientId)){
                 return p;
             }
         }
-        System.out.println();
+        System.out.println("Patient with ID " + patientId + "not found.");
+        return null;
     }
+
+    public void editPatient(String patientId, patient updatedPatient)
+    {
+        patient existing = getPatientById(patientId);
+
+    }
+
 
 
 

@@ -8,6 +8,7 @@ public class Patient extends Person{
     private String bloodGroup;
     private List emergencyContact;
     private LocalDate registrationDate;
+    private String insuranceId;
 
 
 

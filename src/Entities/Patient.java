@@ -89,7 +89,13 @@ public class Patient extends Person{
 
     }
 
-    public void
+    public void addAppointment(){
+
+    }
+    public void updateInsurance(){
+
+
+    }
 
 }
 

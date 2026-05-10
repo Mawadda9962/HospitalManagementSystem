@@ -2,7 +2,7 @@ package Entities;
 
 import java.util.List;
 
-public class Nurse extends Person {
+public class Doctor extends Person {
     private String doctorId;
     private String specialization;
     private String qualification;
@@ -12,7 +12,7 @@ public class Nurse extends Person {
     private List availableSlots;
     private List assignedPatients;
 
-    public Nurse(String id, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address, String doctorId, String specialization, String qualification, int experienceYears, String departmentId, double consultationFee, List availableSlots, List assignedPatients) {
+    public Doctor(String id, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address, String doctorId, String specialization, String qualification, int experienceYears, String departmentId, double consultationFee, List availableSlots, List assignedPatients) {
         super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address);
         this.doctorId = doctorId;
         this.specialization = specialization;

@@ -13,10 +13,19 @@ public class Patient extends Person{
     private List appointments;
 
 
-x
-
-
+    public Patient(String id, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address, String patientId, String bloodGroup, List emergencyContact, String registrationDate, String insuranceId, List medicalRecords, List appointments) {
+        super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address);
+        this.patientId = patientId;
+        this.bloodGroup = bloodGroup;
+        this.emergencyContact = emergencyContact;
+        this.registrationDate = registrationDate;
+        this.insuranceId = insuranceId;
+        this.medicalRecords = medicalRecords;
+        this.appointments = appointments;
     }
+
+
+}
 
 
 

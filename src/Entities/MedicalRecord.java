@@ -86,4 +86,8 @@ public class MedicalRecord {
     public void setNotes(String notes) {
         this.notes = notes;
     }
+
+    public void displayInfo(){
+
+    }
 }

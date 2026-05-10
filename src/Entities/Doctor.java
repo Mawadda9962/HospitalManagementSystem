@@ -42,12 +42,15 @@ public class Doctor extends Person {
     public void assignPatient(String patientId){
         if (assignedPatients != null){
             assignedPatients.add(patientId);
-            System.out.println();
+            System.out.println("Patient " + patientId + "assigned to Dr. " + getLastName());
         }
 
     }
 
-    public void removePatient(){
+    public void removePatient(String patientId){
+        if (assignedPatients != null){
+            assignedPatients.remove(patientId);
+        }
 
     }
 

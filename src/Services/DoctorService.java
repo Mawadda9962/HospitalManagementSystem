@@ -9,13 +9,10 @@ import java.util.Scanner;
 
 public class DoctorService {
     static Scanner scanner = new Scanner(System.in);
-    // Requirement: List doctors (Static list to store all doctors)
+    //List doctors (Static list to store all doctors)
     static List<Doctor> doctors = new ArrayList<>();
 
-    /**
-     * Requirement: addDoctor(Doctor doctor)
-     * Following your style of capturing input then adding the object
-     */
+
     public void addDoctor() {
         System.out.println("********** Add New Doctor ********");
         System.out.println("Enter Doctor ID:");

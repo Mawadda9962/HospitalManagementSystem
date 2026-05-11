@@ -20,10 +20,10 @@ public class NurseService {
   String nurseId = scanner.nextLine().trim();
 
   if (getNurseById(nurseId) != null) {
-   System.out.println("⚠️ A nurse with this ID already exists.");
+   System.out.println("A nurse with this ID already exists.");
    return;
   }
-
+j
   // Personal Information (Inherited from Person via Nurse Entity)
   System.out.print("Enter First Name: ");
   String firstName = scanner.nextLine().trim();

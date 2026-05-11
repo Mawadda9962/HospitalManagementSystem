@@ -194,7 +194,7 @@ public class PatientService {
             return results;
         }
 
-        String searchTerm = name.toLowerCase();
+        String searchTerm = name.toLowerCase().trim();
 
         for (patient p : patients) {
             // Use a null-safe check before calling toLowerCase()

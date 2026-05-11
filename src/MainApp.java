@@ -1,5 +1,6 @@
 import Services.PatientService;
 import Utiles.MenuMassage;
+
 import java.util.Scanner;
 
 public class MainApp {
@@ -7,54 +8,94 @@ public class MainApp {
     static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
-        // Initialize the service
+
         PatientService patientService = new PatientService();
 
-        boolean mainMenuContinue = true;
+        Boolean mainMenuContinue = true;
 
         while (mainMenuContinue) {
-            System.out.println("********** Main Menu **********");
+
+            System.out.println("*********** Main Menu ***********");
             System.out.println(MenuMassage.MAIN_MENU_MESSAGE);
 
-            String choice = input.nextLine();
-            int option;
-
-            try {
-                option = Integer.parseInt(choice);
-            } catch (NumberFormatException e) {
-                option = 0; // Default to invalid
-            }
+            Integer option = input.nextInt();
+            input.nextLine();
 
             switch (option) {
+
                 case 1 -> {
-                    boolean patientMenuContinue = true;
+
+                    Boolean patientMenuContinue = true;
+
                     while (patientMenuContinue) {
+
                         System.out.println("*********** Patient Menu ***********");
-                        System.out.println("1. Add New Patient");
-                        System.out.println("2. Edit Patient");
-                        System.out.println("3. Remove Patient");
-                        System.out.println("4. Search Patient by Name");
-                        System.out.println("5. Display All Patients");
-                        System.out.println("6. Back to Main Menu");
-                        System.out.print("Enter your choice: ");
+                        System.out.println(MenuMassage.PATIENT_MENU_MESSAGE);
 
-                        String subChoiceStr = input.nextLine();
-                        int patientOption;
-                        try {
-                            patientOption = Integer.parseInt(subChoiceStr);
-                        } catch (NumberFormatException e) {
-                            patientOption = 0;
+                        Integer patientOption = input.nextInt();
+                        input.nextLine();
+
+                        switch (patientOption) {
+
+                            case 1 -> {
+                                patientService.addPatient();
+                            }
+
+                            case 2 -> {
+                                System.out.println("Edit Patient Feature Coming Soon");
+                            }
+
+                            case 3 -> {
+                                System.out.print("Enter Patient ID To Remove: ");
+                                String patientId = input.nextLine();
+
+                                patientService.removePatient(patientId);
+                            }
+
+                            case 4 -> {
+                                System.out.print("Enter Patient ID: ");
+                                String patientId = input.nextLine();
+
+                                if (patientService.getPatientById(patientId) != null) {
+
+                                    patientService.getPatientById(patientId).displayInfo();
+
+                                } else {
+                                    System.out.println("Patient Not Found.");
+                                }
+                            }
+
+                            case 5 -> {
+                                System.out.print("Enter Patient Name: ");
+                                String patientName = input.nextLine();
+
+                                patientService.searchPatientsByName(patientName);
+                            }
+
+                            case 6 -> {
+                                patientService.displayAllPatients();
+                            }
+
+                            case 7 -> {
+                                System.out.println("Returning To Main Menu...");
+                                patientMenuContinue = false;
+                            }
+
+                            default -> {
+                                System.out.println("Select A Valid Choice");
+                            }
                         }
-
-                        // Calling your handlePersonMenu logic
-                        patientMenuContinue = patientService.handlePersonMenu(patientOption);
                     }
                 }
+
                 case 2 -> {
-                    System.out.println("Exiting System...");
+                    System.out.println("System Closed.");
                     mainMenuContinue = false;
                 }
-                default -> System.out.println("Select a valid choice from the list (1-2).");
+
+                default -> {
+                    System.out.println("Select A Valid Choice");
+                }
             }
         }
     }

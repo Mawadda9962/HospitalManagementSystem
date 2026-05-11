@@ -125,13 +125,13 @@ public class DoctorService {
                 System.out.println("Enter updated Doctor gender :");
                 p.setGender(scanner.nextLine());
 
-                System.out.println("Enter updated patient phone number :");
+                System.out.println("Enter updated Doctor phone number :");
                 p.setPhoneNumber(scanner.nextLine());
 
-                System.out.println("Enter updated patient email :");
+                System.out.println("Enter updated Doctor email :");
                 p.setEmail(scanner.nextLine());
 
-                System.out.println("Enter updated patient address :");
+                System.out.println("Enter updated Doctor address :");
                 p.setAddress(scanner.nextLine());
 
                 System.out.println("Enter updated patient blood Group :");

@@ -42,6 +42,7 @@ public class DoctorService {
         System.out.print("Enter Gender (Male/Female/Other): ");
         String gender = scanner.nextLine().trim();
 
+        l
         System.out.print("Enter Phone Number: ");
         String phoneNumber = scanner.nextLine().trim();
 

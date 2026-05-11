@@ -11,6 +11,7 @@ public class Doctor extends Person {
     private double consultationFee;
     private List<String> availableSlots;
     private List<String> assignedPatients;
+    private boolean available;
 
     public Doctor(String id, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address, String doctorId, String specialization, String qualification, int experienceYears, String departmentId, double consultationFee, List availableSlots, List assignedPatients) {
         super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address, specialization, qualification, experienceYears, departmentId, consultationFee, availableSlots, assignedPatients);
@@ -93,7 +94,7 @@ public class Doctor extends Person {
     }
 
     @Override
-    public void displayInfo(){
+    public void displayInfo() {
         super.displayInfo();
         System.out.println("--- Doctor Specific Details ---");
         System.out.println("Doctor ID: " + doctorId);
@@ -107,26 +108,26 @@ public class Doctor extends Person {
 
     }
 
-    public void assignPatient(String patientId){
-        if (assignedPatients != null){
+    public void assignPatient(String patientId) {
+        if (assignedPatients != null) {
             assignedPatients.add(patientId);
             System.out.println("Patient " + patientId + "assigned to Dr. " + getLastName());
         }
 
     }
 
-    public void removePatient(String patientId){
-        if (assignedPatients != null){
+    public void removePatient(String patientId) {
+        if (assignedPatients != null) {
             assignedPatients.remove(patientId);
-            System.out.println("Patient" +patientId + "Removed");
-        }else{
+            System.out.println("Patient" + patientId + "Removed");
+        } else {
             System.out.println("Patient not found in assigned list");
         }
 
     }
 
-    public void updateAvailability(String newSlot){
-        if (availableSlots != null){
+    public void updateAvailability(String newSlot) {
+        if (availableSlots != null) {
             availableSlots.add(newSlot);
             System.out.println("New availability slot added: ");
         }
@@ -134,4 +135,11 @@ public class Doctor extends Person {
 
     }
 
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
 }

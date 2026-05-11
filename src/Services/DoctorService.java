@@ -169,15 +169,6 @@ public class DoctorService {
     }
 
 
-    // ─────────────────────────────────────────────
-    //  GET AVAILABLE DOCTORS
-    // ─────────────────────────────────────────────
-
-    /**
-     * Returns all doctors that are currently available.
-     *
-     * @return A list of available doctors.
-     */
     public List<Doctor> getAvailableDoctors() {
         List<Doctor> results = new ArrayList<>();
 
@@ -191,7 +182,7 @@ public class DoctorService {
         if (results.isEmpty()) {
             System.out.println(":warning: No doctors are currently available.");
         } else {
-            System.out.println("\n===== Available Doctors (" + results.size() + " total) =====");
+            System.out.println(" Available Doctors" + results.size() + " total");
             for (Doctor d : results) {
                 d.displayInfo();
                 System.out.println();

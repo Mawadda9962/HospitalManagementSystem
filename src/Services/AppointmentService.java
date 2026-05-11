@@ -31,7 +31,6 @@ public class AppointmentService {
         System.out.print("Enter Doctor ID: ");
         String doctorId = scanner.nextLine().trim();
 
-        // --- Fixed Date Logic ---
         System.out.print("Enter Appointment Date (YYYY-MM-DD): ");
         String dateInput = scanner.nextLine().trim();
         LocalDate date;
@@ -42,7 +41,6 @@ public class AppointmentService {
             System.out.println("Invalid format. Defaulting to today's date.");
             date = LocalDate.now();
         }
-        // -------------------------
 
         System.out.print("Enter Appointment Time (e.g., 10:30 AM): ");
         String time = scanner.nextLine().trim();

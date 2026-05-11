@@ -103,7 +103,7 @@ public class PatientService {
                 return p;
             }
         }
-        return null; // Not found
+        return null;
     }
 
 
@@ -174,7 +174,6 @@ public class PatientService {
     }
 
 
-
     public void removePatient(String patientId) {
         patient found = getPatientById(patientId);
 
@@ -186,16 +185,23 @@ public class PatientService {
         }
     }
 
-
     public List<patient> searchPatientsByName(String name) {
         List<patient> results = new ArrayList<>();
+
+        // Safety check for the search term itself
+        if (name == null || name.trim().isEmpty()) {
+            System.out.println("Search term cannot be empty.");
+            return results;
+        }
+
         String searchTerm = name.toLowerCase();
 
         for (patient p : patients) {
-            boolean matchesFirst = p.getFirstName().toLowerCase().contains(searchTerm);
-            boolean matchesLast  = p.getLastName().toLowerCase().contains(searchTerm);
+            // Use a null-safe check before calling toLowerCase()
+            String fName = (p.getFirstName() != null) ? p.getFirstName().toLowerCase() : "";
+            String lName = (p.getLastName() != null) ? p.getLastName().toLowerCase() : "";
 
-            if (matchesFirst || matchesLast) {
+            if (fName.contains(searchTerm) || lName.contains(searchTerm)) {
                 results.add(p);
             }
         }
@@ -204,14 +210,16 @@ public class PatientService {
         if (results.isEmpty()) {
             System.out.println("No patients found with name: " + name);
         } else {
-            System.out.println("Search Results for " + name );
+            System.out.println("Search Results for: " + name);
             for (patient p : results) {
                 p.displayInfo();
             }
         }
 
         return results;
+
     }
+
 
     public void displayAllPatients() {
         if (patients.isEmpty()){

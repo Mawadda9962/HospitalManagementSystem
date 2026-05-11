@@ -20,7 +20,7 @@ public class NurseService {
         System.out.print("Enter Nurse ID: ");
         String NurseId = scanner.nextLine();
 
-        /* If Nurse ID is already exists */
+       // If Nurse ID is already exists
         if (gitNurseById(nurseId) != null) {
             System.out.println("A doctor with this ID already exists.");
             return;
@@ -50,7 +50,7 @@ public class NurseService {
 
         //Collect Nurse-specific information
         System.out.print("Enter nurse Id: ");
-        nu = scanner.nextLine().trim();
+        addNurse(); = scanner.nextLine().trim();
 
         System.out.print("Enter Qualification (e.g., MBBS, MD): ");
         String qualification = scanner.nextLine().trim();

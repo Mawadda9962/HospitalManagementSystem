@@ -160,8 +160,6 @@ public class PatientService {
         return results;
     }
 
-
-
     public void displayAllPatients() {
         if (patients.isEmpty()) {
             System.out.println("No patients registered in the system.");
@@ -171,29 +169,42 @@ public class PatientService {
         System.out.println("All Patients" + patients.size() + " total");
         for (patient p : patients) {
             p.displayInfo();
-            System.out.println(); // Blank line between patients for readability
+            System.out.println();
         }
     }
 
     public Boolean handlePersonMenu(Integer PatientOption) {
-
         switch (PatientOption) {
             case 1 -> {
-                patient.set(addNewDepartments());
+                addPatient();
             }
             case 2 -> {
-                updatedeDepartment();
+                System.out.print("Enter Patient ID to edit: ");
+                String id = scanner.nextLine().trim();
+                patient existing = getPatientById(id);
+                if (existing != null) {
+                    System.out.println("Feature to update specific fields coming soon...");
+                } else {
+                    System.out.println("Patient not found.");
+                }
             }
             case 3 -> {
-                deleteDepartment(university.getDepartments());
+                System.out.print("Enter Patient ID to remove: ");
+                String id = scanner.nextLine().trim();
+                removePatient(id);
             }
             case 4 -> {
-                displayDepartmentByName();
-
+                System.out.print("Enter name to search: ");
+                String name = scanner.nextLine().trim();
+                searchPatientsByName(name);
             }
             case 5 -> {
-                return false;
+                displayAllPatients();
             }
+            case 6 -> {
+                return false; // Exit menu
+            }
+            default -> System.out.println("Invalid option.");
         }
         return true;
     }

@@ -21,14 +21,15 @@ public class DoctorService {
 
         //Get the doctor ID
         System.out.print("Enter Doctor ID: ");
-        String doctorId = scanner.nextLine().trim();
+        String doctorId = scanner.nextLine();
 
+        //If Doctor ID is already exists
         if (getDoctorById(doctorId) != null) {
-            System.out.println(":warning: A doctor with this ID already exists.");
+            System.out.println("A doctor with this ID already exists.");
             return;
         }
 
-        // Step 2: Collect personal information
+        //Collect personal information
         System.out.print("Enter First Name: ");
         String firstName = scanner.nextLine().trim();
 

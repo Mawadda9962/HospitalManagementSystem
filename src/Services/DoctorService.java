@@ -112,30 +112,30 @@ public class DoctorService {
             if (D.getDoctorId().equals(doctorId)) {
 
                 System.out.println("Enter updated Doctor first name :");
-                p.setFirstName(scanner.nextLine());
+                D.setFirstName(scanner.nextLine());
 
                 System.out.println("Enter updated Doctor last name :");
-                p.setLastName(scanner.nextLine());
+                D.setLastName(scanner.nextLine());
 
                 System.out.println("Enter updated Doctor DOB (YYYY-MM-DD): ");
                 String dateOfBirth = scanner.nextLine();
                 LocalDate DOB = LocalDate.parse(dateOfBirth);
-                p.setDateOfBirth(DOB.toString()); // Adapted to match your entity type if needed
+                D.setDateOfBirth(DOB.toString()); // Adapted to match your entity type if needed
 
                 System.out.println("Enter updated Doctor gender :");
-                p.setGender(scanner.nextLine());
+                D.setGender(scanner.nextLine());
 
                 System.out.println("Enter updated Doctor phone number :");
-                p.setPhoneNumber(scanner.nextLine());
+                D.setPhoneNumber(scanner.nextLine());
 
                 System.out.println("Enter updated Doctor email :");
-                p.setEmail(scanner.nextLine());
+                D.setEmail(scanner.nextLine());
 
                 System.out.println("Enter updated Doctor address :");
-                p.setAddress(scanner.nextLine());
+                D.setAddress(scanner.nextLine());
 
                 System.out.println("Enter updated patient blood Group :");
-                p.setBloodGroup(scanner.nextLine());
+                D.setBloodGroup(scanner.nextLine());
 
                 System.out.println("Enter updated patient emergency Contact :");
                 String eContact = scanner.nextLine();

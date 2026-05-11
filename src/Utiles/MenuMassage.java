@@ -12,7 +12,7 @@ public class MenuMassage {
             1- ADD NEW PATIENT
             2- EDIT PATIENT
             3- REMOVE PATIENT
-            4- PATIENT BY ID
+            4- SEARCH PATIENT BY NAME
             5- ALL PATIENT
             6- EXIT
             """;
@@ -21,7 +21,7 @@ public class MenuMassage {
             1- ADD NEW DOCTOR
             2- EDIT DOCTOR
             3- REMOVE DOCTOR
-            4- DOCTOR BY ID
+            4- SEARCH DOCTOR BY NAME
             5- ALL DOCTOR
             6-EXIT
             """;

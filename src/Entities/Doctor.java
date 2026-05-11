@@ -13,7 +13,7 @@ public class Doctor extends Person {
     private List<String> assignedPatients;
 
     public Doctor(String id, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address, String doctorId, String specialization, String qualification, int experienceYears, String departmentId, double consultationFee, List availableSlots, List assignedPatients) {
-        super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address);
+        super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address, specialization, qualification, experienceYears, departmentId, consultationFee, availableSlots, assignedPatients);
         this.doctorId = doctorId;
         this.specialization = specialization;
         this.qualification = qualification;
@@ -22,6 +22,10 @@ public class Doctor extends Person {
         this.consultationFee = consultationFee;
         this.availableSlots = availableSlots;
         this.assignedPatients = assignedPatients;
+    }
+
+    public Doctor(String doctorId, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address, String specialization, String qualification, int experienceYears, String departmentId, double consultationFee, List<String> availableSlots, List<String> assignedPatients) {
+        super(doctorId, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address, specialization, qualification, experienceYears, departmentId, consultationFee, availableSlots, assignedPatients);
     }
 
     public String getDoctorId() {

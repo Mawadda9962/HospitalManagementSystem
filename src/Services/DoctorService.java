@@ -92,7 +92,7 @@ public class DoctorService {
         );
 
         doctors.add(newDoctor);
-        System.out.println("✓ " + Constant.DOCTOR_ADDED_SUCCESSFULLY);
+        System.out.println(Constant.DOCTOR_ADDED_SUCCESSFULLY);
     }
 
 

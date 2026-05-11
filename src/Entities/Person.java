@@ -1,5 +1,6 @@
 package Entities;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Person {
@@ -12,7 +13,7 @@ public class Person {
     private String email;
     private String address;
 
-    public Person(String id, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address) {
+    public Person(String id, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address, String specialization, String qualification, int experienceYears, String departmentId, double consultationFee, List<String> availableSlots, List<String> assignedPatients) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

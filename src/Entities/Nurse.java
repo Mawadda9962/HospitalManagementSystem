@@ -12,7 +12,7 @@ public class Nurse extends Person {
 
 
     public Nurse(String id, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address, String nurseId, String departmentId, String shift, String qualification, List assignedPatients) {
-        super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address);
+        super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address, specialization, qualification, experienceYears, departmentId, consultationFee, availableSlots, assignedPatients);
         this.nurseId = nurseId;
         this.departmentId = departmentId;
         this.shift = shift;

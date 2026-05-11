@@ -32,6 +32,7 @@ public class MenuMassage {
             3- REMOVE MEDICAL RECORD
             4- DISPLAY PATIENT HISTORY
             5- RECORDS BY DOCTOR ID
+            6-EXIT
             """;
 
         public static String APPOINTMENT_MENU_MESSAGE = """
@@ -40,8 +41,9 @@ public class MenuMassage {
             3- cancel Appointment
             4- Appointments By PatientId
             5- Appointments By Doctor
-            6-
-            5- DISPLAY ALL
+            6- Appointments By Date
+            7- Display All Appointments
+            8- EXIT
             """;
 
         public static String DEPARTMENT_MENU_MESSAGE = """

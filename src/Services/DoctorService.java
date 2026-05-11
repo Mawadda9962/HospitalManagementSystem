@@ -23,7 +23,7 @@ public class DoctorService {
         System.out.print("Enter Doctor ID: ");
         String doctorId = scanner.nextLine();
 
-        //If Doctor ID is already exists
+        //If Doctor ID is already exists v
         if (getDoctorById(doctorId) != null) {
             System.out.println("A doctor with this ID already exists.");
             return;

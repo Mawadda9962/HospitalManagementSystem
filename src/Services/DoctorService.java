@@ -158,7 +158,7 @@ public class DoctorService {
         if (results.isEmpty()) {
             System.out.println("No doctors found with specialization: " + specialization);
         } else {
-            System.out.println("Doctors specialized in \"" + specialization + "\" =====");
+            System.out.println("Doctors specialized in" + specialization);
             for (Doctor d : results) {
                 d.displayInfo();
                 System.out.println();

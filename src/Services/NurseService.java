@@ -23,8 +23,7 @@ public class NurseService {
    System.out.println("A nurse with this ID already exists.");
    return;
   }
-j
-  // Personal Information (Inherited from Person via Nurse Entity)
+
   System.out.print("Enter First Name: ");
   String firstName = scanner.nextLine().trim();
 
@@ -59,8 +58,6 @@ j
   // Initializing lists as empty for a new nurse
   List<String> assignedPatients = new ArrayList<>();
 
-  // Note: Your Nurse constructor requires many parameters due to Person inheritance.
-  // We pass default values (0 or empty lists) for Doctor-specific fields if Nurse extends a shared Person class.
   Nurse newNurse = new Nurse(
           nurseId, firstName, lastName, dob, gender, phone, email, address,
           "Nursing", qualification, 0, deptId, 0.0, new ArrayList<>(), assignedPatients,
@@ -87,7 +84,7 @@ j
    return;
   }
 
-  System.out.println("--- Editing Nurse: " + nurseId + " ---");
+  System.out.println("Editing Nurse: " + nurseId);
   System.out.print("Enter updated First Name: ");
   n.setFirstName(scanner.nextLine());
 

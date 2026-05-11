@@ -1,4 +1,4 @@
-package Services;
+package Main;
 
 import Services.PatientService;
 import java.util.Scanner;
@@ -14,7 +14,7 @@ public class MainApp {
         boolean mainMenuContinue = true;
 
         while (mainMenuContinue) {
-            System.out.println("\n********** Hospital Management System **********");
+            System.out.println("********** Hospital Management System **********");
             System.out.println("1. Patient Management Menu");
             System.out.println("2. Exit");
             System.out.print("Select an option: ");
@@ -33,7 +33,7 @@ public class MainApp {
                 case 1 -> {
                     boolean patientMenuContinue = true;
                     while (patientMenuContinue) {
-                        System.out.println("\n*********** Patient Menu ***********");
+                        System.out.println("*********** Patient Menu ***********");
                         System.out.println("1. Add New Patient");
                         System.out.println("2. Edit Patient");
                         System.out.println("3. Remove Patient");

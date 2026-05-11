@@ -29,7 +29,7 @@ public class DoctorService {
             return;
         }
 
-        //Collect personal informationg
+        //Collect personal information
         System.out.print("Enter First Name: ");
         String firstName = scanner.nextLine().trim();
 
@@ -51,7 +51,7 @@ public class DoctorService {
         System.out.print("Enter Address: ");
         String address = scanner.nextLine().trim();
 
-        // Step 3: Collect doctor-specific information
+        //Collect doctor-specific information
         System.out.print("Enter Specialization: ");
         String specialization = scanner.nextLine().trim();
 

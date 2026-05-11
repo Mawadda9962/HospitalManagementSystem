@@ -5,6 +5,10 @@ public class MenuMassage {
         public static String MAIN_MENU_MESSAGE = """
             1- Patient Menu
             2- Doctor Menu
+            3- Nurse Menu
+            4- Medical Recorde Menu
+            5- Appointment Menu
+            6- Department Menu
             2- Exit
             """;
 

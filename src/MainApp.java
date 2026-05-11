@@ -30,7 +30,6 @@ public class MainApp {
                     Boolean patientMenuContinue = true;
                     while (patientMenuContinue) {
                         System.out.println(" *********** Patient Menu ***********");
-                        // Calling the Patient Menu from MenuMassage class
                         System.out.print(MenuMassage.PATIENT_MENU_MESSAGE);
                         System.out.print("Enter your choice: ");
 

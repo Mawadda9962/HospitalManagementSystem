@@ -19,7 +19,7 @@ public class PatientService {
 
 
     public void addPatient() {
-        System.out.println("\n========== Add New Patient ==========");
+        System.out.println("********** Add New Patient ***********");
 
         // Get and validate the patient ID
         System.out.print("Enter Patient ID: ");
@@ -93,7 +93,7 @@ public class PatientService {
         );
 
         patients.add(newPatient);
-        System.out.println("✓ " + Constant.PATIENT_ADDED_SUCCESSFULLY);
+        System.out.println(Constant.PATIENT_ADDED_SUCCESSFULLY);
     }
 
 
@@ -112,11 +112,11 @@ public class PatientService {
         for (int i = 0; i < patients.size(); i++) {
             if (patients.get(i).getPatientId().equals(patientId)) {
                 patients.set(i, updatedPatient); // Replace old record with updated one
-                System.out.println("✓ " + Constant.PATIENT_UPDATED_SUCCESSFULLY);
+                System.out.println(Constant.PATIENT_UPDATED_SUCCESSFULLY);
                 return;
             }
         }
-        System.out.println("⚠ Patient with ID '" + patientId + "' not found.");
+        System.out.println("Patient with ID " + patientId + " not found.");
     }
 
 
@@ -126,9 +126,9 @@ public class PatientService {
 
         if (found != null) {
             patients.remove(found);
-            System.out.println("✓ " + Constant.PATIENT_REMOVE_SUCCESSFULLY);
+            System.out.println(Constant.PATIENT_REMOVE_SUCCESSFULLY);
         } else {
-            System.out.println("⚠ Patient with ID '" + patientId + "' not found.");
+            System.out.println("Patient with ID " + patientId + " not found.");
         }
     }
 
@@ -151,7 +151,7 @@ public class PatientService {
         if (results.isEmpty()) {
             System.out.println(":warning: No patients found with name: " + name);
         } else {
-            System.out.println("\n===== Search Results for \"" + name + "\" =====");
+            System.out.println("Search Results for " + name );
             for (patient p : results) {
                 p.displayInfo();
             }
@@ -161,20 +161,14 @@ public class PatientService {
     }
 
 
-    // ─────────────────────────────────────────────
-    //  DISPLAY ALL PATIENTS
-    // ─────────────────────────────────────────────
 
-    /**
-     * Displays the information of every patient in the system.
-     */
     public void displayAllPatients() {
         if (patients.isEmpty()) {
-            System.out.println(":warning: No patients registered in the system.");
+            System.out.println("No patients registered in the system.");
             return;
         }
 
-        System.out.println("\n===== All Patients (" + patients.size() + " total) =====");
+        System.out.println("All Patients" + patients.size() + " total");
         for (patient p : patients) {
             p.displayInfo();
             System.out.println(); // Blank line between patients for readability

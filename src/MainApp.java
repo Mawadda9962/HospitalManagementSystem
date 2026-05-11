@@ -24,9 +24,7 @@ public class MainApp {
             switch (option) {
 
                 case 1 -> {
-
                     Boolean patientMenuContinue = true;
-
                     while (patientMenuContinue) {
 
                         System.out.println("*********** Patient Menu ***********");
@@ -40,11 +38,9 @@ public class MainApp {
                             case 1 -> {
                                 patientService.addPatient();
                             }
-
                             case 2 -> {
                                 System.out.println("Edit Patient Feature Coming Soon");
                             }
-
                             case 3 -> {
                                 System.out.print("Enter Patient ID To Remove: ");
                                 String patientId = input.nextLine();
@@ -64,23 +60,19 @@ public class MainApp {
                                     System.out.println("Patient Not Found.");
                                 }
                             }
-
                             case 5 -> {
                                 System.out.print("Enter Patient Name: ");
                                 String patientName = input.nextLine();
 
                                 patientService.searchPatientsByName(patientName);
                             }
-
                             case 6 -> {
                                 patientService.displayAllPatients();
                             }
-
                             case 7 -> {
                                 System.out.println("Returning To Main Menu...");
                                 patientMenuContinue = false;
                             }
-
                             default -> {
                                 System.out.println("Select A Valid Choice");
                             }

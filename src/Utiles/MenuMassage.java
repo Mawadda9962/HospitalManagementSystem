@@ -3,7 +3,7 @@ package Utiles;
 public class MenuMassage {
 
         public static String MAIN_MENU_MESSAGE = """
-            1- University Mene
+            1- Patient Mene
             2- Exit
             """;
         public static String PATIENT_MENU_MESSAGE = """

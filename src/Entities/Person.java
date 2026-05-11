@@ -24,6 +24,10 @@ public class Person {
         this.address = address;
     }
 
+    public Person() {
+
+    }
+
     public String getId() {
         return id;
     }

@@ -16,12 +16,12 @@ public class NurseService {
     public void addNurse() {
         System.out.println("********** Add New Nurse **********");
 
-        //Get the doctor ID
+        //Get the Nurse ID
         System.out.print("Enter Nurse ID: ");
         String doctorId = scanner.nextLine();
 
-        //If Doctor ID is already exists
-        if (getNurseById(doctorId) != null) {
+        /* If Nurse ID is already exists */
+        if (gitNurseById(nurseId) != null) {
             System.out.println("A doctor with this ID already exists.");
             return;
         }
@@ -48,9 +48,9 @@ public class NurseService {
         System.out.print("Enter Address: ");
         String address = scanner.nextLine().trim();
 
-        //Collect doctor-specific information
-        System.out.print("Enter Specialization: ");
-        String specialization = scanner.nextLine().trim();
+        //Collect Nurse-specific information
+        System.out.print("Enter nurse Id: ");
+        String nurseId = scanner.nextLine().trim();
 
         System.out.print("Enter Qualification (e.g., MBBS, MD): ");
         String qualification = scanner.nextLine().trim();

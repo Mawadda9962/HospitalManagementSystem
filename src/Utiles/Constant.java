@@ -16,7 +16,8 @@ public class Constant {
     public static String RECORD_ADDED_SUCCESSFULLY = "Record added Successfully";
     public static String RECORD_UPDATED_SUCCESSFULLY = "Record updated Successfully";
     public static String RECORD_REMOVE_SUCCESSFULLY = "Record updated Successfully";
-
+    public static String APPOINTMENT_ADDED_SUCCESSFULLY = "Record updated Successfully";
+    public static String APPOINTMENT_REMOVE_SUCCESSFULLY = "Record updated Successfully";
 
 
 }

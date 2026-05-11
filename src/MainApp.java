@@ -53,7 +53,7 @@ public class MainApp {
                     while (nurseMenuContinue) {
                         System.out.println("\n *********** Nurse Menu ***********");
                         Integer nurseOption = Integer.parseInt(input.nextLine());
-//                        nurseMenuContinue = nurseService.handleNurseMenu(nurseOption);
+                        nurseMenuContinue = nurseService.handleNurseMenu(nurseOption);
                     }
                 }
                 case 4 -> {
@@ -61,7 +61,7 @@ public class MainApp {
                     while (recordMenuContinue) {
                         System.out.println("\n *********** Medical Record Menu ***********");
                         Integer recordOption = Integer.parseInt(input.nextLine());
-//                        recordMenuContinue = medicalRecordService.handleMedicalRecordMenu(recordOption);
+                        recordMenuContinue = medicalRecordService.handleMedicalRecordMenu(recordOption);
                     }
                 }
                 case 5 -> {
@@ -69,7 +69,7 @@ public class MainApp {
                     while (deptMenuContinue) {
                         System.out.println("\n *********** Department Menu ***********");
                         Integer deptOption = Integer.parseInt(input.nextLine());
-//                        deptMenuContinue = departmentService.handleDepartmentMenu(deptOption);
+                        deptMenuContinue = departmentService.handleDepartmentMenu(deptOption);
                     }
                 }
                 case 6 -> {
@@ -77,7 +77,7 @@ public class MainApp {
                     while (appointmentMenuContinue) {
                         System.out.println("\n *********** Appointment Menu ***********");
                         Integer appointmentOption = Integer.parseInt(input.nextLine());
-//                        appointmentMenuContinue = appointmentService.handleAppointmentMenu(appointmentOption);
+                        appointmentMenuContinue = appointmentService.handleAppointmentMenu(appointmentOption);
                     }
                 }
                 case 7 -> {

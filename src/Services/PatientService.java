@@ -183,39 +183,49 @@ public class PatientService {
         }
     }
 
-    public List<patient> searchPatientsByName(String name) {
-        List<patient> results = new ArrayList<>();
+//    public List<patient> searchPatientsByName(String name) {
+//        List<patient> results = new ArrayList<>();
+//
+//        // Safety check for the search term itself
+//        if (name == null || name.trim().isEmpty()) {
+//            System.out.println("Search term cannot be empty.");
+//            return results;
+//        }
+//
+//        String searchTerm = name.toLowerCase().trim();
+//
+//        for (patient p : patients) {
+//            // Use a null-safe check before calling toLowerCase()
+//            String fName = (p.getFirstName() != null) ? p.getFirstName().toLowerCase() : "";
+//            String lName = (p.getLastName() != null) ? p.getLastName().toLowerCase() : "";
+//
+//            if (fName.contains(searchTerm) || lName.contains(searchTerm)) {
+//                results.add(p);
+//            }
+//        }
+//
+//        if (results.isEmpty()) {
+//            System.out.println("No patients found with name: " + name);
+//        } else {
+//            System.out.println("Search Results for: " + name);
+//            for (patient p : results) {
+//                p.displayInfo();
+//            }
+//        }
+//
+//        return results;
+//
+//    }
 
-        // Safety check for the search term itself
-        if (name == null || name.trim().isEmpty()) {
-            System.out.println("Search term cannot be empty.");
-            return results;
-        }
 
-        String searchTerm = name.toLowerCase().trim();
-
-        for (patient p : patients) {
-            // Use a null-safe check before calling toLowerCase()
-            String fName = (p.getFirstName() != null) ? p.getFirstName().toLowerCase() : "";
-            String lName = (p.getLastName() != null) ? p.getLastName().toLowerCase() : "";
-
-            if (fName.contains(searchTerm) || lName.contains(searchTerm)) {
-                results.add(p);
-            }
-        }
-
-        if (results.isEmpty()) {
-            System.out.println("No patients found with name: " + name);
-        } else {
-            System.out.println("Search Results for: " + name);
-            for (patient p : results) {
+    public void searchPatientsByName(String name){
+        for(patient p : patients){
+            if(p.getFirstName().equalsIgnoreCase(name) || p.getLastName().equalsIgnoreCase(name)){
                 p.displayInfo();
             }
         }
-
-        return results;
-
     }
+
 
     public void displayAllPatients() {
         if (patients.isEmpty()){

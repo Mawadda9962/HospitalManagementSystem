@@ -16,7 +16,7 @@ public class MenuMassage {
             1- ADD NEW PATIENT
             2- EDIT PATIENT
             3- REMOVE PATIENT
-            4- SEARCH PATIENT BY SPECIALIZATION
+            4- SEARCH PATIENT BY NAME
             5- ALL PATIENT
             6- EXIT
             """;

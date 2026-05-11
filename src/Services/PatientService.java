@@ -174,4 +174,27 @@ public class PatientService {
             System.out.println(); // Blank line between patients for readability
         }
     }
+
+    public Boolean handlePersonMenu(Integer PatientOption) {
+
+        switch (PatientOption) {
+            case 1 -> {
+                patient.set(addNewDepartments());
+            }
+            case 2 -> {
+                updatedeDepartment();
+            }
+            case 3 -> {
+                deleteDepartment(university.getDepartments());
+            }
+            case 4 -> {
+                displayDepartmentByName();
+
+            }
+            case 5 -> {
+                return false;
+            }
+        }
+        return true;
+    }
 }

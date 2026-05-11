@@ -18,7 +18,7 @@ public class NurseService {
 
         //Get the Nurse ID
         System.out.print("Enter Nurse ID: ");
-        String doctorId = scanner.nextLine();
+        String NurseId = scanner.nextLine();
 
         /* If Nurse ID is already exists */
         if (gitNurseById(nurseId) != null) {
@@ -50,7 +50,7 @@ public class NurseService {
 
         //Collect Nurse-specific information
         System.out.print("Enter nurse Id: ");
-        String nurseId = scanner.nextLine().trim();
+        nu = scanner.nextLine().trim();
 
         System.out.print("Enter Qualification (e.g., MBBS, MD): ");
         String qualification = scanner.nextLine().trim();

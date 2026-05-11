@@ -173,7 +173,6 @@ public class PatientService {
         System.out.println("Patient with ID " + patientId + " not found.");
     }
 
-
     public void removePatient(String patientId) {
         patient found = getPatientById(patientId);
 

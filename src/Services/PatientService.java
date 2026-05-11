@@ -214,12 +214,14 @@ public class PatientService {
     }
 
     public void displayAllPatients() {
-        if ()
-
-
-
-
-
+        if (patients.isEmpty()){
+            System.out.println("No Patients registered in the system! ");
+            return;
+        }
+        System.out.println("Total Registered Patients: " + patients.size());
+        for (patient p : patients) {
+            p.displayInfo();
+        }
 
 //        if (patients.isEmpty()) {
 //            System.out.println("No patients registered in the system.");
@@ -254,8 +256,7 @@ public class PatientService {
                 searchPatientsByName(name);
             }
             case 5 -> {
-                System.out.println("ALL PATIENTS");
-                PatientService.patients.
+                displayAllPatients();
             }
             case 6 -> {
                 return false;

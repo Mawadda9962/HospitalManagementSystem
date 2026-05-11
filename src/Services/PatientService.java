@@ -8,10 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- * PatientService handles all operations related to patients:
- * Add, Edit, Remove, Search, and Display.
- */
+
 public class PatientService {
 
     private static final Scanner scanner = new Scanner(System.in);
@@ -20,17 +17,11 @@ public class PatientService {
     private static final List<patient> patients = new ArrayList<>();
 
 
-    // ─────────────────────────────────────────────
-    //  ADD PATIENT
-    // ─────────────────────────────────────────────
 
-    /**
-     * Prompts the user to enter patient details and adds a new patient to the system.
-     */
     public void addPatient() {
         System.out.println("\n========== Add New Patient ==========");
 
-        // Step 1: Get and validate the patient ID
+        // Get and validate the patient ID
         System.out.print("Enter Patient ID: ");
         String patientId = scanner.nextLine().trim();
 
@@ -39,7 +30,7 @@ public class PatientService {
             return;
         }
 
-        // Step 2: Collect personal information
+        // Collect personal information
         System.out.print("Enter First Name: ");
         String firstName = scanner.nextLine().trim();
 
@@ -61,7 +52,7 @@ public class PatientService {
         System.out.print("Enter Address: ");
         String address = scanner.nextLine().trim();
 
-        // Step 3: Collect patient-specific information
+        // Collect patient-specific information
         System.out.print("Enter Blood Group (e.g., A+, O-): ");
         String bloodGroup = scanner.nextLine().trim();
 
@@ -71,7 +62,7 @@ public class PatientService {
         System.out.print("Enter Insurance ID: ");
         String insuranceId = scanner.nextLine().trim();
 
-        // Step 4: Set automatic values
+        // Set automatic values
         LocalDate registrationDate = LocalDate.now();
 
         // Emergency contact is stored in a list (can hold multiple contacts)
@@ -82,9 +73,9 @@ public class PatientService {
         List<String> medicalRecords = new ArrayList<>();
         List<String> appointments = new ArrayList<>();
 
-        // Step 5: Create and save the new patient object
+        // Create and save the new patient object
         patient newPatient = new patient(
-                patientId,       // id (from Person)
+                patientId,
                 firstName,
                 lastName,
                 dateOfBirth,
@@ -93,7 +84,7 @@ public class PatientService {
                 email,
                 address,
                 insuranceId,
-                patientId,       // patientId (hospital-specific ID)
+                patientId,
                 bloodGroup,
                 emergencyContacts,
                 registrationDate,
@@ -106,16 +97,6 @@ public class PatientService {
     }
 
 
-    // ─────────────────────────────────────────────
-    //  GET PATIENT BY ID
-    // ─────────────────────────────────────────────
-
-    /**
-     * Searches for a patient by their ID.
-     *
-     * @param patientId The ID to search for.
-     * @return The matching patient, or null if not found.
-     */
     public patient getPatientById(String patientId) {
         for (patient p : patients) {
             if (p.getPatientId().equals(patientId)) {
@@ -126,16 +107,7 @@ public class PatientService {
     }
 
 
-    // ─────────────────────────────────────────────
-    //  EDIT PATIENT
-    // ─────────────────────────────────────────────
 
-    /**
-     * Replaces an existing patient's data with updated data.
-     *
-     * @param patientId      The ID of the patient to update.
-     * @param updatedPatient The new patient object with updated details.
-     */
     public void editPatient(String patientId, patient updatedPatient) {
         for (int i = 0; i < patients.size(); i++) {
             if (patients.get(i).getPatientId().equals(patientId)) {
@@ -148,15 +120,7 @@ public class PatientService {
     }
 
 
-    // ─────────────────────────────────────────────
-    //  REMOVE PATIENT
-    // ─────────────────────────────────────────────
 
-    /**
-     * Removes a patient from the system by their ID.
-     *
-     * @param patientId The ID of the patient to remove.
-     */
     public void removePatient(String patientId) {
         patient found = getPatientById(patientId);
 
@@ -169,16 +133,7 @@ public class PatientService {
     }
 
 
-    // ─────────────────────────────────────────────
-    //  SEARCH PATIENTS BY NAME
-    // ─────────────────────────────────────────────
 
-    /**
-     * Searches patients by first or last name (case-insensitive).
-     *
-     * @param name The name or partial name to search for.
-     * @return A list of matching patients.
-     */
     public List<patient> searchPatientsByName(String name) {
         List<patient> results = new ArrayList<>();
         String searchTerm = name.toLowerCase();

@@ -7,6 +7,6 @@ public class Surgeon extends Doctor{
 
     private int surgeriesPerformed;
     private List surgeryTypes;
-    p
+    private boolean
 
 }

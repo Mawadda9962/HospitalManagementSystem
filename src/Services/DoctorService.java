@@ -7,55 +7,103 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
 public class DoctorService {
-    static Scanner scanner = new Scanner(System.in);
-    //List doctors (Static list to store all doctors)
-    static List<Doctor> doctors = new ArrayList<>();
+
+    private static Scanner scanner = new Scanner(System.in);
+
+    //Adding static list to store all doctors
+    private static List<Doctor> doctors = new ArrayList<>();
 
 
     public void addDoctor() {
-        System.out.println("********** Add New Doctor ********");
-        System.out.println("Enter Doctor ID:");
-        String dId = scanner.nextLine();
+        System.out.println("********** Add New Doctor **********");
 
-        if (getDoctorById(dId) != null) {
-            System.out.println("Doctor ID already exists!");
+        //Get the doctor ID
+        System.out.print("Enter Doctor ID: ");
+        String doctorId = scanner.nextLine().trim();
+
+        if (getDoctorById(doctorId) != null) {
+            System.out.println(":warning: A doctor with this ID already exists.");
             return;
         }
 
+        // Step 2: Collect personal information
         System.out.print("Enter First Name: ");
-        String fname = scanner.nextLine();
+        String firstName = scanner.nextLine().trim();
 
         System.out.print("Enter Last Name: ");
-        String lname = scanner.nextLine();
+        String lastName = scanner.nextLine().trim();
 
-        System.out.print("Enter Specialization: ");
-        String specialization = scanner.nextLine();
+        System.out.print("Enter Date of Birth (YYYY-MM-DD): ");
+        String dateOfBirth = scanner.nextLine().trim();
+
+        System.out.print("Enter Gender (Male/Female/Other): ");
+        String gender = scanner.nextLine().trim();
 
         System.out.print("Enter Phone Number: ");
-        String phone = scanner.nextLine();
+        String phoneNumber = scanner.nextLine().trim();
 
-        System.out.print("Is Doctor Available? (true/false): ");
-        boolean available = scanner.nextBoolean();
-        scanner.nextLine(); // Clear buffer
+        System.out.print("Enter Email: ");
+        String email = scanner.nextLine().trim();
 
-        // Creating the object
-        Doctor doctor = new Doctor(dId, fname, lname, specialization, phone, available);
+        System.out.print("Enter Address: ");
+        String address = scanner.nextLine().trim();
 
-        // Calling the internal add method
-        addDoctor(doctor);
+        // Step 3: Collect doctor-specific information
+        System.out.print("Enter Specialization: ");
+        String specialization = scanner.nextLine().trim();
+
+        System.out.print("Enter Qualification (e.g., MBBS, MD): ");
+        String qualification = scanner.nextLine().trim();
+
+        System.out.print("Enter Years of Experience: ");
+        int experienceYears = Integer.parseInt(scanner.nextLine().trim());
+
+        System.out.print("Enter Department ID: ");
+        String departmentId = scanner.nextLine().trim();
+
+        System.out.print("Enter Consultation Fee: ");
+        double consultationFee = Double.parseDouble(scanner.nextLine().trim());
+
+        // Step 4: Set automatic values
+        // Available slots and assigned patients start empty for a new doctor
+        List<String> availableSlots    = new ArrayList<>();
+        List<String> assignedPatients  = new ArrayList<>();
+
+        // Step 5: Create and save the new doctor object
+        Doctor newDoctor = new Doctor(
+                doctorId,
+                firstName,
+                lastName,
+                dateOfBirth,
+                gender,
+                phoneNumber,
+                email,
+                address,
+                specialization,
+                qualification,
+                experienceYears,
+                departmentId,
+                consultationFee,
+                availableSlots,
+                assignedPatients
+        );
+
+        doctors.add(newDoctor);
+        System.out.println("✓ " + Constant.DOCTOR_ADDED_SUCCESSFULLY);
     }
 
-    // Overloaded method to meet the specific requirement: addDoctor(Doctor doctor)
-    public void addDoctor(Doctor doctor) {
-        if (doctor != null) {
-            doctors.add(doctor);
-            System.out.println("Doctor " + doctor.getFirstName() + " added successfully.");
-        }
-    }
+
+    // ─────────────────────────────────────────────
+    //  GET DOCTOR BY ID
+    // ─────────────────────────────────────────────
 
     /**
-     * Requirement: getDoctorById(String doctorId)
+     * Searches for a doctor by their ID.
+     *
+     * @param doctorId The ID to search for.
+     * @return The matching doctor, or null if not found.
      */
     public Doctor getDoctorById(String doctorId) {
         for (Doctor d : doctors) {
@@ -63,85 +111,137 @@ public class DoctorService {
                 return d;
             }
         }
-        return null;
+        return null; // Not found
     }
 
+
+    // ─────────────────────────────────────────────
+    //  EDIT DOCTOR
+    // ─────────────────────────────────────────────
+
     /**
-     * Requirement: editDoctor(String doctorId, Doctor updatedDoctor)
+     * Replaces an existing doctor's data with updated data.
+     *
+     * @param doctorId      The ID of the doctor to update.
+     * @param updatedDoctor The new doctor object with updated details.
      */
     public void editDoctor(String doctorId, Doctor updatedDoctor) {
-        if (doctorId != null) {
-            for (int i = 0; i < doctors.size(); i++) {
-                if (doctors.get(i).getDoctorId().equals(doctorId)) {
-                    doctors.set(i, updatedDoctor);
-                    System.out.println("Doctor records updated successfully.");
-                    return;
-                }
+        for (int i = 0; i < doctors.size(); i++) {
+            if (doctors.get(i).getDoctorId().equals(doctorId)) {
+                doctors.set(i, updatedDoctor); // Replace old record with updated one
+                System.out.println("✓ " + Constant.DOCTOR_UPDATED_SUCCESSFULLY);
+                return;
             }
         }
-        System.out.println("Doctor not found.");
+        System.out.println("⚠ Doctor with ID '" + doctorId + "' not found.");
     }
 
+
+    // ─────────────────────────────────────────────
+    //  REMOVE DOCTOR
+    // ─────────────────────────────────────────────
+
     /**
-     * Requirement: removeDoctor(String doctorId)
+     * Removes a doctor from the system by their ID.
+     *
+     * @param doctorId The ID of the doctor to remove.
      */
     public void removeDoctor(String doctorId) {
-        Doctor d = getDoctorById(doctorId);
-        if (d != null) {
-            doctors.remove(d);
-            System.out.println("Doctor removed successfully.");
+        Doctor found = getDoctorById(doctorId);
+
+        if (found != null) {
+            doctors.remove(found);
+            System.out.println("✓ " + Constant.DOCTOR_REMOVE_SUCCESSFULLY);
         } else {
-            System.out.println("Doctor not found.");
+            System.out.println("⚠ Doctor with ID '" + doctorId + "' not found.");
         }
     }
 
+
+    // ─────────────────────────────────────────────
+    //  DISPLAY ALL DOCTORS
+    // ─────────────────────────────────────────────
+
     /**
-     * Requirement: displayAllDoctors()
+     * Displays the information of every doctor in the system.
      */
     public void displayAllDoctors() {
         if (doctors.isEmpty()) {
-            System.out.println("No doctors in the system.");
+            System.out.println("⚠ No doctors registered in the system.");
             return;
         }
-        System.out.println("===== All Registered Doctors =====");
+
+        System.out.println("\n===== All Doctors (" + doctors.size() + " total) =====");
         for (Doctor d : doctors) {
             d.displayInfo();
+            System.out.println(); // Blank line between doctors for readability
         }
     }
 
+
+    // ─────────────────────────────────────────────
+    //  GET DOCTORS BY SPECIALIZATION
+    // ─────────────────────────────────────────────
+
     /**
-     * Requirement: getDoctorsBySpecialization(String specialization)
+     * Searches doctors by their specialization (case-insensitive).
+     *
+     * @param specialization The specialization to search for (e.g., "Cardiology").
+     * @return A list of matching doctors.
      */
     public List<Doctor> getDoctorsBySpecialization(String specialization) {
-        List<Doctor> filteredDoctors = new ArrayList<>();
-        System.out.println("Doctors for Specialization: " + specialization);
+        List<Doctor> results = new ArrayList<>();
+
         for (Doctor d : doctors) {
             if (d.getSpecialization().equalsIgnoreCase(specialization)) {
-                d.displayInfo();
-                filteredDoctors.add(d);
+                results.add(d);
             }
         }
-        if (filteredDoctors.isEmpty()) {
-            System.out.println("No doctors found for this specialization.");
+
+        // Show results
+        if (results.isEmpty()) {
+            System.out.println(":warning: No doctors found with specialization: " + specialization);
+        } else {
+            System.out.println("\n===== Doctors specialized in \"" + specialization + "\" =====");
+            for (Doctor d : results) {
+                d.displayInfo();
+                System.out.println();
+            }
         }
-        return filteredDoctors;
+
+        return results;
     }
 
+
+    // ─────────────────────────────────────────────
+    //  GET AVAILABLE DOCTORS
+    // ─────────────────────────────────────────────
+
     /**
-     * Requirement: getAvailableDoctors()
+     * Returns all doctors that are currently available.
+     *
+     * @return A list of available doctors.
      */
     public List<Doctor> getAvailableDoctors() {
-        List<Doctor> availableDoctors = new ArrayList<>();
-        System.out.println("======= Available Doctors =======");
+        List<Doctor> results = new ArrayList<>();
+
         for (Doctor d : doctors) {
-            if (d.isAvailable()) { // Assuming your Doctor class has isAvailable()
-                d.displayInfo();
-                availableDoctors.add(d);
+            if (d.isAvailable()) {
+                results.add(d);
             }
         }
-        if (availableDoctors.isEmpty()) {
-            System.out.println("No doctors are currently available.");
+
+        // Show results
+        if (results.isEmpty()) {
+            System.out.println(":warning: No doctors are currently available.");
+        } else {
+            System.out.println("\n===== Available Doctors (" + results.size() + " total) =====");
+            for (Doctor d : results) {
+                d.displayInfo();
+                System.out.println();
+            }
         }
-        return availableDoctors;
+
+        return results;
     }
 }

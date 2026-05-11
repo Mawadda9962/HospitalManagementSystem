@@ -140,7 +140,7 @@ public class DoctorService {
         System.out.println("All Doctors" + doctors.size() + " total");
         for (Doctor d : doctors) {
             d.displayInfo();
-            System.out.println(); // Blank line between doctors for readability
+            System.out.println();
         }
     }
 

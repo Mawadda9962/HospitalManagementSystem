@@ -67,7 +67,7 @@ public class DoctorService {
         System.out.print("Enter Consultation Fee: ");
         double consultationFee = Double.parseDouble(scanner.nextLine().trim());
 
-        // Step 4: Set automatic values
+        //Set automatic values
         // Available slots and assigned patients start empty for a new doctor
         List<String> availableSlots    = new ArrayList<>();
         List<String> assignedPatients  = new ArrayList<>();

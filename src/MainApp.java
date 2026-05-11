@@ -19,7 +19,6 @@ public class MainApp {
 
         Boolean mainMenuContinue = true;
         while (mainMenuContinue) {
-            // Calling the Main Menu from MenuMassage class
             System.out.println("********** Hospital Management System **********");
             System.out.print(MenuMassage.MAIN_MENU_MESSAGE);
             System.out.print("Select an option: ");
@@ -79,7 +78,7 @@ public class MainApp {
                     Boolean appointmentMenuContinue = true;
                     while (appointmentMenuContinue) {
                         System.out.println("*********** Appointment Menu ***********");
-                        System.out.print(MenuMassage.DOCTOR_MENU_MESSAGE);
+                        System.out.print(MenuMassage.DEPARTMENT_MENU_MESSAGE);
                         Integer appointmentOption = Integer.parseInt(input.nextLine());
                         appointmentMenuContinue = appointmentService.handleAppointmentMenu(appointmentOption);
                     }

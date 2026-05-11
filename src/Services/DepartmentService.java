@@ -112,7 +112,7 @@ public class DepartmentService {
     public void assignDoctorToDepartment(Doctor doctor, String departmentId) {
         Department d = getDepartmentById(departmentId);
         if (d != null && doctor != null) {
-            d.assignDoctor(doctor); // Uses the method from your Entity
+            d.assignDoctor(doctor);
         } else {
             System.out.println("Error: Department or Doctor not found.");
         }

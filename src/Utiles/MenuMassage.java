@@ -47,11 +47,11 @@ public class MenuMassage {
             """;
 
         public static String DEPARTMENT_MENU_MESSAGE = """
-           1- ADD
-           2- UPDATE
-           3- DELETE
-           4- DISPLAY BY NAME
-           5- DISPLAY ALL
+           1- ADD DEPARTMENT
+           2- EDIT DEPARTMENT
+           3- REMOVE DEPARTMENT
+           4- DISPLAY ALL DEPARTMENTS
+           5- EXIT
            """;
     }
 

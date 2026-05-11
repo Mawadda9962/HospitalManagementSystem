@@ -145,11 +145,11 @@ public class PatientService {
             if (matchesFirst || matchesLast) {
                 results.add(p);
             }
-        }/
+        }
 
         // Show results
         if (results.isEmpty()) {
-            System.out.println(":warning: No patients found with name: " + name);
+            System.out.println("No patients found with name: " + name);
         } else {
             System.out.println("Search Results for " + name );
             for (patient p : results) {

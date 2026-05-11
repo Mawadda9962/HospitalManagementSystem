@@ -96,46 +96,65 @@ public class DoctorService {
         return null;
     }
 
+    // Integrated the refined edit logic here to match the Patient style
     public void editDoctor(String doctorId) {
         for (Doctor D : doctors) {
             if (D.getDoctorId().equals(doctorId)) {
 
-                System.out.println("Enter updated Doctor first name:");
+                // Personal details
+                System.out.println("Enter updated Doctor first name :");
                 D.setFirstName(scanner.nextLine());
 
-                System.out.println("Enter updated Doctor last name:");
+                System.out.println("Enter updated Doctor last name :");
                 D.setLastName(scanner.nextLine());
 
                 System.out.println("Enter updated Doctor DOB (YYYY-MM-DD):");
                 String dob = scanner.nextLine();
+                // If your Person class uses String for DOB, this works perfectly.
                 D.setDateOfBirth(dob);
 
-                System.out.println("Enter updated Doctor gender:");
+                System.out.println("Enter updated Doctor gender :");
                 D.setGender(scanner.nextLine());
 
-                System.out.println("Enter updated Doctor phone number:");
+                System.out.println("Enter updated Doctor phone number :");
                 D.setPhoneNumber(scanner.nextLine());
 
-                System.out.println("Enter updated Doctor email:");
+                System.out.println("Enter updated Doctor email :");
                 D.setEmail(scanner.nextLine());
 
-                System.out.println("Enter updated Doctor address:");
+                System.out.println("Enter updated Doctor address :");
                 D.setAddress(scanner.nextLine());
 
-                System.out.print("Enter updated Specialization: ");
+                // Doctor specific details
+                System.out.println("Enter updated Specialization :");
                 D.setSpecialization(scanner.nextLine());
 
-                System.out.print("Enter updated Qualification: ");
+                System.out.println("Enter updated Qualification :");
                 D.setQualification(scanner.nextLine());
 
-                System.out.print("Enter updated Years of Experience: ");
+                System.out.println("Enter updated Years of Experience :");
+                // Using Integer.parseInt to stay consistent with your handling of numbers
                 D.setExperienceYears(Integer.parseInt(scanner.nextLine().trim()));
 
-                System.out.print("Enter updated Department ID: ");
+                System.out.println("Enter updated Department ID :");
                 D.setDepartmentId(scanner.nextLine().trim());
 
-                System.out.print("Enter updated Consultation Fee: ");
+                System.out.println("Enter updated Consultation Fee :");
                 D.setConsultationFee(Double.parseDouble(scanner.nextLine().trim()));
+
+                // Handle List of Available Slots (similar to how you handled Allergies in Patient)
+                System.out.println("Enter updated Available Slots :");
+                Boolean continueFlag = true;
+                List<String> slots = new ArrayList<>();
+                while (continueFlag) {
+                    System.out.print("Slot");
+                    slots.add(scanner.nextLine());
+                    System.out.println("Enter 'a' to add more slots, and 'q' to exit");
+                    if (scanner.nextLine().equalsIgnoreCase("q")) {
+                        continueFlag = false;
+                    }
+                }
+                D.setAvailableSlots(slots);
 
                 System.out.println(Constant.DOCTOR_UPDATED_SUCCESSFULLY);
                 return;

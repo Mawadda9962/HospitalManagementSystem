@@ -145,7 +145,7 @@ public class PatientService {
             if (matchesFirst || matchesLast) {
                 results.add(p);
             }
-        }
+        }/
 
         // Show results
         if (results.isEmpty()) {

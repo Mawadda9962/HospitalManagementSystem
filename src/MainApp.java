@@ -1,4 +1,4 @@
-import Services.PatientService;
+import Services.*;
 import Utiles.MenuMassage;
 
 import java.util.Scanner;
@@ -10,86 +10,82 @@ public class MainApp {
     public static void main(String[] args) {
 
         PatientService patientService = new PatientService();
+        DoctorService doctorService = new DoctorService();
+        NurseService nurseService = new NurseService();
+        MedicalRecordService medicalRecordService = new MedicalRecordService();
+        DepartmentService departmentService = new DepartmentService();
+        AppointmentService appointmentService = new AppointmentService();
+
 
         Boolean mainMenuContinue = true;
-
         while (mainMenuContinue) {
+            // Calling the Main Menu from MenuMassage class
+            System.out.println("\n********** Hospital Management System **********");
+            System.out.print(MenuMassage.MAIN_MENU_MESSAGE);
+            System.out.print("Select an option: ");
 
-            System.out.println("*********** Main Menu ***********");
-            System.out.println(MenuMassage.MAIN_MENU_MESSAGE);
-
-            Integer option = input.nextInt();
-            input.nextLine();
+            Integer option = Integer.parseInt(input.nextLine());
 
             switch (option) {
-
                 case 1 -> {
                     Boolean patientMenuContinue = true;
                     while (patientMenuContinue) {
+                        System.out.println(" *********** Patient Menu ***********");
+                        // Calling the Patient Menu from MenuMassage class
+                        System.out.print(MenuMassage.PATIENT_MENU_MESSAGE);
+                        System.out.print("Enter your choice: ");
 
-                        System.out.println("*********** Patient Menu ***********");
-                        System.out.println(MenuMassage.PATIENT_MENU_MESSAGE);
-
-                        Integer patientOption = input.nextInt();
-                        input.nextLine();
-
-                        switch (patientOption) {
-
-                            case 1 -> {
-                                patientService.addPatient();
-                            }
-                            case 2 -> {
-
-
-                            }
-                            case 3 -> {
-                                System.out.print("Enter Patient ID To Remove: ");
-                                String patientId = input.nextLine();
-
-                                patientService.removePatient(patientId);
-                            }
-
-                            case 4 -> {
-                                System.out.print("Enter Patient ID: ");
-                                String patientId = input.nextLine();
-
-                                if (patientService.getPatientById(patientId) != null) {
-
-                                    patientService.getPatientById(patientId).displayInfo();
-
-                                } else {
-                                    System.out.println("Patient Not Found.");
-                                }
-                            }
-                            case 5 -> {
-                                System.out.print("Enter Patient Name: ");
-                                String patientName = input.nextLine();
-
-                                patientService.searchPatientsByName(patientName);
-                            }
-                            case 6 -> {
-                                patientService.displayAllPatients();
-                            }
-                            case 7 -> {
-                                System.out.println("Returning To Main Menu...");
-                                patientMenuContinue = false;
-                            }
-                            default -> {
-                                System.out.println("Select A Valid Choice");
-                            }
-                        }
+                        Integer patientOption = Integer.parseInt(input.nextLine());
+                        patientMenuContinue = patientService.handlePersonMenu(patientOption);
                     }
                 }
-
                 case 2 -> {
-                    System.out.println("System Closed.");
+                    Boolean doctorMenuContinue = true;
+                    while (doctorMenuContinue) {
+                        System.out.println("\n *********** Doctor Menu ***********");
+                        // Assuming you will add DOCTOR_MENU_MESSAGE to MenuMassage later
+                        Integer doctorOption = Integer.parseInt(input.nextLine());
+                        doctorMenuContinue = doctorService.handleDoctorMenu(doctorOption);
+                    }
+                }
+                case 3 -> {
+                    Boolean nurseMenuContinue = true;
+                    while (nurseMenuContinue) {
+                        System.out.println("\n *********** Nurse Menu ***********");
+                        Integer nurseOption = Integer.parseInt(input.nextLine());
+                        nurseMenuContinue = nurseService.handleNurseMenu(nurseOption);
+                    }
+                }
+                case 4 -> {
+                    Boolean recordMenuContinue = true;
+                    while (recordMenuContinue) {
+                        System.out.println("\n *********** Medical Record Menu ***********");
+                        Integer recordOption = Integer.parseInt(input.nextLine());
+                        recordMenuContinue = medicalRecordService.handleMedicalRecordMenu(recordOption);
+                    }
+                }
+                case 5 -> {
+                    Boolean deptMenuContinue = true;
+                    while (deptMenuContinue) {
+                        System.out.println("\n *********** Department Menu ***********");
+                        Integer deptOption = Integer.parseInt(input.nextLine());
+                        deptMenuContinue = departmentService.handleDepartmentMenu(deptOption);
+                    }
+                }
+                case 6 -> {
+                    Boolean appointmentMenuContinue = true;
+                    while (appointmentMenuContinue) {
+                        System.out.println("\n *********** Appointment Menu ***********");
+                        Integer appointmentOption = Integer.parseInt(input.nextLine());
+                        appointmentMenuContinue = appointmentService.handleAppointmentMenu(appointmentOption);
+                    }
+                }
+                case 7 -> {
+                    System.out.println("Exiting System...");
                     mainMenuContinue = false;
                 }
-
-                default -> {
-                    System.out.println("Select A Valid Choice");
-                }
+                default -> System.out.println("Select a choice from the list.");
             }
         }
     }
-}
+}}

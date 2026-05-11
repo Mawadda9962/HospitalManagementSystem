@@ -202,7 +202,7 @@ public class PatientService {
                 displayAllPatients();
             }
             case 6 -> {
-                return false; // Exit menu
+                return false;
             }
             default -> System.out.println("Invalid option.");
         }

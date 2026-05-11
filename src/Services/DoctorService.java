@@ -145,16 +145,6 @@ public class DoctorService {
     }
 
 
-    // ─────────────────────────────────────────────
-    //  GET DOCTORS BY SPECIALIZATION
-    // ─────────────────────────────────────────────
-
-    /**
-     * Searches doctors by their specialization (case-insensitive).
-     *
-     * @param specialization The specialization to search for (e.g., "Cardiology").
-     * @return A list of matching doctors.
-     */
     public List<Doctor> getDoctorsBySpecialization(String specialization) {
         List<Doctor> results = new ArrayList<>();
 

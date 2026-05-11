@@ -11,7 +11,7 @@ public class NurseService {
     private static Scanner scanner = new Scanner(System.in);
 
     //Adding static list to store all Nurses
-    private static List<Nurse> Nurses = new ArrayList<>();
+    private static List<Nurse> Nurses = new ArrayList<>();g
 
 }
 

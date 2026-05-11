@@ -17,7 +17,6 @@ public class PatientService {
     private static final List<patient> patients = new ArrayList<>();
 
 
-
     public void addPatient() {
         System.out.println("********** Add New Patient ***********");
 
@@ -205,7 +204,6 @@ public class PatientService {
             }
         }
 
-        // Show results
         if (results.isEmpty()) {
             System.out.println("No patients found with name: " + name);
         } else {
@@ -218,7 +216,6 @@ public class PatientService {
         return results;
 
     }
-
 
     public void displayAllPatients() {
         if (patients.isEmpty()){

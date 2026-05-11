@@ -13,7 +13,7 @@ public class MainApp {
         boolean mainMenuContinue = true;
 
         while (mainMenuContinue) {
-            System.out.println("********** Hospital Management System **********");
+            System.out.println("********** Main Menu **********");
             System.out.println("1. Patient Management Menu");
             System.out.println("2. Exit");
             System.out.print("Select an option: ");

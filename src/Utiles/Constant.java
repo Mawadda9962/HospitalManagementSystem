@@ -9,6 +9,7 @@ public class Constant {
     public static String PATIENT_UPDATED = "Patient Updated Successfully";
     public static String DOCTOR_ADDED_SUCCESSFULLY = "Doctor Added Successfully";
     public static String DOCTOR_UPDATED_SUCCESSFULLY = "Doctor Updated Successfully";
+    public static String DOCTOR_REMOVE_SUCCESSFULLY = "Doctor Removed Successfully";
 
 
 

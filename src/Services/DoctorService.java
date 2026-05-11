@@ -114,25 +114,17 @@ public class DoctorService {
                 return;
             }
         }
-        System.out.println("⚠ Doctor with ID '" + doctorId + "' not found.");
+        System.out.println("Doctor with ID " + doctorId + "not found.");
     }
 
 
-    // ─────────────────────────────────────────────
-    //  REMOVE DOCTOR
-    // ─────────────────────────────────────────────
 
-    /**
-     * Removes a doctor from the system by their ID.
-     *
-     * @param doctorId The ID of the doctor to remove.
-     */
     public void removeDoctor(String doctorId) {
         Doctor found = getDoctorById(doctorId);
 
         if (found != null) {
             doctors.remove(found);
-            System.out.println("✓ " + Constant.DOCTOR_REMOVE_SUCCESSFULLY);
+            System.out.println(Constant.DOCTOR_REMOVE_SUCCESSFULLY);
         } else {
             System.out.println("⚠ Doctor with ID '" + doctorId + "' not found.");
         }

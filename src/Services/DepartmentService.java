@@ -47,7 +47,7 @@ public class DepartmentService {
                 new ArrayList<>(),
                 capacity,
                 availableBeds
-        );t
+        );
 
         departments.add(newDept);
         System.out.println("Department added successfully!");
@@ -69,7 +69,7 @@ public class DepartmentService {
             return;
         }
 
-        System.out.println("--- Editing Department: " + d.getDepartmentName() + " ---");
+        System.out.println("Editing Department: " + d.getDepartmentName());
         System.out.print("Enter updated Name: ");
         d.setDepartmentName(scanner.nextLine());
 

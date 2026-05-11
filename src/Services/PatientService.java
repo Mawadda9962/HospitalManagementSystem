@@ -72,25 +72,32 @@ public class PatientService {
         List<String> medicalRecords = new ArrayList<>();
         List<String> appointments = new ArrayList<>();
 
-        // Create and save the new patient object
-        patient newPatient = new patient(
-                patientId,
-                firstName,
-                lastName,
-                dateOfBirth,
-                gender,
-                phoneNumber,
-                email,
-                address,
-                insuranceId,
-                patientId,
-                bloodGroup,
-                emergencyContacts,
-                registrationDate,
-                medicalRecords,
-                appointments
-        );
 
+// Create and save the new patient object
+        patient newPatient = new patient(
+                patientId,          // id
+                firstName,          // firstName
+                lastName,           // lastName
+                dateOfBirth,        // dateOfBirth
+                gender,             // gender
+                phoneNumber,        // phoneNumber
+                email,              // email
+                address,            // address
+                null,               // specialization (Not for patients)
+                null,               // qualification (Not for patients)
+                0,                  // experienceYears (Not for patients)
+                null,               // departmentId (Not for patients)
+                0.0,                // consultationFee (Not for patients)
+                null,               // availableSlots (Not for patients)
+                null,               // assignedPatients (Not for patients)
+                patientId,          // patientId
+                bloodGroup,         // bloodGroup
+                emergencyContacts,  // emergencyContact
+                registrationDate,   // registrationDate
+                insuranceId,        // insuranceId
+                medicalRecords,     // medicalRecords
+                appointments        // appointments
+        );
         patients.add(newPatient);
         System.out.println(Constant.PATIENT_ADDED_SUCCESSFULLY);
     }

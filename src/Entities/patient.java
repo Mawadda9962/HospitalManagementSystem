@@ -1,11 +1,10 @@
 package Entities;
 
 import Utiles.Constant;
-
 import java.time.LocalDate;
 import java.util.List;
 
-public class patient extends Person{
+public class patient extends Person {
 
     private String patientId;
     private String bloodGroup;
@@ -26,6 +25,17 @@ public class patient extends Person{
         this.medicalRecords = medicalRecords;
         this.appointments = appointments;
     }
+    //    public patient(String id, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address, String specialization, String qualification, int experienceYears, String departmentId, double consultationFee, List<String> availableSlots, List<String> assignedPatients, String patientId, String bloodGroup, List<String> emergencyContact, LocalDate registrationDate, String insuranceId, List<String> medicalRecords, List<String> appointments) {
+//        super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address, specialization, qualification, experienceYears, departmentId, consultationFee, availableSlots, assignedPatients);
+//        this.patientId = patientId;
+//        this.bloodGroup = bloodGroup;
+//        this.emergencyContact = emergencyContact;
+//        this.registrationDate = registrationDate;
+//        this.insuranceId = insuranceId;
+//        this.medicalRecords = medicalRecords;
+//        this.appointments = appointments;
+//    }
+
 
     public String getPatientId() {
         return patientId;
@@ -84,36 +94,35 @@ public class patient extends Person{
     }
 
     @Override
-    public void displayInfo(){
-        super.displayInfo();
-        System.out.println("--- Patient Specific Details ---");
+    public void displayInfo() {
+        // Person info (Name, Phone, etc.)
+        System.out.println(" Personal Details");
+        System.out.println("Name: " + getFirstName() + " " + getLastName());
+
+        System.out.println("Patient Specific Details");
         System.out.println("Patient ID: " + patientId);
         System.out.println("Blood Group: " + bloodGroup);
         System.out.println("Insurance ID: " + insuranceId);
         System.out.println("Registration Date: " + registrationDate);
-        System.out.println("Medical Records Count: " + medicalRecords.size());
-        System.out.println("Upcoming Appointments: " + appointments.size());
+        System.out.println("Medical Records Count: " + (medicalRecords != null ? medicalRecords.size() : 0));
+        System.out.println("Upcoming Appointments: " + (appointments != null ? appointments.size() : 0));
         System.out.println("--------------------------------");
     }
 
-
-    public void addMedicalRecord(String medicalRecorde){
-        medicalRecords.add(medicalRecorde);
-
-    }
-    public void addAppointment(String appoinment){
-        appointments.add(appoinment);
-
-    }
-    public void updateInsurance(String newInsuranceId){
-        if (insuranceId != null){
-            this.insuranceId =newInsuranceId;
-            System.out.println(Constant.INSURANCE_UPDATED_SUCCESSFULLY);
+    public void addMedicalRecord(String medicalRecorde) {
+        if (this.medicalRecords != null) {
+            this.medicalRecords.add(medicalRecorde);
         }
-
-
     }
 
+    public void addAppointment(String appointment) {
+        if (this.appointments != null) {
+            this.appointments.add(appointment);
+        }
+    }
+
+    public void updateInsurance(String newInsuranceId) {
+        this.insuranceId = newInsuranceId;
+        System.out.println(Constant.INSURANCE_UPDATED_SUCCESSFULLY);
+    }
 }
-
-

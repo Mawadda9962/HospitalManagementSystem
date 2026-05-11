@@ -42,10 +42,10 @@ public class MainApp {
                 case 2 -> {
                     Boolean doctorMenuContinue = true;
                     while (doctorMenuContinue) {
-                        System.out.println("\n *********** Doctor Menu ***********");
-                        // Assuming you will add DOCTOR_MENU_MESSAGE to MenuMassage later
+                        System.out.println("*********** Doctor Menu ***********");
+                        System.out.print(MenuMassage.DOCTOR_MENU_MESSAGE);
                         Integer doctorOption = Integer.parseInt(input.nextLine());
-//                        doctorMenuContinue = doctorService.handleDoctorMenu(doctorOption);
+                        doctorMenuContinue = doctorService.handleDoctorMenu(doctorOption);
                     }
                 }
                 case 3 -> {

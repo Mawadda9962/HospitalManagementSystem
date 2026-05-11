@@ -156,14 +156,13 @@ public class DoctorService {
 
     public void displayAllDoctors() {
         if (doctors.isEmpty()) {
-            System.out.println("⚠️ No doctors registered in the system.");
+            System.out.println("No doctors registered in the system.");
             return;
         }
 
-        System.out.println("\n********** All Doctors (" + doctors.size() + " total) **********");
+        System.out.println("All Doctors"  + doctors.size() + "total");
         for (Doctor d : doctors) {
             d.displayInfo();
-            System.out.println("-------------------------------------------");
         }
     }
 

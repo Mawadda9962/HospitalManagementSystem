@@ -51,7 +51,7 @@ public class MainApp {
                 case 3 -> {
                     Boolean nurseMenuContinue = true;
                     while (nurseMenuContinue) {
-                        System.out.println("\n *********** Nurse Menu ***********");
+                        System.out.println("*********** Nurse Menu ***********");
                         Integer nurseOption = Integer.parseInt(input.nextLine());
                         nurseMenuContinue = nurseService.handleNurseMenu(nurseOption);
                     }
@@ -59,7 +59,7 @@ public class MainApp {
                 case 4 -> {
                     Boolean recordMenuContinue = true;
                     while (recordMenuContinue) {
-                        System.out.println("\n *********** Medical Record Menu ***********");
+                        System.out.println("*********** Medical Record Menu ***********");
                         Integer recordOption = Integer.parseInt(input.nextLine());
                         recordMenuContinue = medicalRecordService.handleMedicalRecordMenu(recordOption);
                     }
@@ -67,7 +67,7 @@ public class MainApp {
                 case 5 -> {
                     Boolean deptMenuContinue = true;
                     while (deptMenuContinue) {
-                        System.out.println("\n *********** Department Menu ***********");
+                        System.out.println("*********** Department Menu ***********");
                         Integer deptOption = Integer.parseInt(input.nextLine());
                         deptMenuContinue = departmentService.handleDepartmentMenu(deptOption);
                     }
@@ -75,7 +75,7 @@ public class MainApp {
                 case 6 -> {
                     Boolean appointmentMenuContinue = true;
                     while (appointmentMenuContinue) {
-                        System.out.println("\n *********** Appointment Menu ***********");
+                        System.out.println("*********** Appointment Menu ***********");
                         Integer appointmentOption = Integer.parseInt(input.nextLine());
                         appointmentMenuContinue = appointmentService.handleAppointmentMenu(appointmentOption);
                     }

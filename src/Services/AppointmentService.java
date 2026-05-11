@@ -51,7 +51,6 @@ public class AppointmentService {
         System.out.print("Enter Notes (Optional): ");
         String notes = scanner.nextLine().trim();
 
-        // Initial status is "Scheduled"
         Appointment newAppointment = new Appointment(
                 appointmentId, patientId, doctorId, date, time, "Scheduled", reason, notes
         );
@@ -97,7 +96,7 @@ public class AppointmentService {
         }
     }
 
-    public void getAppointmentsByPatient(String patientId) {
+    public void getAppointmentsByPatientId(String patientId) {
         System.out.println(" Appointments for Patient: " + patientId);
         boolean found = false;
         for (Appointment a : appointments) {
@@ -163,7 +162,7 @@ public class AppointmentService {
             }
             case 4 -> {
                 System.out.print("Enter Patient ID: ");
-                getAppointmentsByPatient(scanner.nextLine().trim());
+                getAppointmentsByPatientId(scanner.nextLine().trim());
             }
             case 5 -> {
                 System.out.print("Enter Doctor ID: ");

@@ -33,20 +33,24 @@ public class MenuMassage {
             4- DISPLAY PATIENT HISTORY
             5- RECORDS BY DOCTOR ID
             """;
-//        public static String TEACHER_MENU_MESSAGE = """
-//            1- ADD
-//            2- UPDATE
-//            3- DELETE
-//            4- DISPLAY BY NAME
-//            5- DISPLAY ALL
-//            """;
-//        public static String COURSE_MENU_MESSAGE = """
-//            1- ADD
-//            2- UPDATE
-//            3- DELETE
-//            4- DISPLAY BY NAME
-//            5- DISPLAY ALL
-//            """;
+
+        public static String APPOINTMENT_MENU_MESSAGE = """
+            1- ADD APPOINTMENT
+            2- reschedule Appointment
+            3- cancel Appointment
+            4- Appointments By PatientId
+            5- Appointments By Doctor
+            6-
+            5- DISPLAY ALL
+            """;
+
+        public static String DEPARTMENT_MENU_MESSAGE = """
+           1- ADD
+           2- UPDATE
+           3- DELETE
+           4- DISPLAY BY NAME
+           5- DISPLAY ALL
+           """;
     }
 
 

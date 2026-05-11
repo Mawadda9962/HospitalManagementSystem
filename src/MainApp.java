@@ -39,7 +39,8 @@ public class MainApp {
                                 patientService.addPatient();
                             }
                             case 2 -> {
-                                System.out.println("Edit Patient Feature Coming Soon");
+
+
                             }
                             case 3 -> {
                                 System.out.print("Enter Patient ID To Remove: ");

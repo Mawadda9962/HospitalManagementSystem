@@ -233,7 +233,7 @@ public class PatientService {
 //            p.displayInfo();
 //            System.out.println();
 //        }
-    }
+    }b
 
     public Boolean handlePatientsMenu(Integer PatientOption) {
         switch (PatientOption) {

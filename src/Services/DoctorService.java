@@ -126,25 +126,18 @@ public class DoctorService {
             doctors.remove(found);
             System.out.println(Constant.DOCTOR_REMOVE_SUCCESSFULLY);
         } else {
-            System.out.println("⚠ Doctor with ID '" + doctorId + "' not found.");
+            System.out.println("Doctor with ID " + doctorId + "not found.");
         }
     }
 
 
-    // ─────────────────────────────────────────────
-    //  DISPLAY ALL DOCTORS
-    // ─────────────────────────────────────────────
-
-    /**
-     * Displays the information of every doctor in the system.
-     */
     public void displayAllDoctors() {
         if (doctors.isEmpty()) {
             System.out.println("⚠ No doctors registered in the system.");
             return;
         }
 
-        System.out.println("\n===== All Doctors (" + doctors.size() + " total) =====");
+        System.out.println("All Doctors" + doctors.size() + " total");
         for (Doctor d : doctors) {
             d.displayInfo();
             System.out.println(); // Blank line between doctors for readability

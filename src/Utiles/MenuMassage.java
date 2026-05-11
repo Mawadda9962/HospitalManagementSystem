@@ -25,13 +25,14 @@ public class MenuMassage {
             5- ALL DOCTOR
             6-EXIT
             """;
-//        public static String STUDENT_MENU_MESSAGE = """
-//            1- ADD
-//            2- UPDATE
-//            3- DELETE
-//            4- DISPLAY BY NAME
-//            5- DISPLAY ALL
-//            """;
+
+        public static String MEDICAL_RECORD_MENU_MESSAGE = """
+            1- ADD MEDICAL RECORD
+            2- EDIT MEDICAL RECORD
+            3- REMOVE MEDICAL RECORD
+            4- DISPLAY PATIENT HISTORY
+            5- RECORDS BY DOCTOR ID
+            """;
 //        public static String TEACHER_MENU_MESSAGE = """
 //            1- ADD
 //            2- UPDATE

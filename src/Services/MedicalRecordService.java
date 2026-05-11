@@ -76,7 +76,7 @@ public class MedicalRecordService {
             return;
         }
 
-        System.out.println("--- Editing Record: " + recordId + " ---");
+        System.out.println("Editing Record: " + recordId);
 
         System.out.print("Enter updated Diagnosis: ");
         mr.setDiagnosis(scanner.nextLine());
@@ -104,7 +104,7 @@ public class MedicalRecordService {
     }
 
     public void displayPatientHistory(String patientId) {
-        System.out.println("\n========== MEDICAL HISTORY FOR PATIENT: " + patientId + " ==========");
+        System.out.println("MEDICAL HISTORY FOR PATIENT: " + patientId);
         boolean found = false;
         for (MedicalRecord mr : medicalRecords) {
             if (mr.getPatientId().equalsIgnoreCase(patientId)) {
@@ -118,7 +118,7 @@ public class MedicalRecordService {
     }
 
     public void getRecordsByDoctorId(String doctorId) {
-        System.out.println("\n--- Records created by Doctor: " + doctorId + " ---");
+        System.out.println("Records created by Doctor: " + doctorId);
         boolean found = false;
         for (MedicalRecord mr : medicalRecords) {
             if (mr.getDoctorId().equalsIgnoreCase(doctorId)) {

@@ -65,6 +65,7 @@ public class DoctorService {
         List<String> availableSlots = new ArrayList<>();
         List<String> assignedPatients = new ArrayList<>();
 
+
         Doctor newDoctor = new Doctor(
                 doctorId,
                 firstName,
@@ -74,6 +75,7 @@ public class DoctorService {
                 phoneNumber,
                 email,
                 address,
+                doctorId,
                 specialization,
                 qualification,
                 experienceYears,

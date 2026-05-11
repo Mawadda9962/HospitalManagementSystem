@@ -65,21 +65,22 @@ public class MainApp {
                     }
                 }
                 case 5 -> {
-                    Boolean deptMenuContinue = true;
-                    while (deptMenuContinue) {
-                        System.out.println("*********** Department Menu ***********");
-                        System.out.print(MenuMassage.APPOINTMENT_MENU_MESSAGE);
-                        Integer deptOption = Integer.parseInt(input.nextLine());
-                        deptMenuContinue = departmentService.handleDepartmentMenu(deptOption);
-                    }
-                }
-                case 6 -> {
                     Boolean appointmentMenuContinue = true;
                     while (appointmentMenuContinue) {
                         System.out.println("*********** Appointment Menu ***********");
-                        System.out.print(MenuMassage.DEPARTMENT_MENU_MESSAGE);
+                        System.out.print(MenuMassage.APPOINTMENT_MENU_MESSAGE);
                         Integer appointmentOption = Integer.parseInt(input.nextLine());
                         appointmentMenuContinue = appointmentService.handleAppointmentMenu(appointmentOption);
+                    }
+                }
+
+                case 6 -> {
+                    Boolean deptMenuContinue = true;
+                    while (deptMenuContinue) {
+                        System.out.println("*********** Department Menu ***********");
+                        System.out.print(MenuMassage.DEPARTMENT_MENU_MESSAGE);
+                        Integer deptOption = Integer.parseInt(input.nextLine());
+                        deptMenuContinue = departmentService.handleDepartmentMenu(deptOption);
                     }
                 }
                 case 7 -> {

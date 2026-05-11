@@ -1,4 +1,7 @@
 package Entities;
 
-public class Surgeon {
+public class Surgeon extends Doctor{
+
+    private int surgeriesPerformed
+
 }

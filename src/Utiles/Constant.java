@@ -7,7 +7,7 @@ public class Constant {
     public static String PATIENT_REMOVE_SUCCESSFULLY = "Patient Updated Successfully";
     public static String NO_PATIENT_REGISTERED = "No patients registered in the system";
     public static String PATIENT_UPDATED = "Patient Updated Successfully";
-    public static String PATIENT_UPDATED = "Patient Updated Successfully";
+    public static String DOCTOR_ADDED_SUCCESSFULLY = "Doctor Added Successfully";
 
 
 }

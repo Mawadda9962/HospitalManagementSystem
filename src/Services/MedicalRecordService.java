@@ -104,10 +104,11 @@ public class MedicalRecordService {
     }
 
     public void displayPatientHistory(String patientId) {
+        String searchId = (patientId != null) ? patientId.trim() : "";
         System.out.println("MEDICAL HISTORY FOR PATIENT: " + patientId);
         boolean found = false;
         for (MedicalRecord mr : medicalRecords) {
-            if (mr.getPatientId().equalsIgnoreCase(patientId)) {
+            if (mr.getPatientId().trim().equalsIgnoreCase(searchId)) {
                 mr.displayInfo();
                 found = true;
             }

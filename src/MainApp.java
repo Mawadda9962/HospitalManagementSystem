@@ -14,11 +14,8 @@ public class MainApp {
 
         while (mainMenuContinue) {
             System.out.println("********** Main Menu **********");
-            System.out.println("1. Patient Management Menu");
-            System.out.println("2. Exit");
-            System.out.print("Select an option: ");
+            System.out.println(MenuMassage.MAIN_MENU_MESSAGE);
 
-            // Use nextLine() and parse to avoid skip issues after input.nextInt()
             String choice = input.nextLine();
             int option;
 

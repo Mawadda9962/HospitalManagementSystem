@@ -18,7 +18,7 @@ public class DoctorService {
 
 
     public void addDoctor() {
-        System.out.println("********** Add New Doctor **********");
+        System.out.println("********** dd New Doctor **********");
 
         //Get the doctor ID
         System.out.print("Enter Doctor ID: ");

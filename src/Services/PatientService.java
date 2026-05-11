@@ -179,14 +179,7 @@ public class PatientService {
                 addPatient();
             }
             case 2 -> {
-                System.out.print("Enter Patient ID to edit: ");
-                String id = scanner.nextLine().trim();
-                patient existing = getPatientById(id);
-                if (existing != null) {
-                    System.out.println("Feature to update specific fields coming soon...");
-                } else {
-                    System.out.println("Patient not found.");
-                }
+               editPatient();
             }
             case 3 -> {
                 System.out.print("Enter Patient ID to remove: ");

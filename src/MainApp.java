@@ -20,7 +20,7 @@ public class MainApp {
         Boolean mainMenuContinue = true;
         while (mainMenuContinue) {
             // Calling the Main Menu from MenuMassage class
-            System.out.println("\n********** Hospital Management System **********");
+            System.out.println("********** Hospital Management System **********");
             System.out.print(MenuMassage.MAIN_MENU_MESSAGE);
             System.out.print("Select an option: ");
 
@@ -45,7 +45,7 @@ public class MainApp {
                         System.out.println("\n *********** Doctor Menu ***********");
                         // Assuming you will add DOCTOR_MENU_MESSAGE to MenuMassage later
                         Integer doctorOption = Integer.parseInt(input.nextLine());
-                        doctorMenuContinue = doctorService.handleDoctorMenu(doctorOption);
+//                        doctorMenuContinue = doctorService.handleDoctorMenu(doctorOption);
                     }
                 }
                 case 3 -> {
@@ -53,7 +53,7 @@ public class MainApp {
                     while (nurseMenuContinue) {
                         System.out.println("\n *********** Nurse Menu ***********");
                         Integer nurseOption = Integer.parseInt(input.nextLine());
-                        nurseMenuContinue = nurseService.handleNurseMenu(nurseOption);
+//                        nurseMenuContinue = nurseService.handleNurseMenu(nurseOption);
                     }
                 }
                 case 4 -> {
@@ -61,7 +61,7 @@ public class MainApp {
                     while (recordMenuContinue) {
                         System.out.println("\n *********** Medical Record Menu ***********");
                         Integer recordOption = Integer.parseInt(input.nextLine());
-                        recordMenuContinue = medicalRecordService.handleMedicalRecordMenu(recordOption);
+//                        recordMenuContinue = medicalRecordService.handleMedicalRecordMenu(recordOption);
                     }
                 }
                 case 5 -> {
@@ -69,7 +69,7 @@ public class MainApp {
                     while (deptMenuContinue) {
                         System.out.println("\n *********** Department Menu ***********");
                         Integer deptOption = Integer.parseInt(input.nextLine());
-                        deptMenuContinue = departmentService.handleDepartmentMenu(deptOption);
+//                        deptMenuContinue = departmentService.handleDepartmentMenu(deptOption);
                     }
                 }
                 case 6 -> {
@@ -77,7 +77,7 @@ public class MainApp {
                     while (appointmentMenuContinue) {
                         System.out.println("\n *********** Appointment Menu ***********");
                         Integer appointmentOption = Integer.parseInt(input.nextLine());
-                        appointmentMenuContinue = appointmentService.handleAppointmentMenu(appointmentOption);
+//                        appointmentMenuContinue = appointmentService.handleAppointmentMenu(appointmentOption);
                     }
                 }
                 case 7 -> {
@@ -88,4 +88,4 @@ public class MainApp {
             }
         }
     }
-}}
+}

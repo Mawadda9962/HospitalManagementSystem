@@ -1,7 +1,6 @@
 package Services;
 
 import Entities.Doctor;
-import Entities.patient;
 import Utiles.Constant;
 
 import java.time.LocalDate;
@@ -134,34 +133,22 @@ public class DoctorService {
                 System.out.println("Enter updated Doctor address :");
                 D.setAddress(scanner.nextLine());
 
-                System.out.println("Enter updated patient blood Group :");
-                D.setBloodGroup(scanner.nextLine());
+                System.out.print("Enter Specialization: ");
+                D.sppecialization(scanner.nextLine());
 
-                System.out.println("Enter updated patient emergency Contact :");
-                String eContact = scanner.nextLine();
-                List<String> eList = new ArrayList<>();
-                eList.add(eContact);
-                p.setEmergencyContact(eList);
+                System.out.print("Enter Qualification (e.g., MBBS, MD): ");
+                String qualification = scanner.nextLine().trim();
 
-                System.out.println("Enter updated registration Date (YYYY-MM-DD):");
-                String dateOfRegistration = scanner.nextLine();
-                LocalDate DOR = LocalDate.parse(dateOfRegistration);
-                p.setRegistrationDate(DOR);
+                System.out.print("Enter Years of Experience: ");
+                int experienceYears = Integer.parseInt(scanner.nextLine().trim());
 
-                System.out.println("Enter updated patient insurance Id :");
-                p.setInsuranceId(scanner.nextLine());
+                System.out.print("Enter Department ID: ");
+                String departmentId = scanner.nextLine().trim();
 
-                System.out.println("Enter updated patient allergies :");
-                Boolean continueFlag = true;
-                List<String> allergies = new ArrayList<>();
-                while (continueFlag) {
-                    System.out.print("Allergy: ");
-                    allergies.add(scanner.nextLine());
-                    System.out.println("Enter 'a' to add more allergies, and 'q' to exit");
-                    if (scanner.nextLine().equalsIgnoreCase("q")) {
-                        continueFlag = false;
-                    }
-                }
+                System.out.print("Enter Consultation Fee: ");
+                double consultationFee = Double.parseDouble(scanner.nextLine().trim());
+
+            }
                 // Assuming your patient entity has this method
                 // p.setAllergies(allergies);
 

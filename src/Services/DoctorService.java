@@ -1,8 +1,10 @@
 package Services;
 
 import Entities.Doctor;
+import Entities.patient;
 import Utiles.Constant;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -106,16 +108,74 @@ public class DoctorService {
     }
 
 
-    public void editDoctor(String doctorId, Doctor updatedDoctor) {
-        for (int i = 0; i < doctors.size(); i++) {
-            if (doctors.get(i).getDoctorId().equals(doctorId)) {
-                doctors.set(i, updatedDoctor); // Replace old record with updated one
-                System.out.println(Constant.DOCTOR_UPDATED_SUCCESSFULLY);
-                return;
-            }
-        }
-        System.out.println("Doctor with ID " + doctorId + "not found.");
-    }
+//    public void editDoctor(String doctorId, Doctor updatedDoctor) {
+//        for (Doctor D : doctors) {
+//            if (D.getDoctorId().equals(doctorId)) {
+//
+//                System.out.println("Enter updated Doctor first name :");
+//                p.setFirstName(scanner.nextLine());
+//
+//                System.out.println("Enter updated patient last name :");
+//                p.setLastName(scanner.nextLine());
+//
+//                System.out.println("Enter updated patient DOB (YYYY-MM-DD): ");
+//                String dateOfBirth = scanner.nextLine();
+//                LocalDate DOB = LocalDate.parse(dateOfBirth);
+//                p.setDateOfBirth(DOB.toString()); // Adapted to match your entity type if needed
+//
+//                System.out.println("Enter updated patient gender :");
+//                p.setGender(scanner.nextLine());
+//
+//                System.out.println("Enter updated patient phone number :");
+//                p.setPhoneNumber(scanner.nextLine());
+//
+//                System.out.println("Enter updated patient email :");
+//                p.setEmail(scanner.nextLine());
+//
+//                System.out.println("Enter updated patient address :");
+//                p.setAddress(scanner.nextLine());
+//
+//                System.out.println("Enter updated patient blood Group :");
+//                p.setBloodGroup(scanner.nextLine());
+//
+//                System.out.println("Enter updated patient emergency Contact :");
+//                String eContact = scanner.nextLine();
+//                List<String> eList = new ArrayList<>();
+//                eList.add(eContact);
+//                p.setEmergencyContact(eList);
+//
+//                System.out.println("Enter updated registration Date (YYYY-MM-DD):");
+//                String dateOfRegistration = scanner.nextLine();
+//                LocalDate DOR = LocalDate.parse(dateOfRegistration);
+//                p.setRegistrationDate(DOR);
+//
+//                System.out.println("Enter updated patient insurance Id :");
+//                p.setInsuranceId(scanner.nextLine());
+//
+//                System.out.println("Enter updated patient allergies :");
+//                Boolean continueFlag = true;
+//                List<String> allergies = new ArrayList<>();
+//                while (continueFlag) {
+//                    System.out.print("Allergy: ");
+//                    allergies.add(scanner.nextLine());
+//                    System.out.println("Enter 'a' to add more allergies, and 'q' to exit");
+//                    if (scanner.nextLine().equalsIgnoreCase("q")) {
+//                        continueFlag = false;
+//                    }
+//                }
+//                // Assuming your patient entity has this method
+//                // p.setAllergies(allergies);
+//
+//                System.out.println(Constant.PATIENT_UPDATED_SUCCESSFULLY);
+//                return;
+//            }
+//        }
+//        System.out.println("Patient with ID " + patientId + " not found.");
+//    }
+
+
+
+
 
 
 
@@ -191,4 +251,35 @@ public class DoctorService {
 
         return results;
     }
+//
+//    public Boolean handleDoctorMenu(Integer DoctorOption) {
+//        switch (DoctorOption) {
+//            case 1 -> {
+//                addDoctor();
+//            }
+//            case 2 -> {
+//                System.out.print("Enter Patient ID to edit: ");
+//                String id = scanner.nextLine().trim();
+//                editDoctor(id);
+//            }
+//            case 3 -> {
+//                System.out.print("Enter Patient ID to remove: ");
+//                String id = scanner.nextLine().trim();
+//                removePatient(id);
+//            }
+//            case 4 -> {
+//                System.out.print("Enter name to search: ");
+//                String name = scanner.nextLine().trim();
+//                searchPatientsByName(name);
+//            }
+//            case 5 -> {
+//                displayAllPatients();
+//            }
+//            case 6 -> {
+//                return false;
+//            }
+//            default -> System.out.println("Invalid option.");
+//        }
+//        return true;
+//    }
 }

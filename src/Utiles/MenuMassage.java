@@ -26,6 +26,15 @@ public class MenuMassage {
             6-EXIT
             """;
 
+        public static String NURSE_MENU_MESSAGE = """
+            1- ADD NEW DOCTOR
+            2- EDIT DOCTOR
+            3- REMOVE DOCTOR
+            4- SEARCH DOCTOR BY NAME
+            5- ALL DOCTOR
+            6-EXIT
+            """;
+
         public static String MEDICAL_RECORD_MENU_MESSAGE = """
             1- ADD MEDICAL RECORD
             2- EDIT MEDICAL RECORD

@@ -52,6 +52,7 @@ public class MainApp {
                     Boolean nurseMenuContinue = true;
                     while (nurseMenuContinue) {
                         System.out.println("*********** Nurse Menu ***********");
+                        System.out.print(MenuMassage.NURSE_MENU_MESSAGE);
                         Integer nurseOption = Integer.parseInt(input.nextLine());
                         nurseMenuContinue = nurseService.handleNurseMenu(nurseOption);
                     }
@@ -60,6 +61,7 @@ public class MainApp {
                     Boolean recordMenuContinue = true;
                     while (recordMenuContinue) {
                         System.out.println("*********** Medical Record Menu ***********");
+                        System.out.print(MenuMassage.MEDICAL_RECORD_MENU_MESSAGE);
                         Integer recordOption = Integer.parseInt(input.nextLine());
                         recordMenuContinue = medicalRecordService.handleMedicalRecordMenu(recordOption);
                     }
@@ -68,6 +70,7 @@ public class MainApp {
                     Boolean deptMenuContinue = true;
                     while (deptMenuContinue) {
                         System.out.println("*********** Department Menu ***********");
+                        System.out.print(MenuMassage.APPOINTMENT_MENU_MESSAGE);
                         Integer deptOption = Integer.parseInt(input.nextLine());
                         deptMenuContinue = departmentService.handleDepartmentMenu(deptOption);
                     }
@@ -76,6 +79,7 @@ public class MainApp {
                     Boolean appointmentMenuContinue = true;
                     while (appointmentMenuContinue) {
                         System.out.println("*********** Appointment Menu ***********");
+                        System.out.print(MenuMassage.DOCTOR_MENU_MESSAGE);
                         Integer appointmentOption = Integer.parseInt(input.nextLine());
                         appointmentMenuContinue = appointmentService.handleAppointmentMenu(appointmentOption);
                     }

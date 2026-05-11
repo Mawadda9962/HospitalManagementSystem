@@ -72,7 +72,7 @@ public class DoctorService {
         List<String> availableSlots    = new ArrayList<>();
         List<String> assignedPatients  = new ArrayList<>();
 
-        // Step 5: Create and save the new doctor object
+        //Creating and save the new doctor object
         Doctor newDoctor = new Doctor(
                 doctorId,
                 firstName,

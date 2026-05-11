@@ -4,7 +4,6 @@ import Entities.Appointment;
 import Utiles.Constant;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -32,8 +31,18 @@ public class AppointmentService {
         System.out.print("Enter Doctor ID: ");
         String doctorId = scanner.nextLine().trim();
 
+        // --- Fixed Date Logic ---
         System.out.print("Enter Appointment Date (YYYY-MM-DD): ");
+        String dateInput = scanner.nextLine().trim();
         LocalDate date;
+
+        if (dateInput.length() == 10 && dateInput.charAt(4) == '-' && dateInput.charAt(7) == '-') {
+            date = LocalDate.parse(dateInput);
+        } else {
+            System.out.println("Invalid format. Defaulting to today's date.");
+            date = LocalDate.now();
+        }
+        // -------------------------
 
         System.out.print("Enter Appointment Time (e.g., 10:30 AM): ");
         String time = scanner.nextLine().trim();
@@ -65,7 +74,7 @@ public class AppointmentService {
     public void rescheduleAppointment(String id, LocalDate newDate, String newTime) {
         Appointment a = getAppointmentById(id);
         if (a != null) {
-            a.reschedule(newDate, newTime); // Calls logic from your entity
+            a.reschedule(newDate, newTime);
         } else {
             System.out.println("Appointment not found.");
         }
@@ -74,7 +83,7 @@ public class AppointmentService {
     public void cancelAppointment(String id) {
         Appointment a = getAppointmentById(id);
         if (a != null) {
-            a.cancel(); // Calls logic from your entity
+            a.cancel();
         } else {
             System.out.println("Appointment not found.");
         }
@@ -103,7 +112,7 @@ public class AppointmentService {
     }
 
     public void getAppointmentsByDoctor(String doctorId) {
-        System.out.println("Appointments for Doctor: " + doctorId + );
+        System.out.println("Appointments for Doctor: " + doctorId);
         boolean found = false;
         for (Appointment a : appointments) {
             if (a.getDoctorId().equalsIgnoreCase(doctorId)) {
@@ -143,7 +152,9 @@ public class AppointmentService {
                 System.out.print("Enter ID to reschedule: ");
                 String id = scanner.nextLine().trim();
                 System.out.print("Enter New Date (YYYY-MM-DD): ");
-                LocalDate d = LocalDate.parse(scanner.nextLine().trim());
+                String dateStr = scanner.nextLine().trim();
+                LocalDate d = (dateStr.length() == 10 && dateStr.charAt(4) == '-' && dateStr.charAt(7) == '-')
+                        ? LocalDate.parse(dateStr) : LocalDate.now();
                 System.out.print("Enter New Time: ");
                 String t = scanner.nextLine().trim();
                 rescheduleAppointment(id, d, t);
@@ -162,7 +173,12 @@ public class AppointmentService {
             }
             case 6 -> {
                 System.out.print("Enter Date (YYYY-MM-DD): ");
-                getAppointmentsByDate(LocalDate.parse(scanner.nextLine().trim()));
+                String dateStr = scanner.nextLine().trim();
+                if (dateStr.length() == 10 && dateStr.charAt(4) == '-' && dateStr.charAt(7) == '-') {
+                    getAppointmentsByDate(LocalDate.parse(dateStr));
+                } else {
+                    System.out.println("Invalid date format.");
+                }
             }
             case 7 -> displayAllAppointments();
             case 8 -> { return false; }

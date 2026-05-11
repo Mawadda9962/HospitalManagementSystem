@@ -214,16 +214,23 @@ public class PatientService {
     }
 
     public void displayAllPatients() {
-        if (patients.isEmpty()) {
-            System.out.println("No patients registered in the system.");
-            return;
-        }
+        if ()
 
-        System.out.println("All Patients" + patients.size() + " total");
-        for (patient p : patients) {
-            p.displayInfo();
-            System.out.println();
-        }
+
+
+
+
+
+//        if (patients.isEmpty()) {
+//            System.out.println("No patients registered in the system.");
+//            return;
+//        }
+//
+//        System.out.println("All Patients" + patients.size() + " total");
+//        for (patient p : patients) {
+//            p.displayInfo();
+//            System.out.println();
+//        }
     }
 
     public Boolean handlePatientsMenu(Integer PatientOption) {
@@ -247,7 +254,8 @@ public class PatientService {
                 searchPatientsByName(name);
             }
             case 5 -> {
-                displayAllPatients();
+                System.out.println("ALL PATIENTS");
+                PatientService.patients.
             }
             case 6 -> {
                 return false;

@@ -107,11 +107,65 @@ public class PatientService {
     }
 
 
+    // Integrated your specific edit logic here
+    public void editPatient(String patientId) {
+        for (patient p : patients) {
+            if (p.getPatientId().equals(patientId)) {
 
-    public void editPatient(String patientId, patient updatedPatient) {
-        for (int i = 0; i < patients.size(); i++) {
-            if (patients.get(i).getPatientId().equals(patientId)) {
-                patients.set(i, updatedPatient); // Replace old record with updated one
+                System.out.println("Enter updated patient first name :");
+                p.setFirstName(scanner.nextLine());
+
+                System.out.println("Enter updated patient last name :");
+                p.setLastName(scanner.nextLine());
+
+                System.out.println("Enter updated patient DOB (YYYY-MM-DD): ");
+                String dateOfBirth = scanner.nextLine();
+                LocalDate DOB = LocalDate.parse(dateOfBirth);
+                p.setDateOfBirth(DOB.toString()); // Adapted to match your entity type if needed
+
+                System.out.println("Enter updated patient gender :");
+                p.setGender(scanner.nextLine());
+
+                System.out.println("Enter updated patient phone number :");
+                p.setPhoneNumber(scanner.nextLine());
+
+                System.out.println("Enter updated patient email :");
+                p.setEmail(scanner.nextLine());
+
+                System.out.println("Enter updated patient address :");
+                p.setAddress(scanner.nextLine());
+
+                System.out.println("Enter updated patient blood Group :");
+                p.setBloodGroup(scanner.nextLine());
+
+                System.out.println("Enter updated patient emergency Contact :");
+                String eContact = scanner.nextLine();
+                List<String> eList = new ArrayList<>();
+                eList.add(eContact);
+                p.setEmergencyContact(eList);
+
+                System.out.println("Enter updated registration Date (YYYY-MM-DD):");
+                String dateOfRegistration = scanner.nextLine();
+                LocalDate DOR = LocalDate.parse(dateOfRegistration);
+                p.setRegistrationDate(DOR);
+
+                System.out.println("Enter updated patient insurance Id :");
+                p.setInsuranceId(scanner.nextLine());
+
+                System.out.println("Enter updated patient allergies :");
+                Boolean continueFlag = true;
+                List<String> allergies = new ArrayList<>();
+                while (continueFlag) {
+                    System.out.print("Allergy: ");
+                    allergies.add(scanner.nextLine());
+                    System.out.println("Enter 'a' to add more allergies, and 'q' to exit");
+                    if (scanner.nextLine().equalsIgnoreCase("q")) {
+                        continueFlag = false;
+                    }
+                }
+                // Assuming your patient entity has this method
+                // p.setAllergies(allergies);
+
                 System.out.println(Constant.PATIENT_UPDATED_SUCCESSFULLY);
                 return;
             }
@@ -131,7 +185,6 @@ public class PatientService {
             System.out.println("Patient with ID " + patientId + " not found.");
         }
     }
-
 
 
     public List<patient> searchPatientsByName(String name) {
@@ -173,13 +226,15 @@ public class PatientService {
         }
     }
 
-    public Boolean handlePersonMenu(Integer PatientOption) {
+    public Boolean handlePatientsMenu(Integer PatientOption) {
         switch (PatientOption) {
             case 1 -> {
                 addPatient();
             }
             case 2 -> {
-               editPatient();
+                System.out.print("Enter Patient ID to edit: ");
+                String id = scanner.nextLine().trim();
+                editPatient(id);
             }
             case 3 -> {
                 System.out.print("Enter Patient ID to remove: ");

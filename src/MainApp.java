@@ -36,7 +36,7 @@ public class MainApp {
                         System.out.print("Enter your choice: ");
 
                         Integer patientOption = Integer.parseInt(input.nextLine());
-                        patientMenuContinue = patientService.handlePersonMenu(patientOption);
+                        patientMenuContinue = patientService.handlePatientsMenu(patientOption);
                     }
                 }
                 case 2 -> {

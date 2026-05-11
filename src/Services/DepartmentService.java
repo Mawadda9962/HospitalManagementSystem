@@ -47,7 +47,7 @@ public class DepartmentService {
                 new ArrayList<>(),
                 capacity,
                 availableBeds
-        );
+        );t
 
         departments.add(newDept);
         System.out.println("Department added successfully!");

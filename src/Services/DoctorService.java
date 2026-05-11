@@ -96,16 +96,6 @@ public class DoctorService {
     }
 
 
-    // ─────────────────────────────────────────────
-    //  GET DOCTOR BY ID
-    // ─────────────────────────────────────────────
-
-    /**
-     * Searches for a doctor by their ID.
-     *
-     * @param doctorId The ID to search for.
-     * @return The matching doctor, or null if not found.
-     */
     public Doctor getDoctorById(String doctorId) {
         for (Doctor d : doctors) {
             if (d.getDoctorId().equals(doctorId)) {
@@ -116,21 +106,11 @@ public class DoctorService {
     }
 
 
-    // ─────────────────────────────────────────────
-    //  EDIT DOCTOR
-    // ─────────────────────────────────────────────
-
-    /**
-     * Replaces an existing doctor's data with updated data.
-     *
-     * @param doctorId      The ID of the doctor to update.
-     * @param updatedDoctor The new doctor object with updated details.
-     */
     public void editDoctor(String doctorId, Doctor updatedDoctor) {
         for (int i = 0; i < doctors.size(); i++) {
             if (doctors.get(i).getDoctorId().equals(doctorId)) {
                 doctors.set(i, updatedDoctor); // Replace old record with updated one
-                System.out.println("✓ " + Constant.DOCTOR_UPDATED_SUCCESSFULLY);
+                System.out.println(Constant.DOCTOR_UPDATED_SUCCESSFULLY);
                 return;
             }
         }

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class AppointmentService {
+public class AppointmentService extends Base implements  {
 
     private static final Scanner scanner = new Scanner(System.in);
 

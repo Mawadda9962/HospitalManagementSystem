@@ -1,6 +1,8 @@
 package Services;
 
 import Entities.MedicalRecord;
+import Interfaces.Manageable;
+import Interfaces.Searchable;
 import Utiles.Constant;
 
 import java.time.LocalDate;
@@ -8,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class MedicalRecordService {
+public class MedicalRecordService extends Base implements Manageable, Searchable {
 
     private static final Scanner scanner = new Scanner(System.in);
 
@@ -153,5 +155,30 @@ public class MedicalRecordService {
             default -> System.out.println("Invalid option.");
         }
         return true;
+    }
+
+    @Override
+    public void add(Object entity) {
+
+    }
+
+    @Override
+    public void remove(String id) {
+
+    }
+
+    @Override
+    public void getAll() {
+
+    }
+
+    @Override
+    public void search(String keyword) {
+
+    }
+
+    @Override
+    public void searchById(String id) {
+
     }
 }

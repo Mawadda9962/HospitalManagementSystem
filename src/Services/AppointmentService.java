@@ -237,6 +237,11 @@ public class AppointmentService {
         appointment.setReason(reason);
     }
 
+    public void displayAppointments(LocalDate date){
+
+        getAppointmentsByDate();
+    }
+
 
 
 

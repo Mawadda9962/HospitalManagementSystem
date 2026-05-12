@@ -40,7 +40,7 @@ public class patient extends Person {
         return bloodGroup;
     }
 
-    public static void setBloodGroup(String bloodGroup) {
+    public void setBloodGroup(String bloodGroup) {
         this.bloodGroup = bloodGroup;
     }
 

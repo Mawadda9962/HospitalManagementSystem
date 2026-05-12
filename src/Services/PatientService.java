@@ -1,5 +1,8 @@
 package Services;
 
+import Entities.EmergencyPatient;
+import Entities.InPatient;
+import Entities.OutPatient;
 import Entities.patient;
 import Utiles.Constant;
 
@@ -263,6 +266,31 @@ public class PatientService {
             if (patients.get(i).equals(keyword)) {
                 p.displayInfo();
             }
+        }
+    }
+
+    public void searchPatients(String firstName, String lastName) {
+        patient p =new patient();
+    }
+
+    public void displayPatients() {
+        displayAllPatients();
+    }
+
+    public void displayPatients(String filter) {
+        InPatient In = new InPatient();
+        OutPatient Out = new OutPatient();
+
+
+
+        System.out.println("Please enter the type of patient you want to display(InPatient/OutPatient/EmergencyPatient)");
+        filter = scanner.nextLine();
+        if (filter.equalsIgnoreCase("InPatient")) {
+            In.displayInfo();
+        } else if (filter.equalsIgnoreCase("OutPatient")) {
+            OutPatient.displayInfo();
+        } else {
+            EmergencyPatient.displayInfo();
         }
     }
 

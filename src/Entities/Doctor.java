@@ -16,7 +16,7 @@ public class Doctor extends Person {
     public Doctor(String id, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address, String doctorId, String specialization, String qualification, int experienceYears, String departmentId, double consultationFee, List<String> availableSlots, List<String> assignedPatients) {
         super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address, specialization, qualification, experienceYears, departmentId, consultationFee, availableSlots, assignedPatients);
 
-        // This part is CRITICAL. It saves the data to the Doctor object.
+        //Saving the data to the Doctor object.
         this.doctorId = doctorId;
         this.specialization = specialization;
         this.qualification = qualification;
@@ -168,5 +168,4 @@ public class Doctor extends Person {
             System.out.println("Added " + slots.size() + " new availability slots.");
         }
     }
-
 }

@@ -53,8 +53,10 @@ public class OutPatient extends patient {
         System.out.println("Follow-up scheduled for Patient ID: " + getPatientId());
     }
 
+    //updates the internal data of the object to reflect a new visit
     public void updateVisitCount(){
-
+        this.visitCount++;
+        this.lastVisitDate = LocalDate.now();
     }
 
 

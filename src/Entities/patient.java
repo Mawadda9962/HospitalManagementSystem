@@ -118,5 +118,22 @@ public class patient extends Person {
     }
 
 
+    public void updateContact(String phone){
+            this.setPhoneNumber(phone);
+            System.out.println("Phone number updated successfully.");
+        }
+
+    public void updateContact(String phone, String email) {
+        this.setPhoneNumber(phone);
+        this.setEmail(email);
+        System.out.println("Phone and Email updated successfully.");
+    }
+
+    public void updateContact(String phone, String email, String address) {
+        this.setPhoneNumber(phone);
+        this.setEmail(email);
+        this.setAddress(address);
+        System.out.println("Full contact details updated successfully.");
+    }
 
 }

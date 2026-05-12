@@ -266,8 +266,15 @@ public class PatientService {
         System.out.println("Enter patient phone: ");
         phone = scanner.nextLine();
         patient.setPhoneNumber(phone);
+    }
+
+    public void addPatient(String firstName, String lastName, String phone, String bloodGroup, String email){
+
 
     }
+
+
+
 
 
 

@@ -5,7 +5,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 public class InPatient extends patient {
-    private LocalDate admissionDate;
+    private LocalDate admissionDate; //
     private LocalDate dischargeDate;
     private String roomNumber;
     private String bedNumber;
@@ -86,8 +86,9 @@ public class InPatient extends patient {
     }
 
 
-    public void calculateTotalCharges() {
-
+    //getting the number of days * price per day for the room
+    public double calculateTotalCharges() {
+        return calculateStayDuration() * dailyCharges;
     }
 }
 

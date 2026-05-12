@@ -368,11 +368,28 @@ public class PatientService extends Base implements Manageable, Searchable {
     @Override
     public void search(String keyword) {
         System.out.println("Searching for: " + keyword);
+        boolean found = false;
+        for (patient p : patients) {
+            if (p.getFirstName().equalsIgnoreCase(keyword)
+                    || p.getLastName().equalsIgnoreCase(keyword)
+                    || p.getPatientId().equalsIgnoreCase(keyword)
+                    || p.getBloodGroup().equalsIgnoreCase(keyword)
+                    || p.getEmail().equalsIgnoreCase(keyword)) {
+                p.displayInfo();
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("No patients found matching: " + keyword);
+        }
     }
 
     @Override
     public void searchById(String id) {
-
-
+        patient p = getPatientById(id);
+        if (p != null) {
+            p.displayInfo();
+        } else {
+            System.out.println("No patient found with ID: " + id);
+        }
     }
-}

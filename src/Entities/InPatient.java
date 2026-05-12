@@ -98,25 +98,46 @@ public class InPatient extends patient implements Displayable, Billable {
 
     //getting the number of days * price per day for the room
     public double calculateTotalCharges() {
+
         return calculateStayDuration() * dailyCharges;
     }
 
     @Override
     public void calculateCharges() {
-
+        double total = calculateTotalCharges();
+        System.out.println("Stay Duration : " + calculateStayDuration() + " days");
+        System.out.println("Daily Rate    : " + getDailyCharges());
+        System.out.println("Total Charges : " + total);
     }
 
     @Override
     public void generateBill() {
+        System.out.println("********** BILL SUMMARY ***********");
+        System.out.println("Patient   : " + getFirstName() + " " + getLastName());
+        System.out.println("Room      : " + getRoomNumber() + " / Bed: " + getBedNumber());
+        System.out.println("Admitted  : " + getAdmissionDate());
+        System.out.println("Discharge : " + (getDischargeDate() != null ? getDischargeDate() : "Still Admitted"));
+        // Call calculateCharges() since we already implemented it above
+        calculateCharges();
+        System.out.println("***************************");
 
     }
 
     @Override
     public void processPayment(double amount) {
-
+        double totalDue = calculateTotalCharges();
+        if (amount >= totalDue) {
+            System.out.println("Payment of " + amount + " received. Bill fully paid.");
+            System.out.println("Change returned: " + (amount - totalDue));
+        } else {
+            System.out.println("Payment of " + amount + " received.");
+            System.out.println("Remaining balance: " + (totalDue - amount));
+        }
     }
 
+    //Default Constructor
     public InPatient() {
+
     }
 }
 

@@ -1,8 +1,10 @@
 package Entities;
 
+import Interfaces.Displayable;
+
 import java.util.List;
 
-public class Surgeon extends Doctor{
+public class Surgeon extends Doctor implements Displayable {
     private int surgeriesPerformed;
     private List<String> surgeryTypes;
     private boolean operationTheatreAccess;

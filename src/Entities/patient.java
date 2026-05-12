@@ -1,10 +1,11 @@
 package Entities;
 
+import Interfaces.Displayable;
 import Utiles.Constant;
 import java.time.LocalDate;
 import java.util.List;
 
-public class patient extends Person {
+public class patient extends Person implements Displayable {
 
     private String patientId;
     private String bloodGroup;
@@ -98,6 +99,15 @@ public class patient extends Person {
         System.out.println("Medical Records Count: " + (medicalRecords != null ? medicalRecords.size() : 0));
         System.out.println("Upcoming Appointments: " + (appointments != null ? appointments.size() : 0));
         System.out.println("--------------------------------");
+    }
+
+    @Override
+    public void displaySummary() {
+        System.out.println("***************** PATIENT SUMMERY ******************");
+        System.out.println("Name: " + getFirstName() + " " + getLastName());
+        System.out.println("Patient ID: " + patientId);
+        System.out.println("Registration Date: " + registrationDate);
+
     }
 
     public void addMedicalRecord(String medicalRecorde) {

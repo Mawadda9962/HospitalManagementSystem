@@ -146,8 +146,11 @@ public class Doctor extends Person {
     }
 
     public void updateFee(double fee){
-
+        this.consultationFee = fee;
+        System.out.println("Consultation fee updated to: "+ fee);
     }
+
+    public void
 
 
 }

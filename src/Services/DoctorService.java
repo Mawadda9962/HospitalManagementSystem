@@ -1,6 +1,7 @@
 package Services;
 
 import Entities.Doctor;
+import Entities.patient;
 import Utiles.Constant;
 
 import java.time.LocalDate;
@@ -214,7 +215,25 @@ public class DoctorService {
 
     }
 
-    public
+    public void addDoctor(Doctor doctor){
+
+
+    }
+
+    public void assignPatient(String doctorId, String patientId){
+
+
+    }
+
+    public void assignPatient(Doctor doctor, patient patient){
+
+    }
+
+    public void assignPatient(String doctorId, List<String> patientIds){
+
+
+    }
+
 
     public Boolean handleDoctorMenu(Integer doctorOption) {
         switch (doctorOption) {

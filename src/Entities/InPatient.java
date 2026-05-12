@@ -2,7 +2,7 @@ package Entities;
 
 import java.time.LocalDate;
 
-public class InPatient {
+public class InPatient extends patient{
     private LocalDate admissionDate;
     private LocalDate dischargeDate;
     private String roomNumber;

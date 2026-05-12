@@ -205,6 +205,17 @@ public class DoctorService {
         }
     }
 
+    public void addDoctor(String name, String specialization, String phone){
+
+
+    }
+
+    public void addDoctor(String name, String specialization, String phone, double consultationFee){
+
+    }
+
+    public
+
     public Boolean handleDoctorMenu(Integer doctorOption) {
         switch (doctorOption) {
             case 1 -> addDoctor();

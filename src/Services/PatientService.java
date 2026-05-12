@@ -266,6 +266,7 @@ public class PatientService {
 
 
 
+
     public Boolean handlePatientsMenu(Integer PatientOption) {
         switch (PatientOption) {
             case 1 -> {

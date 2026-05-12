@@ -49,5 +49,8 @@ public class EmergencyPatient extends InPatient {
         this.admittedViaER = admittedViaER;
     }
 
+    public void displayInfo() {
+
+    }
 
 }

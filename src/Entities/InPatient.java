@@ -71,6 +71,10 @@ public class InPatient extends patient{
     }
     @Override
     public void displayInfo() {
+        super.displayInfo();
+        System.out.println("Admission Date: " + admissionDate);
+        System.out.println("Room/Bed: " + roomNumber + " / " + bedNumber);
+        System.out.println("Daily Rate: $" + dailyCharges);
 
     }
 
@@ -80,5 +84,7 @@ public class InPatient extends patient{
     public void calculateTotalCharges(){
 
     }
+
+
 
 }

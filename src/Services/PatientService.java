@@ -256,6 +256,16 @@ public class PatientService {
 //        }
     }
 
+    public void addPatient(String firstName, String lastName, String phone){
+
+
+    }
+
+
+
+
+
+
     public Boolean handlePatientsMenu(Integer PatientOption) {
         switch (PatientOption) {
             case 1 -> {

@@ -38,9 +38,20 @@ public class Surgeon extends Doctor{
         this.operationTheatreAccess = operationTheatreAccess;
     }
 
-    public Surgeon(String id, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address, String doctorId, String specialization, String qualification, int experienceYears, String departmentId, double consultationFee, List<String> availableSlots, List<String> assignedPatients) {
-        super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address, doctorId, specialization, qualification, experienceYears, departmentId, consultationFee, availableSlots, assignedPatients);
+    @Override
+    public void displayInfo() {
+        // Person info (Name, Phone, etc.)
+        System.out.println(" Personal Details");
+        System.out.println("Name: " + getFirstName() + " " + getLastName());
+
     }
 
+    public void performSurgery() {
+
+        }
+
+    public void updateSurgeryCount(){
+
+    }
 
 }

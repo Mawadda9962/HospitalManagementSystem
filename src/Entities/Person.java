@@ -1,9 +1,11 @@
 package Entities;
 
+import Interfaces.Displayable;
+
 import java.util.List;
 import java.util.Objects;
 
-public class Person {
+public class Person implements Displayable {
     private String id;
     private  String firstName;
     private  String lastName;
@@ -40,7 +42,7 @@ public class Person {
         return lastName;
     }
 
-    public static void setLastName(String lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
@@ -72,7 +74,7 @@ public class Person {
         return phoneNumber;
     }
 
-    public static void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -95,6 +97,11 @@ public class Person {
  public void displayInfo(){
 
  }
+
+    @Override
+    public void displaySummary() {
+
+    }
 
 
     @Override

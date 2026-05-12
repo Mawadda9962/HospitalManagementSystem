@@ -42,15 +42,32 @@ public class Surgeon extends Doctor implements Displayable {
 
     @Override
     public void displayInfo() {
-        // Person info (Name, Phone, etc.)
-        System.out.println(" Personal Details");
-        System.out.println("Name: " + getFirstName() + " " + getLastName());
+        super.displayInfo();
+        System.out.println("--- Surgical Department Details ---");
+        System.out.println("Surgeries Performed : " + surgeriesPerformed);
+        System.out.println("Specialized in      : " + surgeryTypes);
+        System.out.println("OT Access Granted   : " + (operationTheatreAccess ? "Yes" : "No"));
+        System.out.println("===================================");
 
     }
 
-    public void performSurgery() {
+    @Override
+    public void displaySummary(){
+        System.out.println("Surgeon: Dr. " + getLastName());
+        System.out.println("Specialty: " + getSpecialization());
+        System.out.println("Total Surgeries: " + surgeriesPerformed);     ;
 
+    }
+
+    public void performSurgery(String surgeryType, String patientName) {
+        if (operationTheatreAccess) {
+            System.out.println("Dr. " + getLastName() + " is performing " + surgeryType + " on patient: " + patientName);
+            updateSurgeryCount();
+        } else {
+            System.out.println("Access Denied: Dr. " + getLastName() + " does not have Operation Theatre access.");
         }
+
+    }
 
     public void updateSurgeryCount(){
 

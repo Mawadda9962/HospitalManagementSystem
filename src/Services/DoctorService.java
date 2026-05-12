@@ -241,13 +241,13 @@ public class DoctorService {
     }
 
     public void addDoctor(Doctor doctor){
-        doctors.add(doctor);
-            addDoctor();
+        if(doctor != null) {
+            doctors.add(doctor);
+            System.out.println(Constant.DOCTOR_ADDED_SUCCESSFULLY);
         }
     }
 
     public void assignPatient(String doctorId, String patientId){
-       Scanner scanner =new Scanner(System.in);
         Doctor doctor = new Doctor();
 
         System.out.println("ASSIGNING PATIENT");
@@ -265,28 +265,54 @@ public class DoctorService {
     }
 
     public void assignPatient(Doctor doctor, patient patient){
+        patient.getPatientId();
+        doctor.getDoctorId();
+        PatientService.getPatientById();
+        getDoctorById(doctor.getDoctorId());
 
-
+        System.out.println(  patient.getPatientId() + "Assigned to: " + doctor.getDoctorId() );
     }
 
     public void assignPatient(String doctorId, List<String> patientIds){
+        System.out.println("ASSIGNING PATIENTS");
+        System.out.println("--------------------------------");
 
+        System.out.println("Please enter the doctor Id: ");
+        doctorId = scanner.nextLine();
 
+        while (true){
+            System.out.println("Please enter patient Ids (type exit to stop): ");
+            String patientId = scanner.nextLine();
+            if (patientId.equalsIgnoreCase("Exit")){
+                break;
+            }
+            patientIds.add(patientId);
+        }
+        System.out.println(patientIds+ "are assigned to: " + doctorId);
     }
+
 
     public void displayDoctors(){
-
-
+        displayAllDoctors();
     }
+
 
     public void displayDoctors(String specialization){
-
-
+        getDoctorsBySpecialization();
     }
 
-    public void displayDoctors(String departmentId, boolean showAvailableOnly){
-
-
+    public void displayDoctors(String departmentId, boolean showAvailableOnly) {
+        Doctor doctor = new Doctor();
+        System.out.println("Please enter department id: ");
+        departmentId = scanner.nextLine();
+        for (int i = 0; i < doctors.size(); i++) {
+            String searchedId = String.valueOf(doctors.get(i));
+            if (departmentId.equalsIgnoreCase(searchedId)) {
+                doctor.displayInfo();
+            } else {
+                System.out.println("NOT FOUND");
+            }
+        }
     }
 
 

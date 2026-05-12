@@ -238,21 +238,14 @@ public class AppointmentService {
     }
 
     public void displayAppointments(LocalDate date){
-
-        getAppointmentsByDate();
+        getAppointmentsByDate(date);
     }
 
-
-
-
-
-
-
-
-
-
-
-
+    public void displayAppointments(String doctorId, LocalDate startDate, LocalDate endDate){
+        Appointment appointment = new Appointment();
+        System.out.println("Doctor Id: " + appointment.getDoctorId());
+        System.out.println("Start Date: " + appointment.getAppointmentDate());
+    }
 
     public Boolean handleAppointmentMenu(Integer option) {
         switch (option) {

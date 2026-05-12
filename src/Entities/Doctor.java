@@ -150,7 +150,9 @@ public class Doctor extends Person {
         System.out.println("Consultation fee updated to: "+ fee);
     }
 
-    public void
+    public void updateFee(double fee, String reason){
+
+    }
 
 
 }

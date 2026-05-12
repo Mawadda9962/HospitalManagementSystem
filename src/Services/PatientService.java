@@ -280,6 +280,7 @@ public class PatientService {
     public void displayPatients(String filter) {
         InPatient In = new InPatient();
         OutPatient Out = new OutPatient();
+        EmergencyPatient Emergency = new EmergencyPatient();
 
 
 
@@ -288,25 +289,23 @@ public class PatientService {
         if (filter.equalsIgnoreCase("InPatient")) {
             In.displayInfo();
         } else if (filter.equalsIgnoreCase("OutPatient")) {
-            OutPatient.displayInfo();
+            Out.displayInfo();
         } else {
-            EmergencyPatient.displayInfo();
+            Emergency.displayInfo();
         }
     }
 
+    public void displayPatients(int limit) {
 
+        System.out.println("DISPLAYING LIMITED PATIENTS");
+        System.out.println("-------------------");
 
-
-
-
-
-
-
-
-
-
-
-
+        System.out.println("please enter the number of patients you want to display:");
+        limit = Integer.parseInt(scanner.nextLine());
+        for (int i = 0; i < limit && i < patients.size(); i++) {
+            displayPatients();
+        }
+    }
 
 
     public Boolean handlePatientsMenu(Integer PatientOption) {

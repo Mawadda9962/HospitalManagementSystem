@@ -16,6 +16,8 @@ public class OutPatient extends patient {
         this.preferredDoctorId = preferredDoctorId;
     }
 
+    public OutPatient() {
+    }
 
     public int getVisitCount() {
         return visitCount;

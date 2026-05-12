@@ -1,9 +1,11 @@
 package Entities;
 
+import Interfaces.Displayable;
+
 import java.time.LocalDate;
 import java.util.List;
 
-public class OutPatient extends patient {
+public class OutPatient extends patient implements Displayable {
     private int visitCount;
     private LocalDate lastVisitDate;
     private String preferredDoctorId;
@@ -49,6 +51,11 @@ public class OutPatient extends patient {
         System.out.println("Visit Count: " + visitCount);
         System.out.println("Last Visit: " + lastVisitDate);
         System.out.println("Preferred Doctor ID: " + preferredDoctorId);
+    }
+
+    @Override
+    public void displaySummary() {
+
     }
 
     //scheduling a future visit

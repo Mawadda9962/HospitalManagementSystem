@@ -65,19 +65,22 @@ public class Nurse extends Person implements Displayable {
     @Override
     public void displayInfo(){
         super.displayInfo(); // Calls Person's displayInfo
-        System.out.println("--- Nurse Specific Details ---");
+        System.out.println("************ Nurse Specific Details ************");
         System.out.println("Nurse ID: " + nurseId);
         System.out.println("Department ID: " + departmentId);
         System.out.println("Shift: " + shift);
         System.out.println("Qualification: " + qualification);
         System.out.println("Assigned Patients: " + assignedPatients);
-        System.out.println("------------------------------");
+        System.out.println("**********************************************");
 
     }
 
     @Override
     public void displaySummary() {
-
+        System.out.println("************ Nurse Specific Details ************");
+        System.out.println("Nurse ID: " + nurseId);
+        System.out.println("Department ID: " + departmentId);
+        System.out.println("Shift: " + shift);
     }
 
     @Override
@@ -90,5 +93,4 @@ public class Nurse extends Person implements Displayable {
                 ", assignedPatients=" + assignedPatients +
                 '}';
     }
-
 }

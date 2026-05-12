@@ -1,5 +1,6 @@
 package Interfaces;
 
 public interface Displayable {
-    public void
+    public void displayInfo();
+    public void displaySummary();
 }

@@ -177,12 +177,18 @@ public class NurseService extends Base implements Manageable, Searchable {
 
  @Override
  public void add(Object entity) {
-
+  if (entity instanceof Nurse) {
+   Nurse n = (Nurse) entity;
+   nurses.add(n);
+   System.out.println("Nurse added: " + n.getFirstName());
+  } else {
+   System.out.println("Invalid entity type. Expected a Nurse object.");
+      }
  }
 
  @Override
  public void remove(String id) {
-
+       removeNurse(id);
  }
 
  @Override

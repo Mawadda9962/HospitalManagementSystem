@@ -71,5 +71,4 @@ public class OutPatient extends patient implements Displayable {
         this.lastVisitDate = LocalDate.now();
     }
 
-
 }

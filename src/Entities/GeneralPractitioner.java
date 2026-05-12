@@ -25,4 +25,6 @@ public class GeneralPractitioner extends Doctor{
     public void setVaccinationCertified(boolean vaccinationCertified) {
         this.vaccinationCertified = vaccinationCertified;
     }
+
+
 }

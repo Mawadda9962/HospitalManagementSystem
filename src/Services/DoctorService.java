@@ -10,10 +10,10 @@ import java.util.Scanner;
 
 public class DoctorService {
 
-    private static final Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
 
     // Adding static list to store all doctors
-    private static final List<Doctor> doctors = new ArrayList<>();
+    private static  List<Doctor> doctors = new ArrayList<>();
 
     public void addDoctor() {
         System.out.println("********** Add New Doctor **********");
@@ -206,21 +206,61 @@ public class DoctorService {
     }
 
     public void addDoctor(String name, String specialization, String phone){
+        Doctor doctor = new Doctor();
+        System.out.println("Please enter Doctor first name: ");
+        name = scanner.nextLine();
+        doctor.setFirstName(name);
 
+        System.out.println("Please enter specialization: ");
+        specialization = scanner.nextLine();
+        doctor.setSpecialization(specialization);
+
+        System.out.println("Please enter phone number: ");
+        phone = scanner.nextLine();
+        doctor.setPhoneNumber(phone);
 
     }
 
     public void addDoctor(String name, String specialization, String phone, double consultationFee){
+        Doctor doctor = new Doctor();
+        System.out.println("Please enter Doctor first name: ");
+        name = scanner.nextLine();
+        doctor.setFirstName(name);
 
+        System.out.println("Please enter specialization: ");
+        specialization = scanner.nextLine();
+        doctor.setSpecialization(specialization);
+
+        System.out.println("Please enter phone number: ");
+        phone = scanner.nextLine();
+        doctor.setPhoneNumber(phone);
+
+        System.out.println("Please enter consultation Fee: ");
+        consultationFee = Double.parseDouble(scanner.nextLine());
+        doctor.setConsultationFee(consultationFee);
     }
 
     public void addDoctor(Doctor doctor){
-
-
+        doctors.add(doctor);
+            addDoctor();
+        }
     }
 
     public void assignPatient(String doctorId, String patientId){
+       Scanner scanner =new Scanner(System.in);
+        Doctor doctor = new Doctor();
 
+        System.out.println("ASSIGNING PATIENT");
+        System.out.println("--------------------------------");
+
+        System.out.println("Please enter the doctor Id: ");
+        doctorId = scanner.nextLine();
+
+        System.out.println("Please enter the patient Id: ");
+        patientId= scanner.nextLine();
+
+        doctor.assignPatient();
+        System.out.println(patientId + "This patient is assigned to "+ " "+ doctorId);
 
     }
 
@@ -282,4 +322,3 @@ public class DoctorService {
         }
         return true;
     }
-}

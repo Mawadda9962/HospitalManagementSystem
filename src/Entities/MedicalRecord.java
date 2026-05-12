@@ -1,8 +1,10 @@
 package Entities;
 
+import Interfaces.Displayable;
+
 import java.time.LocalDate;
 
-public class MedicalRecord {
+public class MedicalRecord implements Displayable {
     private String recordId;
     private String patientId;
     private String doctorId;
@@ -87,19 +89,30 @@ public class MedicalRecord {
         this.notes = notes;
     }
 
+
+
+    @Override
     public void displayInfo(){
-        System.out.println("======= MEDICAL RECORD =======");
+        System.out.println("********** MEDICAL RECORD **********");
         System.out.println("Record ID    : " + recordId);
         System.out.println("Date         : " + visitDate);
         System.out.println("Patient ID   : " + patientId);
         System.out.println("Doctor ID    : " + doctorId);
-        System.out.println("------------------------------");
+        System.out.println("************************************");
         System.out.println("Diagnosis    : " + diagnosis);
         System.out.println("Prescription : " + prescription);
         System.out.println("Test Results : " + testResults);
         System.out.println("Notes        : " + notes);
-        System.out.println("==============================");
+        System.out.println("************************************");
+    }
 
+    @Override
+    public void displaySummary() {
+        System.out.println("********** SUMMERY MEDICAL RECORD **********");
+        System.out.println("Record ID    : " + recordId);
+        System.out.println("Patient ID   : " + patientId);
+        System.out.println("Doctor ID    : " + doctorId);
+        System.out.println("Diagnosis    : " + diagnosis);
     }
 
     @Override

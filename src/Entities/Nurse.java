@@ -1,8 +1,10 @@
 package Entities;
 
+import Interfaces.Displayable;
+
 import java.util.List;
 
-public class Nurse extends Person {
+public class Nurse extends Person implements Displayable {
 
     private String nurseId;
     private String departmentId;
@@ -70,6 +72,11 @@ public class Nurse extends Person {
         System.out.println("Qualification: " + qualification);
         System.out.println("Assigned Patients: " + assignedPatients);
         System.out.println("------------------------------");
+
+    }
+
+    @Override
+    public void displaySummary() {
 
     }
 

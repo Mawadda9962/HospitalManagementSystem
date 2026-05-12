@@ -87,7 +87,8 @@ public class InPatient extends patient implements Displayable {
 
     @Override
     public void displaySummary() {
-
+        System.out.println("In-Patient: " + getFirstName() + " " + getLastName());
+        System.out.println("Room: " + roomNumber + "dmitted: " + admissionDate);
     }
 
     public long calculateStayDuration() {

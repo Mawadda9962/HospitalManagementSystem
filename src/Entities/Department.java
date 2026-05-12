@@ -1,8 +1,10 @@
 package Entities;
 
+import Interfaces.Displayable;
+
 import java.util.List;
 
-public class Department {
+public class Department implements Displayable {
     private String departmentId;
     private String departmentName;
     private String headDoctorId;
@@ -91,9 +93,18 @@ public class Department {
         }
 
     }
-    public void updateBedAvailability(){
+    public void updateBedAvailability(int ){
 
     }
 
 
+    @Override
+    public void displayInfo() {
+
+    }
+
+    @Override
+    public void displaySummary() {
+
+    }
 }

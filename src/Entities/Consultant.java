@@ -65,7 +65,10 @@ public class Consultant extends Doctor implements Displayable {
 
     @Override
     public void displaySummary() {
-
+        System.out.println("********* Consultant Summary **********");
+        System.out.println("Dr. " + getFirstName());
+        System.out.println("Specilaty : " + getSpecialization() );
+        System.out.println("available Slots : " + getAvailableSlots());
 
     }
 
@@ -80,9 +83,6 @@ public class Consultant extends Doctor implements Displayable {
         System.out.println("Consultant Dr. " + getLastName() + " is providing a second opinion.");
         System.out.println("Case Details Reviewed: " + caseDetails);
         System.out.println("Status: Finalizing Medical Report...");
-
-
     }
-
 
 }

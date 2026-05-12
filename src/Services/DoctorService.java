@@ -2,13 +2,15 @@ package Services;
 
 import Entities.Doctor;
 import Entities.patient;
+import Interfaces.Manageable;
+import Interfaces.Searchable;
 import Utiles.Constant;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class DoctorService {
+public class DoctorService extends Base implements Manageable, Searchable {
 
     private static Scanner scanner = new Scanner(System.in);
 
@@ -324,5 +326,30 @@ public class DoctorService {
             default -> System.out.println("Invalid option. Please choose 1-7.");
         }
         return true;
+    }
+
+    @Override
+    public void add(Object entity) {
+
+    }
+
+    @Override
+    public void remove(String id) {
+
+    }
+
+    @Override
+    public void getAll() {
+
+    }
+
+    @Override
+    public void search(String keyword) {
+
+    }
+
+    @Override
+    public void searchById(String id) {
+
     }
 }

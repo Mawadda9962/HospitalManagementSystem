@@ -1,13 +1,15 @@
 package Services;
 
 import Entities.Nurse;
+import Interfaces.Manageable;
+import Interfaces.Searchable;
 import Utiles.Constant;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class NurseService {
+public class NurseService extends Base implements Manageable, Searchable {
 
  private static final Scanner scanner = new Scanner(System.in);
 
@@ -171,5 +173,30 @@ public class NurseService {
    default -> System.out.println("Invalid option.");
   }
   return true;
+ }
+
+ @Override
+ public void add(Object entity) {
+
+ }
+
+ @Override
+ public void remove(String id) {
+
+ }
+
+ @Override
+ public void getAll() {
+
+ }
+
+ @Override
+ public void search(String keyword) {
+
+ }
+
+ @Override
+ public void searchById(String id) {
+
  }
 }

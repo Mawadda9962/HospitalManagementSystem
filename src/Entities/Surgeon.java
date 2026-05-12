@@ -27,7 +27,7 @@ public class Surgeon extends Doctor implements Displayable {
     public List<String> getSurgeryTypes() {
         return surgeryTypes;
     }
-c
+
     public void setSurgeryTypes(List<String> surgeryTypes) {
         this.surgeryTypes = surgeryTypes;
     }

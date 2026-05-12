@@ -125,4 +125,17 @@ public class Appointment {
 
     }
 
+    public void addNotes(String notes){
+        if (this.notes == null || this.notes.isEmpty()){
+            this.notes =notes;
+        }else {
+            this.notes += notes;
+        }
+        System.out.println("Simple note added to appointment");
+    }
+
+
+
+
+
 }

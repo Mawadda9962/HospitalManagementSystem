@@ -94,8 +94,9 @@ public class Appointment implements Displayable {
         this.notes = notes;
     }
 
+    @Override
     public void displayInfo(){
-        System.out.println("======= APPOINTMENT DETAILS =======");
+        System.out.println("********* APPOINTMENT DETAILS *********");
         System.out.println("ID        : " + appointmentId);
         System.out.println("Status    : " + status);
         System.out.println("Date/Time : " + appointmentDate + " at " + appointmentTime);
@@ -105,8 +106,16 @@ public class Appointment implements Displayable {
         if (notes != null && !notes.isEmpty()) {
             System.out.println("Notes     : " + notes);
         }
-        System.out.println("===================================");
+        System.out.println("*********************************");
 
+    }
+
+    @Override
+    public void displaySummary() {
+        System.out.println("********* APPOINTMENT SUMMARY *********");
+        System.out.println("ID        : " + appointmentId);
+        System.out.println("Status    : " + status);
+        System.out.println("Patient ID: " + patientId);
     }
 
     public void reschedule(LocalDate newData, String newTime){

@@ -133,14 +133,21 @@ public class Doctor extends Person {
             System.out.println("New availability slot added: ");
         }
 
-
     }
 
     public boolean isAvailable() {
+
         return available;
     }
 
     public void setAvailable(boolean available) {
+
         this.available = available;
     }
+
+    public void updateFee(double fee){
+
+    }
+
+
 }

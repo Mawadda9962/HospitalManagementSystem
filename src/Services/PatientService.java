@@ -363,16 +363,16 @@ public class PatientService extends Base implements Manageable, Searchable {
     public void getAll() {
         displayAllPatients();
 
-
     }
 
     @Override
     public void search(String keyword) {
-
+        System.out.println("Searching for: " + keyword);
     }
 
     @Override
     public void searchById(String id) {
+
 
     }
 }

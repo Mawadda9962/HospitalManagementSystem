@@ -25,27 +25,8 @@ public class patient extends Person {
         this.appointments = appointments;
     }
 
-    //    public patient(String id, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address, String specialization, String qualification, int experienceYears, String departmentId, double consultationFee, List<String> availableSlots, List<String> assignedPatients, String patientId, String bloodGroup, List<String> emergencyContact, LocalDate registrationDate, String insuranceId, List<String> medicalRecords, List<String> appointments) {
-//        super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address, specialization, qualification, experienceYears, departmentId, consultationFee, availableSlots, assignedPatients);
-//        this.patientId = patientId;
-//        this.bloodGroup = bloodGroup;
-//        this.emergencyContact = emergencyContact;
-//        this.registrationDate = registrationDate;
-//        this.insuranceId = insuranceId;
-//        this.medicalRecords = medicalRecords;
-//        this.appointments = appointments;
-//    }
-    //    public patient(String id, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address, String specialization, String qualification, int experienceYears, String departmentId, double consultationFee, List<String> availableSlots, List<String> assignedPatients, String patientId, String bloodGroup, List<String> emergencyContact, LocalDate registrationDate, String insuranceId, List<String> medicalRecords, List<String> appointments) {
-//        super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address, specialization, qualification, experienceYears, departmentId, consultationFee, availableSlots, assignedPatients);
-//        this.patientId = patientId;
-//        this.bloodGroup = bloodGroup;
-//        this.emergencyContact = emergencyContact;
-//        this.registrationDate = registrationDate;
-//        this.insuranceId = insuranceId;
-//        this.medicalRecords = medicalRecords;
-//        this.appointments = appointments;
-//    }
-
+    public patient() {
+    }
 
     public String getPatientId() {
         return patientId;
@@ -59,7 +40,7 @@ public class patient extends Person {
         return bloodGroup;
     }
 
-    public void setBloodGroup(String bloodGroup) {
+    public static void setBloodGroup(String bloodGroup) {
         this.bloodGroup = bloodGroup;
     }
 

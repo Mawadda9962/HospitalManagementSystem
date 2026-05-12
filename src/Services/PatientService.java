@@ -188,40 +188,6 @@ public class PatientService {
         }
     }
 
-//    public List<patient> searchPatientsByName(String name) {
-//        List<patient> results = new ArrayList<>();
-//
-//        // Safety check for the search term itself
-//        if (name == null || name.trim().isEmpty()) {
-//            System.out.println("Search term cannot be empty.");
-//            return results;
-//        }
-//
-//        String searchTerm = name.toLowerCase().trim();
-//
-//        for (patient p : patients) {
-//            // Use a null-safe check before calling toLowerCase()
-//            String fName = (p.getFirstName() != null) ? p.getFirstName().toLowerCase() : "";
-//            String lName = (p.getLastName() != null) ? p.getLastName().toLowerCase() : "";
-//
-//            if (fName.contains(searchTerm) || lName.contains(searchTerm)) {
-//                results.add(p);
-//            }
-//        }
-//
-//        if (results.isEmpty()) {
-//            System.out.println("No patients found with name: " + name);
-//        } else {
-//            System.out.println("Search Results for: " + name);
-//            for (patient p : results) {
-//                p.displayInfo();
-//            }
-//        }
-//
-//        return results;
-//
-//    }
-
 
     public void searchPatientsByName(String name){
         for(patient p : patients){
@@ -242,36 +208,69 @@ public class PatientService {
             p.displayInfo();
         }
 
-//        if (patients.isEmpty()) {
-//            System.out.println("No patients registered in the system.");
-//            return;
-//        }
-//
-//        System.out.println("All Patients" + patients.size() + " total");
-//        for (patient p : patients) {
-//            p.displayInfo();
-//            System.out.println();
-//        }
     }
 
     public void addPatient(String firstName, String lastName, String phone){
+        patient p =new patient();
         System.out.println("Enter patient first name: ");
         firstName = scanner.nextLine();
-        patient.setFirstName(firstName);
+        p.setFirstName(firstName);
 
         System.out.println("Enter patient last name: ");
         lastName = scanner.nextLine();
-        patient.setLastName(lastName);
+        p.setLastName(lastName);
 
         System.out.println("Enter patient phone: ");
         phone = scanner.nextLine();
-        patient.setPhoneNumber(phone);
+        p.setPhoneNumber(phone);
     }
 
     public void addPatient(String firstName, String lastName, String phone, String bloodGroup, String email){
+        patient p =new patient();
+        System.out.println("Enter patient first name: ");
+        firstName = scanner.nextLine();
+        p.setFirstName(firstName);
 
+        System.out.println("Enter patient last name: ");
+        lastName = scanner.nextLine();
+        p.setLastName(lastName);
+
+        System.out.println("Enter patient phone: ");
+        phone = scanner.nextLine();
+        p.setPhoneNumber(phone);
+
+        System.out.println("Enter patient bloodGroup: ");
+        phone = scanner.nextLine();
+        p.setBloodGroup(bloodGroup);
+
+        System.out.println("Please enter Email: ");
+        email = scanner.nextLine();
+        p.setEmail(email);
 
     }
+
+    public void addPatient(patient patient) {
+        patient p =new patient();
+        patients.add(patient);
+        addPatient();
+    }
+
+    public void searchPatients(String keyword) {
+        patient p =new patient();
+        System.out.println("You can search patient by any field:");
+        keyword = scanner.nextLine();
+        for (int i = 0; i < patients.size(); i++) {
+            if (patients.get(i).equals(keyword)) {
+                p.displayInfo();
+            }
+        }
+    }
+
+
+
+
+
+
 
 
 

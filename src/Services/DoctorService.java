@@ -266,6 +266,7 @@ public class DoctorService {
 
     public void assignPatient(Doctor doctor, patient patient){
 
+
     }
 
     public void assignPatient(String doctorId, List<String> patientIds){

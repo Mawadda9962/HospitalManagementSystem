@@ -1,6 +1,8 @@
 package Services;
 
 import Entities.Appointment;
+import Entities.Doctor;
+import Entities.patient;
 import Utiles.Constant;
 
 import java.time.LocalDate;
@@ -141,6 +143,111 @@ public class AppointmentService {
             a.displayInfo();
         }
     }
+
+    public void createAppointment(String patientId, String doctorId, LocalDate date){
+        patient p = new patient();
+        Doctor doctor = new Doctor();
+        Appointment appointment = new Appointment();
+
+
+        System.out.println("CREATING APPOINTMENT");
+        System.out.println("--------------------------------");
+
+        System.out.println("Please enter patient ID: ");
+        patientId = scanner.nextLine();
+        p.setPatientId(patientId);
+
+        System.out.println("Please enter Doctor ID: ");
+        doctorId = scanner.nextLine();
+        doctor.setDoctorId(doctorId);
+
+        System.out.println("Please enter appointment Date ");
+        date = LocalDate.parse(scanner.nextLine());
+        appointment.setAppointmentDate(date);
+    }
+
+    public void createAppointment(String patientId, String doctorId, LocalDate date, String time){
+        patient p = new patient();
+        Doctor doctor = new Doctor();
+        Appointment appointment = new Appointment();
+
+        System.out.println("CREATING APPOINTMENT");
+        System.out.println("--------------------------------");
+
+        System.out.println("Please enter patient ID: ");
+        patientId = scanner.nextLine();
+        p.setPatientId(patientId);
+
+        System.out.println("Please enter Doctor ID: ");
+        doctorId = scanner.nextLine();
+        doctor.setDoctorId(doctorId);
+
+        System.out.println("Please enter appointment Date ");
+        date = LocalDate.parse(scanner.nextLine());
+        appointment.setAppointmentDate(date);
+
+        System.out.println("Please enter appointment time ");
+        time = scanner.nextLine();
+        appointment.setAppointmentTime(time);
+    }
+
+    public void createAppointment(Appointment appointment){
+        patient p = new patient();
+    }
+
+    public void rescheduleAppointment(String appointmentId, LocalDate newDate){
+        Appointment appointment = new Appointment();
+
+        System.out.println("Please enter appointment Id ");
+        appointmentId = scanner.nextLine();
+        appointment.setAppointmentId(appointmentId);
+
+        System.out.println("Please enter appointment Date ");
+        newDate = LocalDate.parse(scanner.nextLine());
+        appointment.setAppointmentDate(newDate);
+    }
+
+   public void rescheduleAppointments(String appointmentId, LocalDate newDate, String newTime) {
+        Appointment appointment = new Appointment();
+
+        System.out.println("Please enter appointment Id ");
+        appointmentId = scanner.nextLine();
+        appointment.setAppointmentId(appointmentId);
+
+        System.out.println("Please enter appointment Date ");
+        newDate = LocalDate.parse(scanner.nextLine());
+        appointment.setAppointmentDate(newDate);
+
+        System.out.println("Please enter appointment time ");
+        newTime = scanner.nextLine();
+        appointment.setAppointmentTime(newTime);
+    }
+
+    public void  rescheduleAppointment(Appointment appointment, LocalDate newDate, String newTime, String reason) {
+        System.out.println("Please enter appointment Date ");
+        newDate = LocalDate.parse(scanner.nextLine());
+        appointment.setAppointmentDate(newDate);
+
+        System.out.println("Please enter appointment time ");
+        newTime = scanner.nextLine();
+        appointment.setAppointmentTime(newTime);
+
+        System.out.println("Please enter reason ");
+        reason = scanner.nextLine();
+        appointment.setReason(reason);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
     public Boolean handleAppointmentMenu(Integer option) {
         switch (option) {

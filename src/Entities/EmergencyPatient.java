@@ -53,6 +53,11 @@ public class EmergencyPatient extends InPatient {
     }
 
     public void displayInfo() {
+        super.displayInfo();
+
+        System.out.println("******** Emergency Details ********");
+        System.out.println("Emergency Type  : " + emergencyType);
+        System.out.println();
 
     }
 

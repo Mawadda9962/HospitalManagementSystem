@@ -1,9 +1,10 @@
 package Entities;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
-public class InPatient extends patient{
+public class InPatient extends patient {
     private LocalDate admissionDate;
     private LocalDate dischargeDate;
     private String roomNumber;
@@ -69,6 +70,7 @@ public class InPatient extends patient{
     public void setDailyCharges(double dailyCharges) {
         this.dailyCharges = dailyCharges;
     }
+
     @Override
     public void displayInfo() {
         super.displayInfo();
@@ -78,13 +80,17 @@ public class InPatient extends patient{
 
     }
 
-    public void calculateStayDuration(){
-
-    }
-    public void calculateTotalCharges(){
-
+    public long calculateStayDuration() {
+        LocalDate end = (dischargeDate != null) ? dischargeDate : LocalDate.now();
+        return ChronoUnit.DAYS.between(admissionDate, end);
     }
 
 
+    public void calculateTotalCharges() {
 
+    }
 }
+
+
+
+

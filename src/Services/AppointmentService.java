@@ -3,6 +3,7 @@ package Services;
 import Entities.Appointment;
 import Entities.Doctor;
 import Entities.patient;
+import Interfaces.Appointable;
 import Interfaces.Manageable;
 import Interfaces.Searchable;
 import Utiles.Constant;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class AppointmentService extends Base implements Manageable, Searchable {
+public class AppointmentService extends Base implements Manageable, Searchable, Appointable {
 
     private static final Scanner scanner = new Scanner(System.in);
 
@@ -80,6 +81,7 @@ public class AppointmentService extends Base implements Manageable, Searchable {
             System.out.println("Appointment not found.");
         }
     }
+
 
     public void cancelAppointment(String id) {
         Appointment a = getAppointmentById(id);
@@ -315,4 +317,9 @@ public class AppointmentService extends Base implements Manageable, Searchable {
     public void searchById(String id) {
 
     }
+    @Override
+    public void scheduleAppointment(Appointment appointment) {
+
+    }
+
 }

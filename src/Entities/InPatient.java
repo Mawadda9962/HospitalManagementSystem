@@ -1,12 +1,13 @@
 package Entities;
 
+import Interfaces.Billable;
 import Interfaces.Displayable;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 
-public class InPatient extends patient implements Displayable {
+public class InPatient extends patient implements Displayable, Billable {
     private LocalDate admissionDate; //Entering day
     private LocalDate dischargeDate; //Exit day
     private String roomNumber;
@@ -25,8 +26,6 @@ public class InPatient extends patient implements Displayable {
         this.dailyCharges = dailyCharges;
     }
 
-    public InPatient() {
-    }
 
     public LocalDate getAdmissionDate() {
         return admissionDate;
@@ -100,6 +99,24 @@ public class InPatient extends patient implements Displayable {
     //getting the number of days * price per day for the room
     public double calculateTotalCharges() {
         return calculateStayDuration() * dailyCharges;
+    }
+
+    @Override
+    public void calculateCharges() {
+
+    }
+
+    @Override
+    public void generateBill() {
+
+    }
+
+    @Override
+    public void processPayment(double amount) {
+
+    }
+
+    public InPatient() {
     }
 }
 

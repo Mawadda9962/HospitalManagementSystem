@@ -152,8 +152,16 @@ public class Doctor extends Person {
 
     public void updateFee(double fee, String reason){
         this.consultationFee = fee;
-
+        System.out.println("Consultation fee updated to: " + fee + ". Reason: " + reason);
     }
+
+    public void addAvailability(String slot) {
+        if (this.availableSlots != null) {
+            this.availableSlots.add(slot);
+            System.out.println("Added availability slot: " + slot);
+        }
+    }
+
 
 
 }

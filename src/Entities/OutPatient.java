@@ -42,7 +42,10 @@ public class OutPatient extends patient {
 
     @Override
     public void displayInfo() {
-
+        super.displayInfo();
+        System.out.println("Visit Count: " + visitCount);
+        System.out.println("Last Visit: " + lastVisitDate);
+        System.out.println("Preferred Doctor ID: " + preferredDoctorId);
     }
 
     public void scheduleFollowUp(){

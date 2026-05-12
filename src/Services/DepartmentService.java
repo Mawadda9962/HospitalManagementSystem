@@ -165,16 +165,44 @@ public class DepartmentService extends Base implements Manageable, Searchable {
 
     @Override
     public void getAll() {
-
+        displayAllDepartments();
     }
 
     @Override
     public void search(String keyword) {
-
-    }
+        boolean found = false;
+        for (Department d : departments) {
+            if (d.getDepartmentId().equalsIgnoreCase(keyword)
+                    || d.getDepartmentName().equalsIgnoreCase(keyword)
+                    || d.getHeadDoctorId().equalsIgnoreCase(keyword)) {
+                System.out.println("-----------------------------------");
+                System.out.println("ID: " + d.getDepartmentId());
+                System.out.println("Name: " + d.getDepartmentName());
+                System.out.println("Head Doctor: " + d.getHeadDoctorId());
+                System.out.println("Beds: " + d.getAvailableBeds() + "/" + d.getBedCapacity());
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("No departments found matching: " + keyword);
+          }
+       }
 
     @Override
     public void searchById(String id) {
-
+        Department d = getDepartmentById(id);
+        if (d != null) {
+            System.out.println("-----------------------------------");
+            System.out.println("ID: " + d.getDepartmentId());
+            System.out.println("Name: " + d.getDepartmentName());
+            System.out.println("Head Doctor: " + d.getHeadDoctorId());
+            System.out.println("Beds: " + d.getAvailableBeds() + "/" + d.getBedCapacity());
+            System.out.println("Doctors Count: " + d.getDoctors().size());
+            System.out.println("Nurses Count: " + d.getNurses().size());
+        } else {
+            System.out.println("No department found with ID: " + id);
+          }
+       }
     }
-}
+
+

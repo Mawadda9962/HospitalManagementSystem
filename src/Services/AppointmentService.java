@@ -148,7 +148,7 @@ public class AppointmentService extends Base implements Manageable, Searchable, 
         }
     }
 
-    public void createAppointment(String patientId, String doctorId, LocalDate date){
+    public void createAppointment(String patientId, String doctorId, LocalDate date) {
         patient p = new patient();
         Doctor doctor = new Doctor();
         Appointment appointment = new Appointment();
@@ -170,7 +170,7 @@ public class AppointmentService extends Base implements Manageable, Searchable, 
         appointment.setAppointmentDate(date);
     }
 
-    public void createAppointment(String patientId, String doctorId, LocalDate date, String time){
+    public void createAppointment(String patientId, String doctorId, LocalDate date, String time) {
         patient p = new patient();
         Doctor doctor = new Doctor();
         Appointment appointment = new Appointment();
@@ -195,11 +195,11 @@ public class AppointmentService extends Base implements Manageable, Searchable, 
         appointment.setAppointmentTime(time);
     }
 
-    public void createAppointment(Appointment appointment){
+    public void createAppointment(Appointment appointment) {
         patient p = new patient();
     }
 
-    public void rescheduleAppointment(String appointmentId, LocalDate newDate){
+    public void rescheduleAppointment(String appointmentId, LocalDate newDate) {
         Appointment appointment = new Appointment();
 
         System.out.println("Please enter appointment Id ");
@@ -211,7 +211,7 @@ public class AppointmentService extends Base implements Manageable, Searchable, 
         appointment.setAppointmentDate(newDate);
     }
 
-   public void rescheduleAppointments(String appointmentId, LocalDate newDate, String newTime) {
+    public void rescheduleAppointments(String appointmentId, LocalDate newDate, String newTime) {
         Appointment appointment = new Appointment();
 
         System.out.println("Please enter appointment Id ");
@@ -227,7 +227,7 @@ public class AppointmentService extends Base implements Manageable, Searchable, 
         appointment.setAppointmentTime(newTime);
     }
 
-    public void  rescheduleAppointment(Appointment appointment, LocalDate newDate, String newTime, String reason) {
+    public void rescheduleAppointment(Appointment appointment, LocalDate newDate, String newTime, String reason) {
         System.out.println("Please enter appointment Date ");
         newDate = LocalDate.parse(scanner.nextLine());
         appointment.setAppointmentDate(newDate);
@@ -241,11 +241,11 @@ public class AppointmentService extends Base implements Manageable, Searchable, 
         appointment.setReason(reason);
     }
 
-    public void displayAppointments(LocalDate date){
+    public void displayAppointments(LocalDate date) {
         getAppointmentsByDate(date);
     }
 
-    public void displayAppointments(String doctorId, LocalDate startDate, LocalDate endDate){
+    public void displayAppointments(String doctorId, LocalDate startDate, LocalDate endDate) {
         Appointment appointment = new Appointment();
         System.out.println("Doctor Id: " + appointment.getDoctorId());
         System.out.println("Start Date: " + appointment.getAppointmentDate());
@@ -287,7 +287,9 @@ public class AppointmentService extends Base implements Manageable, Searchable, 
                 }
             }
             case 7 -> displayAllAppointments();
-            case 8 -> { return false; }
+            case 8 -> {
+                return false;
+            }
             default -> System.out.println("Invalid option.");
         }
         return true;
@@ -295,31 +297,63 @@ public class AppointmentService extends Base implements Manageable, Searchable, 
 
     @Override
     public void add(Object entity) {
-
+        if (entity instanceof Appointment) {
+            Appointment a = (Appointment) entity;
+            appointments.add(a);
+            System.out.println("Appointment added: " + a.getAppointmentId());
+        } else {
+            System.out.println("Invalid entity type. Expected an Appointment object.");
+        }
     }
 
     @Override
     public void remove(String id) {
+        removeAppointment(id);
 
     }
 
     @Override
     public void getAll() {
+        displayAllAppointments();
 
     }
 
     @Override
     public void search(String keyword) {
-
+        boolean found = false;
+        for (Appointment a : appointments) {
+            if (a.getPatientId().equalsIgnoreCase(keyword)
+                    || a.getDoctorId().equalsIgnoreCase(keyword)
+                    || a.getStatus().equalsIgnoreCase(keyword)
+                    || a.getReason().equalsIgnoreCase(keyword)) {
+                a.displayInfo();
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("No appointments found matching: " + keyword);
+        }
     }
 
     @Override
     public void searchById(String id) {
-
+        Appointment a = getAppointmentById(id);
+        if (a != null) {
+            a.displayInfo();
+        } else {
+            System.out.println("No appointment found with ID: " + id);
+        }
     }
+
     @Override
     public void scheduleAppointment(Appointment appointment) {
-
+        if (appointment != null) {
+            appointments.add(appointment);
+            System.out.println("Appointment scheduled: " + appointment.getAppointmentId());
+        } else {
+            System.out.println("Cannot schedule a null appointment.");
+        }
     }
 
+    //Two methods left to add
 }

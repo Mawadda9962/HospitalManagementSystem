@@ -344,6 +344,13 @@ public class PatientService extends Base implements Manageable, Searchable {
 
     @Override
     public void add(Object entity) {
+        if (entity instanceof patient) {
+            patient p = (patient) entity; // cast Object → patient
+            patients.add(p);
+            System.out.println("Patient added via interface: " + p.getFirstName());
+        } else {
+            System.out.println("Invalid entity type. Expected a Patient object.");
+        }
 
     }
 

@@ -169,8 +169,6 @@ public class PatientService {
                         continueFlag = false;
                     }
                 }
-                // Assuming your patient entity has this method
-                // p.setAllergies(allergies);
 
                 System.out.println(Constant.PATIENT_UPDATED_SUCCESSFULLY);
                 return;
@@ -257,6 +255,7 @@ public class PatientService {
     }
 
     public void addPatient(String firstName, String lastName, String phone){
+
 
 
     }

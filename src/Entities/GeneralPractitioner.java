@@ -43,19 +43,24 @@ public class GeneralPractitioner extends Doctor  {
 
     @Override
     public void displaySummary(){
-        System.out.println("******** GP Specific Services **********");
-
-
-
-
+        System.out.println("******** GP SUMMERY **********");
+        System.out.println("Walk-in Appointments : " + (walkinAvailable ? "Yes" : "No"));
+        System.out.println("Home Visits          : " + (homeVisitAvailable ? "Available" : "Not Available"));
     }
 
     public void scheduleHomeVisit(String address){
-
+        if (homeVisitAvailable) {
+            System.out.println("Home visit scheduled with Dr. " + getLastName() + " to address: " + address);
+        } else {
+            System.out.println("Sorry, Dr. " + getLastName() + " does not provide home visits.");
+        }
     }
 
     public void administerVaccine(String vaccineName){
-
-
+        if (vaccinationCertified) {
+            System.out.println("Administering " + vaccineName + " vaccine by Dr. " + getLastName());
+        } else {
+            System.out.println("Error: This doctor is not certified to administer vaccines.");
+        }
     }
 }

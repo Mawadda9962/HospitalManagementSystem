@@ -1,10 +1,12 @@
 package Entities;
 
+import Interfaces.Displayable;
+
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 
-public class InPatient extends patient {
+public class InPatient extends patient implements Displayable {
     private LocalDate admissionDate; //Entering day
     private LocalDate dischargeDate; //Exit day
     private String roomNumber;
@@ -79,7 +81,12 @@ public class InPatient extends patient {
         super.displayInfo();
         System.out.println("Admission Date: " + admissionDate);
         System.out.println("Room/Bed: " + roomNumber + " / " + bedNumber);
-        System.out.println("Daily Rate: $" + dailyCharges);
+        System.out.println("Daily Rate: " + dailyCharges);
+
+    }
+
+    @Override
+    public void displaySummary() {
 
     }
 

@@ -40,7 +40,7 @@ public class Person {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public static void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
@@ -48,7 +48,7 @@ public class Person {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public static void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
@@ -72,7 +72,7 @@ public class Person {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public static void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

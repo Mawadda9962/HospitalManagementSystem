@@ -255,8 +255,17 @@ public class PatientService {
     }
 
     public void addPatient(String firstName, String lastName, String phone){
+        System.out.println("Enter patient first name: ");
+        firstName = scanner.nextLine();
+        patient.setFirstName(firstName);
 
+        System.out.println("Enter patient last name: ");
+        lastName = scanner.nextLine();
+        patient.setLastName(lastName);
 
+        System.out.println("Enter patient phone: ");
+        phone = scanner.nextLine();
+        patient.setPhoneNumber(phone);
 
     }
 

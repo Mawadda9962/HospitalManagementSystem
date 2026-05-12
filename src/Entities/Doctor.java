@@ -151,6 +151,7 @@ public class Doctor extends Person {
     }
 
     public void updateFee(double fee, String reason){
+        this.consultationFee = fee;
 
     }
 

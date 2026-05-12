@@ -5,12 +5,12 @@ import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 public class InPatient extends patient {
-    private LocalDate admissionDate; //
-    private LocalDate dischargeDate;
+    private LocalDate admissionDate; //Entering day
+    private LocalDate dischargeDate; //Exit day
     private String roomNumber;
     private String bedNumber;
     private String admittingDoctorId;
-    private double dailyCharges;
+    private double dailyCharges; //Price
 
 
     public InPatient(String id, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address, String specialization, String qualification, int experienceYears, String departmentId, double consultationFee, List<String> availableSlots, List<String> assignedPatients, String patientId, String bloodGroup, List<String> emergencyContact, LocalDate registrationDate, String insuranceId, List<String> medicalRecords, List<String> appointments, LocalDate admissionDate, LocalDate dischargeDate, String roomNumber, String bedNumber, String admittingDoctorId, double dailyCharges) {

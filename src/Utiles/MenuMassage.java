@@ -3,13 +3,15 @@ package Utiles;
 public class MenuMassage {
 
         public static String MAIN_MENU_MESSAGE = """
-            1- Patient Menu
-            2- Doctor Menu
-            3- Nurse Menu
-            4- Medical Recorde Menu
-            5- Appointment Menu
-            6- Department Menu
-            2- Exit
+            1- Register New Patient
+            2- Register InPatient
+            3- Register OutPatient
+            4- Register Emergency Patient
+            5- View All Patients
+            6- Search Patient
+            7- Update Patient Information
+            8- Remove Patient
+            9- View Patient Medical History
             """;
 
         public static String PATIENT_MENU_MESSAGE = """

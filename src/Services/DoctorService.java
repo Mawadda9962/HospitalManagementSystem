@@ -234,6 +234,21 @@ public class DoctorService {
 
     }
 
+    public void displayDoctors(){
+
+
+    }
+
+    public void displayDoctors(String specialization){
+
+
+    }
+
+    public void displayDoctors(String departmentId, boolean showAvailableOnly){
+
+
+    }
+
 
     public Boolean handleDoctorMenu(Integer doctorOption) {
         switch (doctorOption) {

@@ -38,4 +38,21 @@ public class Consultant extends Doctor {
     public void setConsultationDuration(int consultationDuration) {
         this.consultationDuration = consultationDuration;
     }
+
+    @Override
+    public void displayInfo() {
+        System.out.println(" Personal Details");
+        System.out.println("Name: " + getFirstName() + " " + getLastName());
+
+    }
+    public void scheduleConsultation(){
+
+
+    }
+    public void provideSecondOpinion(){
+
+
+    }
+
+
 }

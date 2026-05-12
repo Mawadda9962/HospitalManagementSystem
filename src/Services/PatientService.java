@@ -195,9 +195,9 @@ public class PatientService extends Base implements Manageable, Searchable {
     }
 
 
-    public void searchPatientsByName(String name){
-        for(patient p : patients){
-            if(p.getFirstName().equalsIgnoreCase(name) || p.getLastName().equalsIgnoreCase(name)){
+    public void searchPatientsByName(String name) {
+        for (patient p : patients) {
+            if (p.getFirstName().equalsIgnoreCase(name) || p.getLastName().equalsIgnoreCase(name)) {
                 p.displayInfo();
             }
         }
@@ -205,7 +205,7 @@ public class PatientService extends Base implements Manageable, Searchable {
 
 
     public void displayAllPatients() {
-        if (patients.isEmpty()){
+        if (patients.isEmpty()) {
             System.out.println("No Patients registered in the system! ");
             return;
         }
@@ -216,8 +216,8 @@ public class PatientService extends Base implements Manageable, Searchable {
 
     }
 
-    public void addPatient(String firstName, String lastName, String phone){
-        patient p =new patient();
+    public void addPatient(String firstName, String lastName, String phone) {
+        patient p = new patient();
         System.out.println("Enter patient first name: ");
         firstName = scanner.nextLine();
         p.setFirstName(firstName);
@@ -231,8 +231,8 @@ public class PatientService extends Base implements Manageable, Searchable {
         p.setPhoneNumber(phone);
     }
 
-    public void addPatient(String firstName, String lastName, String phone, String bloodGroup, String email){
-        patient p =new patient();
+    public void addPatient(String firstName, String lastName, String phone, String bloodGroup, String email) {
+        patient p = new patient();
         System.out.println("Enter patient first name: ");
         firstName = scanner.nextLine();
         p.setFirstName(firstName);
@@ -256,13 +256,12 @@ public class PatientService extends Base implements Manageable, Searchable {
     }
 
     public void addPatient(patient patient) {
-        patient p =new patient();
-        patients.add(patient);
-        addPatient();
+        patients.add(patient);  // just add the patient object directly
+        System.out.println("Patient added successfully.");
     }
 
     public void searchPatients(String keyword) {
-        patient p =new patient();
+        patient p = new patient();
         System.out.println("You can search patient by any field:");
         keyword = scanner.nextLine();
         for (int i = 0; i < patients.size(); i++) {
@@ -273,7 +272,7 @@ public class PatientService extends Base implements Manageable, Searchable {
     }
 
     public void searchPatients(String firstName, String lastName) {
-        patient p =new patient();
+        patient p = new patient();
     }
 
     public void displayPatients() {
@@ -284,7 +283,6 @@ public class PatientService extends Base implements Manageable, Searchable {
         InPatient In = new InPatient();
         OutPatient Out = new OutPatient();
         EmergencyPatient Emergency = new EmergencyPatient();
-
 
 
         System.out.println("Please enter the type of patient you want to display(InPatient/OutPatient/EmergencyPatient)");
@@ -393,3 +391,4 @@ public class PatientService extends Base implements Manageable, Searchable {
             System.out.println("No patient found with ID: " + id);
         }
     }
+}

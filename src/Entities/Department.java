@@ -93,18 +93,30 @@ public class Department implements Displayable {
         }
 
     }
-    public void updateBedAvailability(int ){
-
+    public void updateBedAvailability(int occupiedBeds){
+        if (occupiedBeds <= bedCapacity) {
+        this.availableBeds = bedCapacity - occupiedBeds;
+        System.out.println("Beds updated in " + departmentName + ". Available: " + availableBeds);
+    } else {
+        System.out.println("Error: Occupied beds exceed total capacity!");
+          }
     }
 
 
     @Override
     public void displayInfo() {
-
+        System.out.println("************* Department Details *************");
+        System.out.println("ID        : " + departmentId);
+        System.out.println("Name      : " + departmentName);
+        System.out.println("Head MD ID: " + headDoctorId);
+        System.out.println("Capacity  : " + bedCapacity + " beds");
+        System.out.println("Available : " + availableBeds + " beds");
     }
 
     @Override
     public void displaySummary() {
-
+        System.out.println("Name      : " + departmentName);
+        System.out.println("Capacity  : " + bedCapacity + " beds");
+        System.out.println("Available : " + availableBeds + " beds");
     }
 }

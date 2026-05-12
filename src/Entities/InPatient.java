@@ -74,6 +74,11 @@ public class InPatient extends patient{
 
     }
 
+    public void calculateStayDuration(){
 
+    }
+    public void calculateTotalCharges(){
+
+    }
 
 }

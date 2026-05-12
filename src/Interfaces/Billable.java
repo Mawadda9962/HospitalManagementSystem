@@ -1,5 +1,7 @@
 package Interfaces;
 
 public class Billable {
-    p
+    void displayInfo();
+    void displaySummary();
+
 }

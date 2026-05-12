@@ -40,5 +40,16 @@ public class OutPatient extends patient {
         this.preferredDoctorId = preferredDoctorId;
     }
 
+    @Override
+    public void displayInfo() {
+
+    }
+
+    public void scheduleFollowUp(){
+
+    }
+
+    public
+
 
 }

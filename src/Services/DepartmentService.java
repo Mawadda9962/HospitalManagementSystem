@@ -149,12 +149,18 @@ public class DepartmentService extends Base implements Manageable, Searchable {
 
     @Override
     public void add(Object entity) {
-
+        if (entity instanceof Department) {
+            Department d = (Department) entity;
+            departments.add(d);
+            System.out.println("Department added: " + d.getDepartmentName());
+        } else {
+            System.out.println("Invalid entity type. Expected a Department object.");
+        }
     }
 
     @Override
     public void remove(String id) {
-
+        removeDepartment(id);
     }
 
     @Override

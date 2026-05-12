@@ -330,26 +330,50 @@ public class DoctorService extends Base implements Manageable, Searchable {
 
     @Override
     public void add(Object entity) {
-
+        if (entity instanceof Doctor) {
+            Doctor d = (Doctor) entity;
+            doctors.add(d);
+            System.out.println("Doctor added: " + d.getFirstName());
+        } else {
+            System.out.println("Invalid entity type. Expected a Doctor object.");
+        }
     }
 
     @Override
     public void remove(String id) {
-
+        removeDoctor(id);
     }
 
     @Override
     public void getAll() {
-
+        displayAllDoctors();
     }
 
     @Override
     public void search(String keyword) {
-
+        boolean found = false;
+        for (Doctor d : doctors) {
+            if (d.getFirstName().equalsIgnoreCase(keyword)
+                    || d.getLastName().equalsIgnoreCase(keyword)
+                    || d.getDoctorId().equalsIgnoreCase(keyword)
+                    || d.getSpecialization().equalsIgnoreCase(keyword)
+                    || d.getDepartmentId().equalsIgnoreCase(keyword)) {
+                d.displayInfo();
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("No doctors found matching: " + keyword);
+        }
     }
 
     @Override
     public void searchById(String id) {
-
+        Doctor d = getDoctorById(id);
+        if (d != null) {
+            d.displayInfo();
+        } else {
+            System.out.println("No doctor found with ID: " + id);
+        }
     }
 }

@@ -169,7 +169,9 @@ public class NurseService extends Base implements Manageable, Searchable {
     getNursesByShift(scanner.nextLine().trim());
    }
    case 6 -> displayAllNurses();
-   case 7 -> { return false; }
+   case 7 -> {
+    return false;
+   }
    default -> System.out.println("Invalid option.");
   }
   return true;
@@ -183,26 +185,45 @@ public class NurseService extends Base implements Manageable, Searchable {
    System.out.println("Nurse added: " + n.getFirstName());
   } else {
    System.out.println("Invalid entity type. Expected a Nurse object.");
-      }
+  }
  }
 
  @Override
  public void remove(String id) {
-       removeNurse(id);
+  removeNurse(id);
  }
 
  @Override
  public void getAll() {
+  displayAllNurses();
 
  }
 
  @Override
  public void search(String keyword) {
-
+  boolean found = false;
+  for (Nurse n : nurses) {
+   if (n.getFirstName().equalsIgnoreCase(keyword)
+           || n.getLastName().equalsIgnoreCase(keyword)
+           || n.getNurseId().equalsIgnoreCase(keyword)
+           || n.getDepartmentId().equalsIgnoreCase(keyword)
+           || n.getShift().equalsIgnoreCase(keyword)) {
+    n.displayInfo();
+    found = true;
+   }
+  }
+  if (!found) {
+   System.out.println("No nurses found matching: " + keyword);
+  }
  }
 
  @Override
  public void searchById(String id) {
-
- }
+  Nurse n = getNurseById(id);
+  if (n != null) {
+   n.displayInfo();
+  } else {
+   System.out.println("No nurse found with ID: " + id);
+   }
+  }
 }

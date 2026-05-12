@@ -34,5 +34,7 @@ public class GeneralPractitioner extends Doctor{
 
     }
 
+    public void scheduleHomeVisit(){
 
+    }
 }

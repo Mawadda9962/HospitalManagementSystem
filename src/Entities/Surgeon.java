@@ -70,7 +70,8 @@ public class Surgeon extends Doctor implements Displayable {
     }
 
     public void updateSurgeryCount(){
-
+        this.surgeriesPerformed++;
+        System.out.println("Surgery count updated. Total for Dr. " + getLastName() + ": " + surgeriesPerformed);
     }
 
 }

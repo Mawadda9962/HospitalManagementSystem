@@ -1,10 +1,12 @@
 package Entities;
 
+import Interfaces.Displayable;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Appointment {
+public class Appointment implements Displayable {
     private String appointmentId;
     private String patientId;
     private String doctorId;

@@ -60,7 +60,7 @@ public class EmergencyPatient extends InPatient {
         System.out.println("Arrival Mode    : " + arrivalMode);
         System.out.println("Triage Level    : " + triageLevel + " (Level 1 is most urgent)");
         System.out.println("Admitted via ER : " + (admittedViaER ? "Yes" : "No"));
-        so
+        System.out.println("*************************************");
 
     }
 

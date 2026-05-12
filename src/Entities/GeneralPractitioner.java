@@ -26,5 +26,13 @@ public class GeneralPractitioner extends Doctor{
         this.vaccinationCertified = vaccinationCertified;
     }
 
+    @Override
+    public void displayInfo() {
+        // Person info (Name, Phone, etc.)
+        System.out.println(" Personal Details");
+        System.out.println("Name: " + getFirstName() + " " + getLastName());
+
+    }
+
 
 }

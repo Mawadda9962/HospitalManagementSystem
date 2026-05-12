@@ -1,8 +1,11 @@
 package Entities;
 
+import Interfaces.Displayable;
+
+import javax.tools.Diagnostic;
 import java.util.List;
 
-public class GeneralPractitioner extends Doctor{
+public class GeneralPractitioner extends Doctor  {
     private boolean walkinAvailable;
     private boolean homeVisitAvailable;
     private boolean vaccinationCertified;
@@ -28,17 +31,30 @@ public class GeneralPractitioner extends Doctor{
 
     @Override
     public void displayInfo() {
-        // Person info (Name, Phone, etc.)
-        System.out.println(" Personal Details");
-        System.out.println("Name: " + getFirstName() + " " + getLastName());
+        super.displayInfo();
+
+        System.out.println("******** GP Specific Services **********");
+        System.out.println("Walk-in Appointments : " + (walkinAvailable ? "Yes" : "No"));
+        System.out.println("Home Visits          : " + (homeVisitAvailable ? "Available" : "Not Available"));
+        System.out.println("Vaccination Certified: " + (vaccinationCertified ? "Certified" : "Not Certified"));
+        System.out.println("******************************");
 
     }
 
-    public void scheduleHomeVisit(){
+    @Override
+    public void displaySummary(){
+        System.out.println("******** GP Specific Services **********");
+
+
+
 
     }
 
-    public void administerVaccine(){
+    public void scheduleHomeVisit(String address){
+
+    }
+
+    public void administerVaccine(String vaccineName){
 
 
     }

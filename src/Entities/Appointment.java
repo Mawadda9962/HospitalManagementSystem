@@ -1,6 +1,8 @@
 package Entities;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Appointment {
     private String appointmentId;
@@ -129,13 +131,33 @@ public class Appointment {
         if (this.notes == null || this.notes.isEmpty()){
             this.notes =notes;
         }else {
-            this.notes += notes;
+            this.notes += " | " + notes;
         }
         System.out.println("Simple note added to appointment");
     }
 
+    public void addNotes(String notes, String addedBy){
+        String formattedNote = "Added by " + addedBy + ": " + notes;
+        if (this.notes == null || this.notes.isEmpty()) {
+            this.notes = formattedNote;
+        } else {
+            this.notes += " | " + formattedNote;
+        }
+        System.out.println("Note by " + addedBy + " added successfully.");
+    }
 
+    public void addNotes(String notes, String addedBy, LocalDateTime timestamp){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        String formattedNote = "[" + timestamp.format(formatter) + "] " + addedBy + ": " + notes;
 
+        if (this.notes == null || this.notes.isEmpty()) {
+            this.notes = formattedNote;
+        } else {
+            this.notes += " | " + formattedNote;
+        }
+        System.out.println("Detailed audit note added for " + timestamp.format(formatter));
+
+    }
 
 
 }

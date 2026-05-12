@@ -356,11 +356,13 @@ public class PatientService extends Base implements Manageable, Searchable {
 
     @Override
     public void remove(String id) {
-
+        removePatient(id);
     }
 
     @Override
     public void getAll() {
+        displayAllPatients();
+
 
     }
 

@@ -1,4 +1,4 @@
 package Interfaces;
 
-public class Searchable {
+public interface Searchable {
 }

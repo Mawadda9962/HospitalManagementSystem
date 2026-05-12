@@ -48,8 +48,9 @@ public class OutPatient extends patient {
         System.out.println("Preferred Doctor ID: " + preferredDoctorId);
     }
 
+    //scheduling a future visit
     public void scheduleFollowUp(){
-
+        System.out.println("Follow-up scheduled for Patient ID: " + getPatientId());
     }
 
     public void updateVisitCount(){

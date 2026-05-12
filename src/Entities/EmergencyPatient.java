@@ -1,9 +1,11 @@
 package Entities;
 
+import Interfaces.Displayable;
+
 import java.time.LocalDate;
 import java.util.List;
 
-public class EmergencyPatient extends InPatient {
+public class EmergencyPatient extends InPatient implements Displayable {
     private String emergencyType;
     private String arrivalMode;
     private int triageLevel;
@@ -62,6 +64,13 @@ public class EmergencyPatient extends InPatient {
         System.out.println("Admitted via ER : " + (admittedViaER ? "Yes" : "No"));
         System.out.println("*************************************");
 
+    }
+
+    @Override
+    public void displaySummary() {
+        System.out.println("******** Emergency SUMMERY ********");
+        System.out.println("Emergency Type  : " + emergencyType);
+        System.out.println("Triage Level    : " + triageLevel + " (Level 1 is most urgent)");
     }
 
 }

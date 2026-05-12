@@ -1,8 +1,10 @@
 package Entities;
 
+import Interfaces.Displayable;
+
 import java.util.List;
 
-public class Doctor extends Person {
+public class Doctor extends Person implements Displayable {
     private String doctorId;
     private String specialization;
     private String qualification;
@@ -97,7 +99,7 @@ public class Doctor extends Person {
     @Override
     public void displayInfo() {
         super.displayInfo();
-        System.out.println("--- Doctor Specific Details ---");
+        System.out.println("********** Doctor Specific Details *********");
         System.out.println("Doctor ID: " + doctorId);
         System.out.println("Specialization: " + specialization);
         System.out.println("Qualification: " + qualification);
@@ -105,8 +107,17 @@ public class Doctor extends Person {
         System.out.println("Department: " + departmentId);
         System.out.println("Consultation Fee: " + consultationFee);
         System.out.println("Assigned Patients: " + assignedPatients);
-        System.out.println("--------------------------------");
+        System.out.println("********************************");
 
+    }
+
+    @Override
+    public void displaySummary() {
+        System.out.println("********** DOCTOR SUMMERY DETAILS *********");
+        System.out.println("Doctor ID: " + doctorId);
+        System.out.println("Specialization: " + specialization);
+        System.out.println("Department: " + departmentId);
+        System.out.println("********************************");
     }
 
     public void assignPatient(String patientId) {

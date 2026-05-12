@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Surgeon {
     private int surgeriesPerformed;
-    private List surgeryTypes;
+    private List<String> surgeryTypes;
 
 
 }

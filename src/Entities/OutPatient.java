@@ -49,7 +49,9 @@ public class OutPatient extends patient {
 
     }
 
-    public
+    public void updateVisitCount(){
+
+    }
 
 
 }

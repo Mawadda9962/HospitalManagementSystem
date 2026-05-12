@@ -13,7 +13,7 @@ public class DoctorService {
     private static Scanner scanner = new Scanner(System.in);
 
     // Adding static list to store all doctors
-    private static  List<Doctor> doctors = new ArrayList<>();
+    private static List<Doctor> doctors = new ArrayList<>();
 
     public void addDoctor() {
         System.out.println("********** Add New Doctor **********");
@@ -181,7 +181,7 @@ public class DoctorService {
             return;
         }
 
-        System.out.println("All Doctors"  + doctors.size() + "total");
+        System.out.println("All Doctors" + doctors.size() + "total");
         for (Doctor d : doctors) {
             d.displayInfo();
         }
@@ -205,7 +205,7 @@ public class DoctorService {
         }
     }
 
-    public void addDoctor(String name, String specialization, String phone){
+    public void addDoctor(String name, String specialization, String phone) {
         Doctor doctor = new Doctor();
         System.out.println("Please enter Doctor first name: ");
         name = scanner.nextLine();
@@ -221,7 +221,7 @@ public class DoctorService {
 
     }
 
-    public void addDoctor(String name, String specialization, String phone, double consultationFee){
+    public void addDoctor(String name, String specialization, String phone, double consultationFee) {
         Doctor doctor = new Doctor();
         System.out.println("Please enter Doctor first name: ");
         name = scanner.nextLine();
@@ -240,24 +240,24 @@ public class DoctorService {
         doctor.setConsultationFee(consultationFee);
     }
 
-    public void addDoctor(Doctor doctor){
-        if(doctor != null) {
+    public void addDoctor(Doctor doctor) {
+        if (doctor != null) {
             doctors.add(doctor);
             System.out.println(Constant.DOCTOR_ADDED_SUCCESSFULLY);
         }
     }
 
-    public void assignPatient(String doctorId, String patientId){
+    public void assignPatient(String doctorId, String patientId) {
         System.out.println("ASSIGNING PATIENT");
         Doctor d = getDoctorById(doctorId);
-        if(d != null) {
+        if (d != null) {
             d.getAssignedPatients().add(patientId);
             System.out.println(patientId + " Assigned to: " + doctorId);
         }
 
     }
 
-    public void assignPatient(Doctor doctor, patient patient){
+    public void assignPatient(Doctor doctor, patient patient) {
         if (doctor != null && patient != null) {
             // Logic: add patient ID to doctor's list
             doctor.getAssignedPatients().add(patient.getPatientId());
@@ -265,21 +265,21 @@ public class DoctorService {
         }
     }
 
-    public void assignPatient(String doctorId, List<String> patientIds){
+    public void assignPatient(String doctorId, List<String> patientIds) {
         Doctor d = getDoctorById(doctorId);
-        if(d != null) {
+        if (d != null) {
             d.getAssignedPatients().addAll(patientIds);
             System.out.println("Patients assigned to: " + doctorId);
         }
     }
 
 
-    public void displayDoctors(){
+    public void displayDoctors() {
         displayAllDoctors();
     }
 
 
-    public void displayDoctors(String specialization){
+    public void displayDoctors(String specialization) {
         getDoctorsBySpecialization(specialization);
     }
 
@@ -325,3 +325,4 @@ public class DoctorService {
         }
         return true;
     }
+}

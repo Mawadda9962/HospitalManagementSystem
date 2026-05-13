@@ -102,7 +102,7 @@ public class DepartmentService extends Base implements Manageable, Searchable {
         }
         System.out.println("Total Departments: " + departments.size());
         for (Department d : departments) {
-            System.out.println("-----------------------------------");
+            System.out.println("****************************************");
             System.out.println("ID: " + d.getDepartmentId());
             System.out.println("Name: " + d.getDepartmentName());
             System.out.println("Head Doctor: " + d.getHeadDoctorId());
@@ -179,7 +179,7 @@ public class DepartmentService extends Base implements Manageable, Searchable {
                 if (d.getDepartmentId().equalsIgnoreCase(keyword)
                         || d.getDepartmentName().equalsIgnoreCase(keyword)
                         || d.getHeadDoctorId().equalsIgnoreCase(keyword)) {
-                    System.out.println("-----------------------------------");
+                    System.out.println("********************************");
                     System.out.println("ID: " + d.getDepartmentId());
                     System.out.println("Name: " + d.getDepartmentName());
                     System.out.println("Head Doctor: " + d.getHeadDoctorId());
@@ -197,7 +197,7 @@ public class DepartmentService extends Base implements Manageable, Searchable {
     public void searchById(String id) {
         Department d = getDepartmentById(id);
         if (HelperUtils.isNotNull(d)) {
-            System.out.println("-----------------------------------");
+            System.out.println("**********************************");
             System.out.println("ID: " + d.getDepartmentId());
             System.out.println("Name: " + d.getDepartmentName());
             System.out.println("Head Doctor: " + d.getHeadDoctorId());

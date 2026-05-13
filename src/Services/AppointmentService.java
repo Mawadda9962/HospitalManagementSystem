@@ -7,6 +7,7 @@ import Interfaces.Appointable;
 import Interfaces.Manageable;
 import Interfaces.Searchable;
 import Utiles.Constant;
+import Utiles.HelperUtils;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -25,7 +26,7 @@ public class AppointmentService extends Base implements Manageable, Searchable, 
         System.out.print("Enter Appointment ID: ");
         String appointmentId = scanner.nextLine().trim();
 
-        if (getAppointmentById(appointmentId) != null) {
+        if (HelperUtils.isNotNull(getAppointmentById(appointmentId))) {
             System.out.println("An appointment with this ID already exists.");
             return;
         }
@@ -40,7 +41,7 @@ public class AppointmentService extends Base implements Manageable, Searchable, 
         String dateInput = scanner.nextLine().trim();
         LocalDate date;
 
-        if (dateInput.length() == 10 && dateInput.charAt(4) == '-' && dateInput.charAt(7) == '-') {
+        if (HelperUtils.isValidDate(dateInput)) {
             date = LocalDate.parse(dateInput);
         } else {
             System.out.println("Invalid format. Defaulting to today's date.");
@@ -66,7 +67,7 @@ public class AppointmentService extends Base implements Manageable, Searchable, 
 
     public Appointment getAppointmentById(String id) {
         for (Appointment a : appointments) {
-            if (a.getAppointmentId().equals(id)) {
+            if (HelperUtils.isNotNull(a) && a.getAppointmentId().equals(id)) {
                 return a;
             }
         }
@@ -75,7 +76,7 @@ public class AppointmentService extends Base implements Manageable, Searchable, 
 
     public void rescheduleAppointment(String id, LocalDate newDate, String newTime) {
         Appointment a = getAppointmentById(id);
-        if (a != null) {
+        if (HelperUtils.isNotNull(a)) {
             a.reschedule(newDate, newTime);
         } else {
             System.out.println("Appointment not found.");
@@ -85,7 +86,7 @@ public class AppointmentService extends Base implements Manageable, Searchable, 
 
     public void cancelAppointment(String id) {
         Appointment a = getAppointmentById(id);
-        if (a != null) {
+        if (HelperUtils.isNotNull(a)) {
             a.cancel();
         } else {
             System.out.println("Appointment not found.");

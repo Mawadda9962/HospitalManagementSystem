@@ -9,6 +9,7 @@ import Interfaces.Manageable;
 import Interfaces.Searchable;
 import Utiles.Constant;
 import Utiles.HelperUtils;
+import Utiles.InputHandler;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -18,10 +19,10 @@ import java.util.Scanner;
 
 public class PatientService extends Base implements Manageable, Searchable {
 
-    private static  Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
 
-    // This list stores all patients in the system (acts as our in-memory database)
-    private static  List<patient> patients = new ArrayList<>();
+    // This list stores all patients in the system
+    private static List<patient> patients = new ArrayList<>();
 
 
     public void addPatient() {
@@ -32,16 +33,13 @@ public class PatientService extends Base implements Manageable, Searchable {
         String patientId = scanner.nextLine().trim();
 
         if (getPatientById(patientId) != null) {
-            System.out.println(":warning: A patient with this ID already exists.");
+            System.out.println("A patient with this ID already exists.");
             return;
         }
 
-        // Collect personal information
-        System.out.print("Enter First Name: ");
-        String firstName = scanner.nextLine().trim();
 
-        System.out.print("Enter Last Name: ");
-        String lastName = scanner.nextLine().trim();
+        String firstName = InputHandler.getStringInput("Enter First Name: ");
+        String lastName = InputHandler.getStringInput("Enter Last Name: ");
 
         System.out.print("Enter Date of Birth (YYYY-MM-DD): ");
         String dateOfBirth = scanner.nextLine().trim();
@@ -112,7 +110,7 @@ public class PatientService extends Base implements Manageable, Searchable {
     //Implementing HelperUtils. isNotNull
     public patient getPatientById(String patientId) {
         for (patient p : patients) {
-            if (HelperUtils.isNotNull(p.getPatientId()) && p.getPatientId().equals(patientId) ) {
+            if (HelperUtils.isNotNull(p.getPatientId()) && p.getPatientId().equals(patientId)) {
                 return p;
             }
         }

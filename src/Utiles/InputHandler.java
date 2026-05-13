@@ -78,14 +78,7 @@ public class InputHandler {
                 return true;
             if (input.equals("no") || input.equals("n"))
                 return false;
-            System.out.println();
+            System.out.println("Please answer yes or no");
         }
     }
-
-
-
-
-
-
-
 }

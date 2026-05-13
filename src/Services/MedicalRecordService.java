@@ -74,7 +74,7 @@ public class MedicalRecordService extends Base implements Manageable, Searchable
 
     public void editMedicalRecord(String recordId) {
         MedicalRecord mr = getRecordById(recordId);
-        if (mr == null) {
+        if (HelperUtils.isNull(mr)) {
             System.out.println("Medical Record with ID " + recordId + " not found.");
             return;
         }
@@ -98,7 +98,7 @@ public class MedicalRecordService extends Base implements Manageable, Searchable
 
     public void removeMedicalRecord(String recordId) {
         MedicalRecord mr = getRecordById(recordId);
-        if (mr != null) {
+        if (HelperUtils.isNotNull(mr)) {
             medicalRecords.remove(mr);
             System.out.println(Constant.RECORD_REMOVE_SUCCESSFULLY);
         } else {

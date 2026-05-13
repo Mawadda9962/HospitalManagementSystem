@@ -279,6 +279,8 @@ public class PatientService extends Base implements Manageable, Searchable {
     }
 
 
+
+
     //instanceof keyword acts a security guard
     @Override
     public void add(Object entity) {
@@ -344,9 +346,7 @@ public class PatientService extends Base implements Manageable, Searchable {
                 addInPatient();
             }
             case 3 -> {
-                System.out.print("Enter Patient ID to remove: ");
-                String id = scanner.nextLine();
-                removePatient(id);
+                ad
             }
             case 4 -> {
                 System.out.print("Enter name to search: ");

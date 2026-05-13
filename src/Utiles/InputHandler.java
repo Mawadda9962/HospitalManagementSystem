@@ -1,5 +1,6 @@
 package Utiles;
 
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -62,10 +63,26 @@ public class InputHandler {
             try {
                 //method that reads text and tries to convert it into date
                 return LocalDate.parse(input, formatter);
+            }catch (DateTimeException e){
+                System.out.println("Invalid date format");
+
             }
         }
-
     }
+
+    public static boolean getConfirmation(String prompt){
+        while (true){
+            System.out.println(prompt);
+            String input = scanner.nextLine().trim().toLowerCase();
+            if (input.equals("yes") || input.equals("y"))
+                return true;
+            if (input.equals("no") || input.equals("n"))
+                return false;
+            System.out.println();
+        }
+    }
+
+
 
 
 

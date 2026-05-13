@@ -184,6 +184,7 @@ public class PatientService extends Base implements Manageable, Searchable {
         System.out.println("Patient with ID " + patientId + " not found.");
     }
 
+    //Implementing HelperUtils. isNotNull
     public void removePatient(String patientId) {
         patient found = getPatientById(patientId);
 

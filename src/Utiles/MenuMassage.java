@@ -49,32 +49,35 @@ public class MenuMassage {
             """;
 
         public static String MEDICAL_RECORD_MENU_MESSAGE = """
-            1- ADD MEDICAL RECORD
-            2- EDIT MEDICAL RECORD
-            3- REMOVE MEDICAL RECORD
-            4- DISPLAY PATIENT HISTORY
-            5- RECORDS BY DOCTOR ID
-            6-EXIT
+            1- Create Medical Record
+            2- View All Records
+            3- View Records by Patient
+            4- View Records by Doctor
+            5- Update Medical Record
+            6- Delete Medical Record
+            7- Generate Patient History Report
             """;
 
         public static String APPOINTMENT_MENU_MESSAGE = """
-            1- ADD APPOINTMENT
-            2- reschedule Appointment
-            3- cancel Appointment
-            4- Appointments By PatientId
-            5- Appointments By Doctor
-            6- Appointments By Date
-            7- Display All Appointments
-            8- EXIT
+            1- Schedule New Appointment
+            2- View All Appointments
+            3- View Appointments by Patient
+            4- View Appointments by Doctor
+            5- View Appointments by Date
+            6- Reschedule Appointment
+            7- Cancel Appointment
+            8- Complete Appointment
+            9- View Upcoming Appointments
             """;
 
         public static String DEPARTMENT_MENU_MESSAGE = """
-           1- ADD DEPARTMENT
-           2- EDIT DEPARTMENT
-           3- REMOVE DEPARTMENT
-           4- DISPLAY ALL DEPARTMENTS
-           5- DEPARTMENT BY ID
-           6- EXIT
+           1- Add Department\s
+           2- View All Departments
+           3- View Department Details
+           4- Assign Doctor to Department\s
+           5- Assign Nurse to Department\s
+           6- Update Department Information\s
+           7- View Department Statistics\s
            """;
     }
 //

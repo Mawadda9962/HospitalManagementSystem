@@ -109,7 +109,7 @@ public class DepartmentService extends Base implements Manageable, Searchable {
         if (HelperUtils.isNotNull(d) && HelperUtils.isNotNull(doctor)) {
             d.assignDoctor(doctor);
         } else {
-            System.out.println("Error: Department or Doctor not found.");
+            System.out.println("Department or Doctor not found.");
         }
     }
 

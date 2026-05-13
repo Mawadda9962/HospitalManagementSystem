@@ -8,6 +8,7 @@ import Interfaces.Manageable;
 import Interfaces.Searchable;
 import Utiles.Constant;
 import Utiles.HelperUtils;
+import Utiles.InputHandler;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -31,31 +32,13 @@ public class AppointmentService extends Base implements Manageable, Searchable, 
             return;
         }
 
-        System.out.print("Enter Patient ID: ");
-        String patientId = scanner.nextLine().trim();
+        String patientId = InputHandler.getStringInput("Enter Patient ID");
+        String doctorId = InputHandler.getStringInput("Enter Doctor ID");
 
-        System.out.print("Enter Doctor ID: ");
-        String doctorId = scanner.nextLine().trim();
-
-        System.out.print("Enter Appointment Date (YYYY-MM-DD): ");
-        String dateInput = scanner.nextLine().trim();
-        LocalDate date;
-
-        if (HelperUtils.isValidDate(dateInput)) {
-            date = LocalDate.parse(dateInput);
-        } else {
-            System.out.println("Invalid format. Defaulting to today's date.");
-            date = LocalDate.now();
-        }
-
-        System.out.print("Enter Appointment Time (e.g., 10:30 AM): ");
-        String time = scanner.nextLine().trim();
-
-        System.out.print("Enter Reason for Visit: ");
-        String reason = scanner.nextLine().trim();
-
-        System.out.print("Enter Notes (Optional): ");
-        String notes = scanner.nextLine().trim();
+        LocalDate date = InputHandler.getDateInput("Enter Appointment Date");
+        String time = InputHandler.getStringInput("Enter Appointment Time (e.g., 10:30 AM)");
+        String reason = InputHandler.getStringInput("Enter Reason for Visit");
+        String notes = InputHandler.getStringInput("Enter Notes (Optional)");
 
         Appointment newAppointment = new Appointment(
                 appointmentId, patientId, doctorId, date, time, "Scheduled", reason, notes
@@ -87,7 +70,8 @@ public class AppointmentService extends Base implements Manageable, Searchable, 
     public void cancelAppointment(String id) {
         Appointment a = getAppointmentById(id);
         if (HelperUtils.isNotNull(a)) {
-            a.cancel();
+            a.setStatus("Cancelled");
+            System.out.println("Appointment " + id + " has been cancelled.");
         } else {
             System.out.println("Appointment not found.");
         }
@@ -128,7 +112,7 @@ public class AppointmentService extends Base implements Manageable, Searchable, 
     }
 
     public void getAppointmentsByDate(LocalDate date) {
-        System.out.println("\n--- Appointments on Date: " + date + " ---");
+        System.out.println("--- Appointments on Date: " + date + " ---");
         boolean found = false;
         for (Appointment a : appointments) {
             if (HelperUtils.isNotNull(a) && a.getAppointmentDate().equals(date)) {

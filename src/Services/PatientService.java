@@ -236,7 +236,7 @@ public class PatientService extends Base implements Manageable, Searchable {
         EmergencyPatient Emergency = new EmergencyPatient();
 
 
-       String choice = InputHandler.getStringInput("Enter Type (InPatient/OutPatient/EmergencyPatient");
+        String choice = InputHandler.getStringInput("Enter Type (InPatient/OutPatient/EmergencyPatient");
         if (choice.equalsIgnoreCase("InPatient")) {
             In.displayInfo();
         } else if (choice.equalsIgnoreCase("OutPatient")) {

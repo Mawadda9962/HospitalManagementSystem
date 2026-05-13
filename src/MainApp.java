@@ -1,4 +1,5 @@
 import Services.*;
+import Utiles.InputHandler;
 import Utiles.MenuMassage;
 
 import java.util.Scanner;
@@ -31,9 +32,8 @@ public class MainApp {
                     while (patientMenuContinue) {
                         System.out.println(" *********** Patient Menu ***********");
                         System.out.print(MenuMassage.PATIENT_MENU_MESSAGE);
-                        System.out.print("Enter your choice: ");
 
-                        Integer patientOption = Integer.parseInt(input.nextLine());
+                        Integer patientOption = InputHandler.getIntInput("Enter your choice: ");
                         patientMenuContinue = patientService.handlePatientsMenu(patientOption);
                     }
                 }
@@ -42,7 +42,7 @@ public class MainApp {
                     while (doctorMenuContinue) {
                         System.out.println("*********** Doctor Menu ***********");
                         System.out.print(MenuMassage.DOCTOR_MENU_MESSAGE);
-                        Integer doctorOption = Integer.parseInt(input.nextLine());
+                        Integer doctorOption = InputHandler.getIntInput("Enter your choice");
                         doctorMenuContinue = doctorService.handleDoctorMenu(doctorOption);
                     }
                 }
@@ -60,7 +60,7 @@ public class MainApp {
                     while (recordMenuContinue) {
                         System.out.println("*********** Medical Record Menu ***********");
                         System.out.print(MenuMassage.MEDICAL_RECORD_MENU_MESSAGE);
-                        Integer recordOption = Integer.parseInt(input.nextLine());
+                        Integer recordOption = InputHandler.getIntInput("Enter your Choice");
                         recordMenuContinue = medicalRecordService.handleMedicalRecordMenu(recordOption);
                     }
                 }
@@ -69,7 +69,7 @@ public class MainApp {
                     while (appointmentMenuContinue) {
                         System.out.println("*********** Appointment Menu ***********");
                         System.out.print(MenuMassage.APPOINTMENT_MENU_MESSAGE);
-                        Integer appointmentOption = Integer.parseInt(input.nextLine());
+                        Integer appointmentOption = InputHandler.getIntInput("Enter your Choice");
                         appointmentMenuContinue = appointmentService.handleAppointmentMenu(appointmentOption);
                     }
                 }
@@ -79,7 +79,7 @@ public class MainApp {
                     while (deptMenuContinue) {
                         System.out.println("*********** Department Menu ***********");
                         System.out.print(MenuMassage.DEPARTMENT_MENU_MESSAGE);
-                        Integer deptOption = Integer.parseInt(input.nextLine());
+                        Integer deptOption = InputHandler.getIntInput("Enter your Choice");
                         deptMenuContinue = departmentService.handleDepartmentMenu(deptOption);
                     }
                 }

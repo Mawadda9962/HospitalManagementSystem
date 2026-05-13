@@ -264,29 +264,46 @@ public class PatientService extends Base implements Manageable, Searchable {
         String id = InputHandler.getStringInput("Enter Patient ID");
         String fName = InputHandler.getStringInput("Enter First Name");
         String lName = InputHandler.getStringInput("Enter Last Name");
-
-        // Collect InPatient specific data (e.g., Room Number)
         String roomNumber = InputHandler.getStringInput("Enter Assigned Room Number");
 
-        InPatient ip = new InPatient();
-        ip.setPatientId(id);
-        ip.setFirstName(fName);
-        ip.setLastName(lName);
-        ip.setRoomNumber(roomNumber);
+        InPatient inPatient = new InPatient();
+        inPatient.setPatientId(id);
+        inPatient.setFirstName(fName);
+        inPatient.setLastName(lName);
+        inPatient.setRoomNumber(roomNumber);
 
-        patients.add(ip);
+        patients.add(inPatient);
         System.out.println("InPatient registered successfully.");
     }
-    public void addEmergencyPatient() {
-        System.out.println("********** Register Emergency Patient **********");
+
+    public void OutPatient() {
+        System.out.println("********** Register OutPatient **********");
+
         String id = InputHandler.getStringInput("Enter Patient ID");
         String fName = InputHandler.getStringInput("Enter First Name");
+        String lName = InputHandler.getStringInput("Enter Last Name");
+        OutPatient outPatient = new OutPatient();
 
-        EmergencyPatient ep = new EmergencyPatient();
-        ep.setPatientId(id);
-        ep.setFirstName(fName);
+        outPatient.setPatientId(id);
+        outPatient.setFirstName(fName);
+        outPatient.setLastName(lName);
 
-        patients.add(ep);
+        patients.add(outPatient);
+        System.out.println("OutPatient registered successfully.");
+    }
+
+
+    public void addEmergencyPatient() {
+        System.out.println("********** Register Emergency Patient **********");
+        addPatient();
+        EmergencyPatient emergencyPatient = new EmergencyPatient();
+
+        String emergencyType = InputHandler.getStringInput("emergencyType");
+        emergencyPatient.setEmergencyType(emergencyType);
+
+        String arrivalMode = InputHandler.getStringInput("Arrival Mode");
+        emergencyPatient.setEmergencyType(arrivalMode);
+
         System.out.println("Emergency Patient admitted immediately!");
     }
 
@@ -306,8 +323,6 @@ public class PatientService extends Base implements Manageable, Searchable {
             System.out.println("Patient not found.");
         }
     }
-
-
 
     //instanceof keyword acts a security guard
     @Override
@@ -374,7 +389,7 @@ public class PatientService extends Base implements Manageable, Searchable {
                 addInPatient();
             }
             case 3 -> {
-
+                OutPatient();
             }
             case 4 -> {
                 addEmergencyPatient();

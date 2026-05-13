@@ -277,7 +277,35 @@ public class PatientService extends Base implements Manageable, Searchable {
         patients.add(ip);
         System.out.println("InPatient registered successfully.");
     }
+    public void addEmergencyPatient() {
+        System.out.println("********** Register Emergency Patient **********");
+        String id = InputHandler.getStringInput("Enter Patient ID");
+        String fName = InputHandler.getStringInput("Enter First Name");
 
+        EmergencyPatient ep = new EmergencyPatient();
+        ep.setPatientId(id);
+        ep.setFirstName(fName);
+
+        patients.add(ep);
+        System.out.println("Emergency Patient admitted immediately!");
+    }
+
+    public void viewMedicalHistory(String patientId) {
+        patient p = getPatientById(patientId);
+        if (HelperUtils.isNotNull(p)) {
+            System.out.println("Medical Records for " + p.getFirstName());
+            if (p.getMedicalRecords().isEmpty()) {
+                System.out.println("No history found for this patient.");
+            } else {
+                // Loop through the String list of records
+                for (String record : p.getMedicalRecords()) {
+                    System.out.println(record);
+                }
+            }
+        } else {
+            System.out.println("Patient not found.");
+        }
+    }
 
 
 
@@ -346,12 +374,11 @@ public class PatientService extends Base implements Manageable, Searchable {
                 addInPatient();
             }
             case 3 -> {
-                ad
+
+
             }
             case 4 -> {
-                System.out.print("Enter name to search: ");
-                String name = scanner.nextLine();
-                searchPatientsByName(name);
+                addEmergencyPatient();
             }
             case 5 -> {
                 displayAllPatients();

@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 public class HelperUtils {
 
-    // --- 1. Null Check Methods (Overloaded) ---
+    //Null Check Methods (Overloaded)
     public static boolean isNull(Object obj) {
         return obj == null;
     }
@@ -25,11 +25,11 @@ public class HelperUtils {
         return !isNull(str);
     }
 
-    // --- 2. String Validation Methods (Overloaded) ---
+    //String Validation Methods (Overloaded)
     public static boolean isValidString(String str) {
         return isNotNull(str);
     }
-fg
+
     public static boolean isValidString(String str, int minLength) {
         return isNotNull(str) && str.trim().length() >= minLength;
     }
@@ -45,7 +45,7 @@ fg
         return Pattern.matches(regex, str);
     }
 
-    // --- 3. ID Generation Methods (Overloaded) ---
+    //ID Generation Methods (Overloaded)
     public static String generateId() {
         return UUID.randomUUID().toString();
     }
@@ -63,7 +63,7 @@ fg
         return prefix + "-" + UUID.randomUUID().toString().substring(0, 5).toUpperCase() + "-" + suffix;
     }
 
-    // --- 4. Date Validation Methods (Overloaded) ---
+    //Date Validation Methods (Overloaded)
     public static boolean isValidDate(LocalDate date) {
         return isNotNull(date);
     }
@@ -95,7 +95,7 @@ fg
         return isNotNull(date) && date.isEqual(LocalDate.now());
     }
 
-    // --- 5. Numeric Validation Methods (Overloaded) ---
+    // Numeric Validation Methods (Overloaded)
     public static boolean isValidNumber(int num, int min, int max) {
         return num >= min && num <= max;
     }
@@ -120,7 +120,7 @@ fg
         return num < 0.0;
     }
 
-    // --- 6. Input Validation Methods (Overloaded) ---
+    //Input Validation Methods (Overloaded)
     public static boolean isValidAge(int age) {
         return age >= 0 && age <= 120;
     }

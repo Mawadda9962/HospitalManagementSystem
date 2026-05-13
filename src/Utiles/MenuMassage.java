@@ -15,31 +15,37 @@ public class MenuMassage {
             """;
 
         public static String PATIENT_MENU_MESSAGE = """
-            1- ADD NEW PATIENT
-            2- EDIT PATIENT
-            3- REMOVE PATIENT
-            4- SEARCH PATIENT BY NAME
-            5- ALL PATIENT
-            6- EXIT
+              1- Register New Patient
+            2- Register InPatient
+            3- Register OutPatient
+            4- Register Emergency Patient
+            5- View All Patients
+            6- Search Patient
+            7- Update Patient Information
+            8- Remove Patient
+            9- View Patient Medical History
             """;
 
         public static String DOCTOR_MENU_MESSAGE = """
-            1- ADD NEW DOCTOR
-            2- EDIT DOCTOR
-            3- REMOVE DOCTOR
-            4- SEARCH DOCTOR BY ID
-            5- DISPLAY ALL DOCTOR
-            6-EXIT
+            1- Add Doctor
+            2- Add Surgeon
+            3- Add Consultant
+            4- Add General Practitioner
+            5- Search Doctor by Specialization
+            6- View Available Doctors
+            7- Assign Patient to Doctor
+            8- Update Doctor Information
+            9- Remove Doctor
             """;
 
         public static String NURSE_MENU_MESSAGE = """
-            1- ADD NEW NURSE
-            2- EDIT NURSE
-            3- REMOVE NURSE
-            4- NURSE BY DEPARTMENT
-            5- NURSE BY SHIFT
-            5- DISPLAY ALL NURSE 
-            6-EXIT
+            1- Add Nurse
+            2- View All Nurses
+            3- View Nurses by Department
+            4- View Nurses by Shift
+            5- Assign Nurse to Patient
+            5- Update Nurse Information 
+            6- Remove Nurse
             """;
 
         public static String MEDICAL_RECORD_MENU_MESSAGE = """

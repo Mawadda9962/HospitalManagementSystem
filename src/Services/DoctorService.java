@@ -242,7 +242,7 @@ public class DoctorService extends Base implements Manageable, Searchable {
     public void assignPatient(String doctorId, String patientId) {
         System.out.println("ASSIGNING PATIENT");
         Doctor d = getDoctorById(doctorId);
-        if (d != null) {
+        if (HelperUtils.isNotNull(d)) {
             d.getAssignedPatients().add(patientId);
             System.out.println(patientId + " Assigned to: " + doctorId);
         }
@@ -250,8 +250,7 @@ public class DoctorService extends Base implements Manageable, Searchable {
     }
 
     public void assignPatient(Doctor doctor, patient patient) {
-        if (doctor != null && patient != null) {
-            // Logic: add patient ID to doctor's list
+        if (HelperUtils.isNotNull(doctor) && HelperUtils.isNotNull(patient)) {
             doctor.getAssignedPatients().add(patient.getPatientId());
             System.out.println(patient.getPatientId() + " Assigned to: " + doctor.getDoctorId());
         }
@@ -259,12 +258,11 @@ public class DoctorService extends Base implements Manageable, Searchable {
 
     public void assignPatient(String doctorId, List<String> patientIds) {
         Doctor d = getDoctorById(doctorId);
-        if (d != null) {
+        if (HelperUtils.isNotNull(d)) {
             d.getAssignedPatients().addAll(patientIds);
             System.out.println("Patients assigned to: " + doctorId);
         }
     }
-
 
     public void displayDoctors() {
         displayAllDoctors();

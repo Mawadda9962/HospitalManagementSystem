@@ -41,24 +41,15 @@ public class PatientService extends Base implements Manageable, Searchable {
         String firstName = InputHandler.getStringInput("Enter First Name: ");
         String lastName = InputHandler.getStringInput("Enter Last Name: ");
 
-        LocalDate dateOfBirth = InputHandler.getDateInput("Enter Date of Birth (YYYY-MM-DD): ")
+        LocalDate dateOfBirth = InputHandler.getDateInput("Enter Date of Birth (YYYY-MM-DD): ");
 
-        String gender = InputHandler.getStringInput("Enter Gender (Male/Female/Other): ")
-        String phoneNumber = InputHandler.getStringInput("Enter Phone Number: ");
-        String email = InputHandler.getStringInput("Enter Email: ");
-
-        System.out.print("Enter Address: ");
-        String address = scanner.nextLine().trim();
-
-        // Collect patient-specific information
-        System.out.print("Enter Blood Group (e.g., A+, O-): ");
-        String bloodGroup = scanner.nextLine().trim();
-
-        System.out.print("Enter Emergency Contact Number: ");
-        String emergencyContact = scanner.nextLine().trim();
-
-        System.out.print("Enter Insurance ID: ");
-        String insuranceId = scanner.nextLine().trim();
+        String gender = InputHandler.getStringInput("Enter Gender (Male/Female/Other)");
+        String phoneNumber = InputHandler.getStringInput("Enter Phone Number");
+        String email = InputHandler.getStringInput("Enter Email");
+        String address = InputHandler.getStringInput("Enter Address");
+        String bloodGroup = InputHandler.getStringInput("Enter Blood Group (e.g., A+, O-)");
+        String emergencyContact = InputHandler.getStringInput("Enter Emergency Contact Number");
+        String insuranceId = InputHandler.getStringInput("Enter Insurance ID");
 
         // Set automatic values
         LocalDate registrationDate = LocalDate.now();
@@ -117,45 +108,25 @@ public class PatientService extends Base implements Manageable, Searchable {
         for (patient p : patients) {
             if (p.getPatientId().equals(patientId)) {
 
-                System.out.println("Enter updated patient first name :");
-                p.setFirstName(scanner.nextLine());
+                p.setFirstName(InputHandler.getStringInput("Enter updated patient first name"));
+                p.setLastName(InputHandler.getStringInput("Enter updated patient last name"));
 
-                System.out.println("Enter updated patient last name :");
-                p.setLastName(scanner.nextLine());
+                LocalDate dob = InputHandler.getDateInput("Enter updated patient DOB (dd-MM-yyyy)");
+                p.setDateOfBirth(dob.toString());
 
-                System.out.println("Enter updated patient DOB (YYYY-MM-DD): ");
-                String dateOfBirth = scanner.nextLine();
-                LocalDate DOB = LocalDate.parse(dateOfBirth);
-                p.setDateOfBirth(DOB.toString()); // Adapted to match your entity type if needed
+                p.setGender(InputHandler.getStringInput("Enter updated patient gender"));
+                p.setPhoneNumber(InputHandler.getStringInput("Enter updated patient phone number"));
+                p.setEmail(InputHandler.getStringInput("Enter updated patient email"));
+                p.setAddress(InputHandler.getStringInput("Enter updated patient address"));
+                p.setBloodGroup(InputHandler.getStringInput("Enter updated patient blood Group"));
 
-                System.out.println("Enter updated patient gender :");
-                p.setGender(scanner.nextLine());
-
-                System.out.println("Enter updated patient phone number :");
-                p.setPhoneNumber(scanner.nextLine());
-
-                System.out.println("Enter updated patient email :");
-                p.setEmail(scanner.nextLine());
-
-                System.out.println("Enter updated patient address :");
-                p.setAddress(scanner.nextLine());
-
-                System.out.println("Enter updated patient blood Group :");
-                p.setBloodGroup(scanner.nextLine());
-
-                System.out.println("Enter updated patient emergency Contact :");
-                String eContact = scanner.nextLine();
+                String eContact = InputHandler.getStringInput("Enter updated patient emergency Contact");
                 List<String> eList = new ArrayList<>();
                 eList.add(eContact);
                 p.setEmergencyContact(eList);
 
-                System.out.println("Enter updated registration Date (YYYY-MM-DD):");
-                String dateOfRegistration = scanner.nextLine();
-                LocalDate DOR = LocalDate.parse(dateOfRegistration);
-                p.setRegistrationDate(DOR);
-
-                System.out.println("Enter updated patient insurance Id :");
-                p.setInsuranceId(scanner.nextLine());
+                p.setRegistrationDate(InputHandler.getDateInput("Enter updated registration Date (dd-MM-yyyy)"));
+                p.setInsuranceId(InputHandler.getStringInput("Enter updated patient insurance Id"));
 
                 System.out.println("Enter updated patient allergies :");
                 Boolean continueFlag = true;
@@ -265,11 +236,10 @@ public class PatientService extends Base implements Manageable, Searchable {
         EmergencyPatient Emergency = new EmergencyPatient();
 
 
-        System.out.println("Please enter the type of patient you want to display(InPatient/OutPatient/EmergencyPatient)");
-        filter = scanner.nextLine();
-        if (filter.equalsIgnoreCase("InPatient")) {
+       String choice = InputHandler.getStringInput("Enter Type (InPatient/OutPatient/EmergencyPatient");
+        if (choice.equalsIgnoreCase("InPatient")) {
             In.displayInfo();
-        } else if (filter.equalsIgnoreCase("OutPatient")) {
+        } else if (choice.equalsIgnoreCase("OutPatient")) {
             Out.displayInfo();
         } else {
             Emergency.displayInfo();
@@ -279,7 +249,7 @@ public class PatientService extends Base implements Manageable, Searchable {
     public void displayPatients(int limit) {
 
         System.out.println("DISPLAYING LIMITED PATIENTS");
-        System.out.println("-------------------");
+        System.out.println("*******************************");
 
         System.out.println("please enter the number of patients you want to display:");
         limit = Integer.parseInt(scanner.nextLine());

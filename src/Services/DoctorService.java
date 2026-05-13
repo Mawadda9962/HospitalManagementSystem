@@ -5,6 +5,7 @@ import Entities.patient;
 import Interfaces.Manageable;
 import Interfaces.Searchable;
 import Utiles.Constant;
+import Utiles.HelperUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -93,7 +94,7 @@ public class DoctorService extends Base implements Manageable, Searchable {
 
     public Doctor getDoctorById(String doctorId) {
         for (Doctor d : doctors) {
-            if (d.getDoctorId().equals(doctorId)) {
+          if(HelperUtils.isNotNull(d.getDoctorId()) && d.getDoctorId().equals(doctorId)) {
                 return d;
             }
         }
@@ -103,7 +104,7 @@ public class DoctorService extends Base implements Manageable, Searchable {
     // Integrated the refined edit logic here to match the Patient style
     public void editDoctor(String doctorId) {
         for (Doctor D : doctors) {
-            if (D.getDoctorId().equals(doctorId)) {
+            if (HelperUtils.isNotNull(D.getDoctorId()) && D.getDoctorId().equals(doctorId)) {
 
                 // Personal details
                 System.out.println("Enter updated Doctor first name :");
@@ -169,7 +170,7 @@ public class DoctorService extends Base implements Manageable, Searchable {
 
     public void removeDoctor(String doctorId) {
         Doctor found = getDoctorById(doctorId);
-        if (found != null) {
+        if (HelperUtils.isNotNull(found)) {
             doctors.remove(found);
             System.out.println(Constant.DOCTOR_REMOVE_SUCCESSFULLY);
         } else {
@@ -185,14 +186,16 @@ public class DoctorService extends Base implements Manageable, Searchable {
 
         System.out.println("All Doctors" + doctors.size() + "total");
         for (Doctor d : doctors) {
-            d.displayInfo();
+            if (HelperUtils.isNotNull(d)){
+                d.displayInfo();
+            }
         }
     }
 
     public void getDoctorsBySpecialization(String specialization) {
         List<Doctor> results = new ArrayList<>();
         for (Doctor d : doctors) {
-            if (d.getSpecialization().equalsIgnoreCase(specialization)) {
+            if (HelperUtils.isNotNull(d.getSpecialization()) && d.getSpecialization().equalsIgnoreCase(specialization)) {                results.add(d);
                 results.add(d);
             }
         }

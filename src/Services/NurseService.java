@@ -4,6 +4,7 @@ import Entities.Nurse;
 import Interfaces.Manageable;
 import Interfaces.Searchable;
 import Utiles.Constant;
+import Utiles.HelperUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,9 +22,9 @@ public class NurseService extends Base implements Manageable, Searchable {
   System.out.print("Enter Nurse ID: ");
   String nurseId = scanner.nextLine().trim();
 
-  if (getNurseById(nurseId) != null) {
+  if (HelperUtils.isNotNull(getNurseById(nurseId))) {
    System.out.println("A nurse with this ID already exists.");
-   return;
+      return;
   }
 
   System.out.print("Enter First Name: ");
@@ -72,16 +73,16 @@ public class NurseService extends Base implements Manageable, Searchable {
 
  public Nurse getNurseById(String nurseId) {
   for (Nurse n : nurses) {
-   if (n.getNurseId().equals(nurseId)) {
-    return n;
-   }
+   if (HelperUtils.isNotNull(n) && n.getNurseId().equals(nurseId)) {
+     return n;
+      }
   }
   return null;
  }
 
  public void editNurse(String nurseId) {
   Nurse n = getNurseById(nurseId);
-  if (n == null) {
+  if (HelperUtils.isNull(n)) {
    System.out.println("Nurse with ID " + nurseId + " not found.");
    return;
   }
@@ -107,12 +108,12 @@ public class NurseService extends Base implements Manageable, Searchable {
 
  public void removeNurse(String nurseId) {
   Nurse n = getNurseById(nurseId);
-  if (n != null) {
-   nurses.remove(n);
-   System.out.println(Constant.NURSE_REMOVE_SUCCESSFULLY);
+  if (HelperUtils.isNotNull(n)) {
+        nurses.remove(n);
+        System.out.println(Constant.NURSE_REMOVE_SUCCESSFULLY);
   } else {
-   System.out.println("Nurse not found.");
-  }
+        System.out.println("Nurse not found.");
+    }
  }
 
  public void displayAllNurses() {
@@ -122,6 +123,7 @@ public class NurseService extends Base implements Manageable, Searchable {
   }
   System.out.println("Total Registered Nurses: " + nurses.size());
   for (Nurse n : nurses) {
+   if (HelperUtils.isNotNull(n))
    n.displayInfo();
   }
  }

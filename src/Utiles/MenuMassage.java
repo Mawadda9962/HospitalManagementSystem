@@ -15,7 +15,7 @@ public class MenuMassage {
             """;
 
         public static String PATIENT_MENU_MESSAGE = """
-              1- Register New Patient
+            1- Register New Patient
             2- Register InPatient
             3- Register OutPatient
             4- Register Emergency Patient

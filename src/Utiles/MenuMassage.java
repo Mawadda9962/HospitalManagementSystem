@@ -3,15 +3,13 @@ package Utiles;
 public class MenuMassage {
 
         public static String MAIN_MENU_MESSAGE = """
-            1- Register New Patient
-            2- Register InPatient
-            3- Register OutPatient
-            4- Register Emergency Patient
-            5- View All Patients
-            6- Search Patient
-            7- Update Patient Information
-            8- Remove Patient
-            9- View Patient Medical History
+            1- PATIENT MANAGEMENT
+            2- DOCTOR MANAGEMENT
+            3- NURSE MANAGEMENT
+            4- APPOINTMENT MANAGEMENT
+            5- MEDICAL RECORDS MANAGEMENT
+            6- DEPARTMENT MANAGEMENT
+            7- REPORTS AND STATISTICS
             """;
 
         public static String PATIENT_MENU_MESSAGE = """
@@ -71,24 +69,24 @@ public class MenuMassage {
             """;
 
         public static String DEPARTMENT_MENU_MESSAGE = """
-           1- Add Department\s
+           1- Add Department
            2- View All Departments
            3- View Department Details
-           4- Assign Doctor to Department\s
-           5- Assign Nurse to Department\s
-           6- Update Department Information\s
-           7- View Department Statistics\s
+           4- Assign Doctor to Department
+           5- Assign Nurse to Department
+           6- Update Department Information
+           7- View Department Statistics
            """;
 
         public static String REPORTS_AND_STATISTICS = """
            1- Daily Appointments Report
-           2- Doctor Performance Report\s
+           2- Doctor Performance Report
            3- Department Occupancy Report
            4- Patient Statistics
            5- Emergency Cases Report
            """;
     }
-//
+
 
 
 

@@ -152,54 +152,43 @@ public class AppointmentService extends Base implements Manageable, Searchable, 
     }
 
     public void createAppointment(String patientId, String doctorId, LocalDate date) {
-        patient p = new patient();
-        Doctor doctor = new Doctor();
-        Appointment appointment = new Appointment();
+        if (HelperUtils.isNotNull(patientId) && HelperUtils.isNotNull(doctorId)) {
+            Appointment appointment = new Appointment();
+            appointment.setAppointmentId(HelperUtils.generateId("APP", 5));
+            appointment.setPatientId(patientId);
+            appointment.setDoctorId(doctorId);
+            appointment.setAppointmentDate(date);
+            appointment.setStatus("Scheduled");
 
-
-        System.out.println("CREATING APPOINTMENT");
-        System.out.println("--------------------------------");
-
-        System.out.println("Please enter patient ID: ");
-        patientId = scanner.nextLine();
-        p.setPatientId(patientId);
-
-        System.out.println("Please enter Doctor ID: ");
-        doctorId = scanner.nextLine();
-        doctor.setDoctorId(doctorId);
-
-        System.out.println("Please enter appointment Date ");
-        date = LocalDate.parse(scanner.nextLine());
-        appointment.setAppointmentDate(date);
+            appointments.add(appointment);
+            System.out.println(Constant.APPOINTMENT_ADDED_SUCCESSFULLY);
+        } else {
+            System.out.println("Error: Missing Patient or Doctor information.");
+        }
     }
 
     public void createAppointment(String patientId, String doctorId, LocalDate date, String time) {
-        patient p = new patient();
-        Doctor doctor = new Doctor();
-        Appointment appointment = new Appointment();
+        if (HelperUtils.isNotNull(patientId) && HelperUtils.isNotNull(doctorId)) {
+            Appointment appointment = new Appointment();
+            appointment.setAppointmentId(HelperUtils.generateId("APP", 5));
+            appointment.setPatientId(patientId);
+            appointment.setDoctorId(doctorId);
+            appointment.setAppointmentDate(date);
+            appointment.setAppointmentTime(time);
+            appointment.setStatus("Scheduled");
 
-        System.out.println("CREATING APPOINTMENT");
-        System.out.println("--------------------------------");
-
-        System.out.println("Please enter patient ID: ");
-        patientId = scanner.nextLine();
-        p.setPatientId(patientId);
-
-        System.out.println("Please enter Doctor ID: ");
-        doctorId = scanner.nextLine();
-        doctor.setDoctorId(doctorId);
-
-        System.out.println("Please enter appointment Date ");
-        date = LocalDate.parse(scanner.nextLine());
-        appointment.setAppointmentDate(date);
-
-        System.out.println("Please enter appointment time ");
-        time = scanner.nextLine();
-        appointment.setAppointmentTime(time);
+            appointments.add(appointment);
+            System.out.println(Constant.APPOINTMENT_ADDED_SUCCESSFULLY);
+        }
     }
 
     public void createAppointment(Appointment appointment) {
-        patient p = new patient();
+        if (HelperUtils.isNotNull(appointment)) {
+            appointments.add(appointment);
+            System.out.println(Constant.APPOINTMENT_ADDED_SUCCESSFULLY);
+        } else {
+            System.out.println("Error: Appointment object is null.");
+        }
     }
 
     public void rescheduleAppointment(String appointmentId, LocalDate newDate) {

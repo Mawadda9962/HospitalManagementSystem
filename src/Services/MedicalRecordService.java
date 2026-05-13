@@ -107,8 +107,7 @@ public class MedicalRecordService extends Base implements Manageable, Searchable
     }
 
     public void displayPatientHistory(String patientId) {
-        String searchId = (patientId != null) ? patientId.trim() : "";
-        System.out.println("MEDICAL HISTORY FOR PATIENT: " + patientId);
+        String searchId = HelperUtils.isNotNull(patientId) ? patientId.trim() : "";        System.out.println("MEDICAL HISTORY FOR PATIENT: " + patientId);
         boolean found = false;
         for (MedicalRecord mr : medicalRecords) {
             if (mr.getPatientId().trim().equalsIgnoreCase(searchId)) {
@@ -125,8 +124,7 @@ public class MedicalRecordService extends Base implements Manageable, Searchable
         System.out.println("Records created by Doctor: " + doctorId);
         boolean found = false;
         for (MedicalRecord mr : medicalRecords) {
-            if (mr.getDoctorId().equalsIgnoreCase(doctorId)) {
-                mr.displayInfo();
+            if (HelperUtils.isNotNull(mr) && mr.getDoctorId().equalsIgnoreCase(doctorId)) {                mr.displayInfo();
                 found = true;
             }
         }
@@ -162,12 +160,20 @@ public class MedicalRecordService extends Base implements Manageable, Searchable
 
     @Override
     public void add(Object entity) {
-
+        if (entity instanceof MedicalRecord) {
+            MedicalRecord mr = (MedicalRecord) entity;
+            if (HelperUtils.isNotNull(mr)) {
+                medicalRecords.add(mr);
+                System.out.println("Medical Record added for Patient: " + mr.getPatientId());
+            }
+        } else {
+            System.out.println("Invalid entity type. Expected a MedicalRecord object.");
+        }
     }
 
     @Override
     public void remove(String id) {
-
+        removeMedicalRecord(id);
     }
 
     @Override

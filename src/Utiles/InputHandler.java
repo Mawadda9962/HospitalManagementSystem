@@ -1,5 +1,8 @@
 package Utiles;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Scanner;
 
 public class InputHandler {
@@ -42,12 +45,21 @@ public class InputHandler {
         while(true){
             System.out.println(prompt);
             try{
+                //parseDouble its converts a string into double
                 return Double.parseDouble(scanner.nextLine());
+                //NumberFormatException is the specific type of error
             }catch (NumberFormatException e){
                 System.out.println("Please enter a valid decimal number");
             }
         }
     }
+
+    public static LocalDate getDateInput(String prompt){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+
+    }
+
+
 
 
 

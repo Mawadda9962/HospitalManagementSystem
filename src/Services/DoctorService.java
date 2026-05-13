@@ -212,41 +212,28 @@ public class DoctorService extends Base implements Manageable, Searchable {
 
     public void addDoctor(String name, String specialization, String phone) {
         Doctor doctor = new Doctor();
-        System.out.println("Please enter Doctor first name: ");
-        name = scanner.nextLine();
         doctor.setFirstName(name);
-
-        System.out.println("Please enter specialization: ");
-        specialization = scanner.nextLine();
         doctor.setSpecialization(specialization);
-
-        System.out.println("Please enter phone number: ");
-        phone = scanner.nextLine();
         doctor.setPhoneNumber(phone);
 
+        doctors.add(doctor);
+        System.out.println(Constant.DOCTOR_ADDED_SUCCESSFULLY);
     }
 
     public void addDoctor(String name, String specialization, String phone, double consultationFee) {
         Doctor doctor = new Doctor();
-        System.out.println("Please enter Doctor first name: ");
-        name = scanner.nextLine();
         doctor.setFirstName(name);
-
-        System.out.println("Please enter specialization: ");
-        specialization = scanner.nextLine();
         doctor.setSpecialization(specialization);
-
-        System.out.println("Please enter phone number: ");
-        phone = scanner.nextLine();
         doctor.setPhoneNumber(phone);
-
-        System.out.println("Please enter consultation Fee: ");
-        consultationFee = Double.parseDouble(scanner.nextLine());
         doctor.setConsultationFee(consultationFee);
+
+        doctors.add(doctor);
+        System.out.println(Constant.DOCTOR_ADDED_SUCCESSFULLY);
+
     }
 
     public void addDoctor(Doctor doctor) {
-        if (doctor != null) {
+        if (HelperUtils.isNotNull(doctor)) {
             doctors.add(doctor);
             System.out.println(Constant.DOCTOR_ADDED_SUCCESSFULLY);
         }

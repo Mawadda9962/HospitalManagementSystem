@@ -220,46 +220,32 @@ public class PatientService extends Base implements Manageable, Searchable {
 
     public void addPatient(String firstName, String lastName, String phone) {
         patient p = new patient();
-        System.out.println("Enter patient first name: ");
-        firstName = scanner.nextLine();
         p.setFirstName(firstName);
-
-        System.out.println("Enter patient last name: ");
-        lastName = scanner.nextLine();
         p.setLastName(lastName);
-
-        System.out.println("Enter patient phone: ");
-        phone = scanner.nextLine();
         p.setPhoneNumber(phone);
+
+        patients.add(p);
+        System.out.println(Constant.PATIENT_ADDED_SUCCESSFULLY);
     }
 
     public void addPatient(String firstName, String lastName, String phone, String bloodGroup, String email) {
         patient p = new patient();
-        System.out.println("Enter patient first name: ");
-        firstName = scanner.nextLine();
         p.setFirstName(firstName);
-
-        System.out.println("Enter patient last name: ");
-        lastName = scanner.nextLine();
         p.setLastName(lastName);
-
-        System.out.println("Enter patient phone: ");
-        phone = scanner.nextLine();
         p.setPhoneNumber(phone);
-
-        System.out.println("Enter patient bloodGroup: ");
-        phone = scanner.nextLine();
         p.setBloodGroup(bloodGroup);
-
-        System.out.println("Please enter Email: ");
-        email = scanner.nextLine();
         p.setEmail(email);
+
+        patients.add(p);
+        System.out.println(Constant.PATIENT_ADDED_SUCCESSFULLY);
 
     }
 
     public void addPatient(patient patient) {
-        patients.add(patient);  // just add the patient object directly
-        System.out.println("Patient added successfully.");
+        if (HelperUtils.isNotNull(patient)) {
+            patients.add(patient);
+            System.out.println(Constant.PATIENT_ADDED_SUCCESSFULLY);
+        }
     }
 
     public void searchPatients(String keyword) {

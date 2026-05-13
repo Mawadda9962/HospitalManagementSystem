@@ -8,6 +8,7 @@ import Interfaces.Displayable;
 import Interfaces.Manageable;
 import Interfaces.Searchable;
 import Utiles.Constant;
+import Utiles.HelperUtils;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -111,7 +112,7 @@ public class PatientService extends Base implements Manageable, Searchable {
 
     public patient getPatientById(String patientId) {
         for (patient p : patients) {
-            if (p.getPatientId().equals(patientId)) {
+            if (HelperUtils.isNotNull(p.getPatientId()) && p.getPatientId().equals(patientId) ) {
                 return p;
             }
         }
@@ -186,7 +187,7 @@ public class PatientService extends Base implements Manageable, Searchable {
     public void removePatient(String patientId) {
         patient found = getPatientById(patientId);
 
-        if (found != null) {
+        if (HelperUtils.isNotNull(found)) {
             patients.remove(found);
             System.out.println(Constant.PATIENT_REMOVE_SUCCESSFULLY);
         } else {

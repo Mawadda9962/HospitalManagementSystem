@@ -1,6 +1,7 @@
 package Entities;
 
 import Interfaces.Displayable;
+import Utiles.HelperUtils;
 
 import java.util.List;
 import java.util.Objects;
@@ -16,7 +17,7 @@ public class Person implements Displayable {
     private String address;
 
     public Person(String id, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address, String specialization, String qualification, int experienceYears, String departmentId, double consultationFee, List<String> availableSlots, List<String> assignedPatients) {
-        this.id = id;
+        this.id = HelperUtils.generateId();
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;

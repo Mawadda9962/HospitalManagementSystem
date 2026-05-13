@@ -41,7 +41,7 @@ public class PatientService extends Base implements Manageable, Searchable {
         String firstName = InputHandler.getStringInput("Enter First Name: ");
         String lastName = InputHandler.getStringInput("Enter Last Name: ");
 
-        LocalDate dateOfBirth = InputHandler.getDateInput("Enter Date of Birth (YYYY-MM-DD): ");
+        String dateOfBirth = InputHandler.getDateInput("Enter Date of Birth (YYYY-MM-DD): ").toString();
 
         String gender = InputHandler.getStringInput("Enter Gender (Male/Female/Other)");
         String phoneNumber = InputHandler.getStringInput("Enter Phone Number");
@@ -251,10 +251,9 @@ public class PatientService extends Base implements Manageable, Searchable {
         System.out.println("DISPLAYING LIMITED PATIENTS");
         System.out.println("*******************************");
 
-        System.out.println("please enter the number of patients you want to display:");
-        limit = Integer.parseInt(scanner.nextLine());
+        limit = InputHandler.getIntInput("please enter the number of patients you want to display:");
         for (int i = 0; i < limit && i < patients.size(); i++) {
-            displayPatients();
+            patients.get(i).displayInfo();
         }
     }
 

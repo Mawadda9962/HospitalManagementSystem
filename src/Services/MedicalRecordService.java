@@ -5,6 +5,7 @@ import Interfaces.Manageable;
 import Interfaces.Searchable;
 import Utiles.Constant;
 import Utiles.HelperUtils;
+import Utiles.InputHandler;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -28,23 +29,13 @@ public class MedicalRecordService extends Base implements Manageable, Searchable
             return;
         }
 
-        System.out.print("Enter Patient ID: ");
-        String patientId = scanner.nextLine().trim();
+        String patientId = InputHandler.getStringInput("Enter Patient ID");
+        String doctorId = InputHandler.getStringInput("Enter Doctor ID");
+        String diagnosis = InputHandler.getStringInput("Enter Diagnosis");
+        String prescription = InputHandler.getStringInput("Enter Prescription");
+        String testResults = InputHandler.getStringInput("Enter Test Results");
+        String notes = InputHandler.getStringInput("Enter Additional Notes");
 
-        System.out.print("Enter Doctor ID: ");
-        String doctorId = scanner.nextLine().trim();
-
-        System.out.print("Enter Diagnosis: ");
-        String diagnosis = scanner.nextLine().trim();
-
-        System.out.print("Enter Prescription: ");
-        String prescription = scanner.nextLine().trim();
-
-        System.out.print("Enter Test Results: ");
-        String testResults = scanner.nextLine().trim();
-
-        System.out.print("Enter Additional Notes: ");
-        String notes = scanner.nextLine().trim();
 
         LocalDate visitDate = LocalDate.now();
 
@@ -79,19 +70,10 @@ public class MedicalRecordService extends Base implements Manageable, Searchable
             return;
         }
 
-        System.out.println("Editing Record: " + recordId);
-
-        System.out.print("Enter updated Diagnosis: ");
-        mr.setDiagnosis(scanner.nextLine());
-
-        System.out.print("Enter updated Prescription: ");
-        mr.setPrescription(scanner.nextLine());
-
-        System.out.print("Enter updated Test Results: ");
-        mr.setTestResults(scanner.nextLine());
-
-        System.out.print("Enter updated Notes: ");
-        mr.setNotes(scanner.nextLine());
+        mr.setDiagnosis(InputHandler.getStringInput("Enter updated Diagnosis"));
+        mr.setPrescription(InputHandler.getStringInput("Enter updated Prescription"));
+        mr.setTestResults(InputHandler.getStringInput("Enter updated Test Results"));
+        mr.setNotes(InputHandler.getStringInput("Enter updated Notes"));
 
         System.out.println(Constant.RECORD_UPDATED_SUCCESSFULLY);
     }

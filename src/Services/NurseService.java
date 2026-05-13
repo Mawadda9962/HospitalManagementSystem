@@ -5,6 +5,7 @@ import Interfaces.Manageable;
 import Interfaces.Searchable;
 import Utiles.Constant;
 import Utiles.HelperUtils;
+import Utiles.InputHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,38 +28,21 @@ public class NurseService extends Base implements Manageable, Searchable {
             return;
         }
 
-        System.out.print("Enter First Name: ");
-        String firstName = scanner.nextLine().trim();
+        String firstName = InputHandler.getStringInput("Enter First Name");
+        String lastName = InputHandler.getStringInput("Enter Last Name");
 
-        System.out.print("Enter Last Name: ");
-        String lastName = scanner.nextLine().trim();
+        String dob = InputHandler.getDateInput("Enter Date of Birth").toString();
 
-        System.out.print("Enter Date of Birth (YYYY-MM-DD): ");
-        String dob = scanner.nextLine().trim();
+        String gender = InputHandler.getStringInput("Enter Gender");
+        String phone = InputHandler.getStringInput("Enter Phone Number");
+        String email = InputHandler.getStringInput("Enter Email");
+        String address = InputHandler.getStringInput("Enter Address");
 
-        System.out.print("Enter Gender: ");
-        String gender = scanner.nextLine().trim();
 
-        System.out.print("Enter Phone Number: ");
-        String phone = scanner.nextLine().trim();
+        String deptId = InputHandler.getStringInput("Enter Department ID");
+        String shift = InputHandler.getStringInput("Enter Shift (Morning/Evening/Night)");
+        String qualification = InputHandler.getStringInput("Enter Qualification");
 
-        System.out.print("Enter Email: ");
-        String email = scanner.nextLine().trim();
-
-        System.out.print("Enter Address: ");
-        String address = scanner.nextLine().trim();
-
-        // Nurse Specific Information
-        System.out.print("Enter Department ID: ");
-        String deptId = scanner.nextLine().trim();
-
-        System.out.print("Enter Shift (Morning/Evening/Night): ");
-        String shift = scanner.nextLine().trim();
-
-        System.out.print("Enter Qualification: ");
-        String qualification = scanner.nextLine().trim();
-
-        // Initializing lists as empty for a new nurse
         List<String> assignedPatients = new ArrayList<>();
 
         Nurse newNurse = new Nurse(
@@ -88,20 +72,12 @@ public class NurseService extends Base implements Manageable, Searchable {
         }
 
         System.out.println("Editing Nurse: " + nurseId);
-        System.out.print("Enter updated First Name: ");
-        n.setFirstName(scanner.nextLine());
 
-        System.out.print("Enter updated Last Name: ");
-        n.setLastName(scanner.nextLine());
-
-        System.out.print("Enter updated Shift: ");
-        n.setShift(scanner.nextLine());
-
-        System.out.print("Enter updated Department ID: ");
-        n.setDepartmentId(scanner.nextLine());
-
-        System.out.print("Enter updated Qualification: ");
-        n.setQualification(scanner.nextLine());
+        n.setFirstName(InputHandler.getStringInput("Enter updated First Name"));
+        n.setLastName(InputHandler.getStringInput("Enter updated Last Name"));
+        n.setShift(InputHandler.getStringInput("Enter updated Shift"));
+        n.setDepartmentId(InputHandler.getStringInput("Enter updated Department ID"));
+        n.setQualification(InputHandler.getStringInput("Enter updated Qualification"));
 
         System.out.println(Constant.NURSE_UPDATED_SUCCESSFULLY);
     }

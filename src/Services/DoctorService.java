@@ -6,6 +6,7 @@ import Interfaces.Manageable;
 import Interfaces.Searchable;
 import Utiles.Constant;
 import Utiles.HelperUtils;
+import Utiles.InputHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,41 +30,22 @@ public class DoctorService extends Base implements Manageable, Searchable {
             return;
         }
 
-        System.out.print("Enter First Name: ");
-        String firstName = scanner.nextLine().trim();
+        String firstName = InputHandler.getStringInput("Enter First Name");
+        String lastName = InputHandler.getStringInput("Enter Last Name");
 
-        System.out.print("Enter Last Name: ");
-        String lastName = scanner.nextLine().trim();
+        String dateOfBirth = InputHandler.getDateInput("Enter Date of Birth").toString();
 
-        System.out.print("Enter Date of Birth (YYYY-MM-DD): ");
-        String dateOfBirth = scanner.nextLine().trim();
+        String gender = InputHandler.getStringInput("Enter Gender (Male/Female/Other)");
+        String phoneNumber = InputHandler.getStringInput("Enter Phone Number");
+        String email = InputHandler.getStringInput("Enter Email");
+        String address = InputHandler.getStringInput("Enter Address");
 
-        System.out.print("Enter Gender (Male/Female/Other): ");
-        String gender = scanner.nextLine().trim();
+        String specialization = InputHandler.getStringInput("Enter Specialization");
+        String qualification = InputHandler.getStringInput("Enter Qualification (e.g., MBBS, MD)");
 
-        System.out.print("Enter Phone Number: ");
-        String phoneNumber = scanner.nextLine().trim();
-
-        System.out.print("Enter Email: ");
-        String email = scanner.nextLine().trim();
-
-        System.out.print("Enter Address: ");
-        String address = scanner.nextLine().trim();
-
-        System.out.print("Enter Specialization: ");
-        String specialization = scanner.nextLine().trim();
-
-        System.out.print("Enter Qualification (e.g., MBBS, MD): ");
-        String qualification = scanner.nextLine().trim();
-
-        System.out.print("Enter Years of Experience: ");
-        int experienceYears = Integer.parseInt(scanner.nextLine().trim());
-
-        System.out.print("Enter Department ID: ");
-        String departmentId = scanner.nextLine().trim();
-
-        System.out.print("Enter Consultation Fee: ");
-        double consultationFee = Double.parseDouble(scanner.nextLine().trim());
+        int experienceYears = InputHandler.getIntInput("Enter Years of Experience");
+        String departmentId = InputHandler.getStringInput("Enter Department ID");
+        double consultationFee = InputHandler.getDoubleInput("Enter Consultation Fee");
 
         List<String> availableSlots = new ArrayList<>();
         List<String> assignedPatients = new ArrayList<>();

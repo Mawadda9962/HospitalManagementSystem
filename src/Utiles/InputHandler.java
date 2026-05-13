@@ -56,6 +56,13 @@ public class InputHandler {
 
     public static LocalDate getDateInput(String prompt){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        while (true){
+            System.out.println(prompt);
+            String input = scanner.nextLine();
+            try {
+                return LocalDate.parse(input, formatter);
+            }
+        }
 
     }
 

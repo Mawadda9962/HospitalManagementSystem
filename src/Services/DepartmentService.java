@@ -6,6 +6,7 @@ import Interfaces.Manageable;
 import Interfaces.Searchable;
 import Utiles.Constant;
 import Utiles.HelperUtils;
+import Utiles.InputHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,16 +30,11 @@ public class DepartmentService extends Base implements Manageable, Searchable {
             return;
         }
 
-        System.out.print("Enter Department Name: ");
-        String name = scanner.nextLine().trim();
+        String name = InputHandler.getStringInput("Enter Department Name");
+        String headDoctorId = InputHandler.getStringInput("Enter Head Doctor ID");
 
-        System.out.print("Enter Head Doctor ID: ");
-        String headDoctorId = scanner.nextLine().trim();
+        int capacity = InputHandler.getIntInput("Enter Bed Capacity");
 
-        System.out.print("Enter Bed Capacity: ");
-        int capacity = Integer.parseInt(scanner.nextLine().trim());
-
-        // New department starts with all beds available
         int availableBeds = capacity;
 
         // Initialize empty lists for doctors and nurses
@@ -73,14 +69,10 @@ public class DepartmentService extends Base implements Manageable, Searchable {
         }
 
         System.out.println("Editing Department: " + d.getDepartmentName());
-        System.out.print("Enter updated Name: ");
-        d.setDepartmentName(scanner.nextLine());
 
-        System.out.print("Enter updated Head Doctor ID: ");
-        d.setHeadDoctorId(scanner.nextLine());
-
-        System.out.print("Enter updated Bed Capacity: ");
-        d.setBedCapacity(Integer.parseInt(scanner.nextLine()));
+        d.setDepartmentName(InputHandler.getStringInput("Enter updated Name"));
+        d.setHeadDoctorId(InputHandler.getStringInput("Enter updated Head Doctor ID"));
+        d.setBedCapacity(InputHandler.getIntInput("Enter updated Bed Capacity"));
 
         System.out.println("Department updated successfully!");
     }

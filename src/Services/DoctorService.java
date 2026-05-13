@@ -88,66 +88,34 @@ public class DoctorService extends Base implements Manageable, Searchable {
         for (Doctor D : doctors) {
             if (HelperUtils.isNotNull(D.getDoctorId()) && D.getDoctorId().equals(doctorId)) {
 
-                // Personal details
-                System.out.println("Enter updated Doctor first name :");
-                D.setFirstName(scanner.nextLine());
+                D.setFirstName(InputHandler.getStringInput("Enter updated First Name"));
+                D.setLastName(InputHandler.getStringInput("Enter updated Last Name"));
+                D.setDateOfBirth(InputHandler.getDateInput("Enter updated DOB").toString());
+                D.setGender(InputHandler.getStringInput("Enter updated Gender"));
+                D.setPhoneNumber(InputHandler.getStringInput("Enter updated Phone Number"));
+                D.setEmail(InputHandler.getStringInput("Enter updated Email"));
+                D.setAddress(InputHandler.getStringInput("Enter updated Address"));
 
-                System.out.println("Enter updated Doctor last name :");
-                D.setLastName(scanner.nextLine());
+                D.setSpecialization(InputHandler.getStringInput("Enter updated Specialization"));
+                D.setQualification(InputHandler.getStringInput("Enter updated Qualification"));
+                D.setExperienceYears(InputHandler.getIntInput("Enter updated Years of Experience"));
+                D.setDepartmentId(InputHandler.getStringInput("Enter updated Department ID"));
+                D.setConsultationFee(InputHandler.getDoubleInput("Enter updated Consultation Fee"));
 
-                System.out.println("Enter updated Doctor DOB (YYYY-MM-DD):");
-                String dob = scanner.nextLine();
-                // If your Person class uses String for DOB, this works perfectly.
-                D.setDateOfBirth(dob);
 
-                System.out.println("Enter updated Doctor gender :");
-                D.setGender(scanner.nextLine());
-
-                System.out.println("Enter updated Doctor phone number :");
-                D.setPhoneNumber(scanner.nextLine());
-
-                System.out.println("Enter updated Doctor email :");
-                D.setEmail(scanner.nextLine());
-
-                System.out.println("Enter updated Doctor address :");
-                D.setAddress(scanner.nextLine());
-
-                // Doctor specific details
-                System.out.println("Enter updated Specialization :");
-                D.setSpecialization(scanner.nextLine());
-
-                System.out.println("Enter updated Qualification :");
-                D.setQualification(scanner.nextLine());
-
-                System.out.println("Enter updated Years of Experience :");
-                // Using Integer.parseInt to stay consistent with your handling of numbers
-                D.setExperienceYears(Integer.parseInt(scanner.nextLine().trim()));
-
-                System.out.println("Enter updated Department ID :");
-                D.setDepartmentId(scanner.nextLine().trim());
-
-                System.out.println("Enter updated Consultation Fee :");
-                D.setConsultationFee(Double.parseDouble(scanner.nextLine().trim()));
-
-                // Handle List of Available Slots (similar to how you handled Allergies in Patient)
-                System.out.println("Enter updated Available Slots :");
+                System.out.println("Update Available Slots:");
                 Boolean continueFlag = true;
                 List<String> slots = new ArrayList<>();
                 while (continueFlag) {
                     System.out.print("Slot");
-                    slots.add(scanner.nextLine());
+                    slots.add(InputHandler.getStringInput("Enter Slot"));
                     System.out.println("Enter 'a' to add more slots, and 'q' to exit");
-                    if (scanner.nextLine().equalsIgnoreCase("q")) {
-                        continueFlag = false;
-                    }
                 }
                 D.setAvailableSlots(slots);
 
                 System.out.println(Constant.DOCTOR_UPDATED_SUCCESSFULLY);
-                return;
             }
         }
-        System.out.println("Doctor with ID " + doctorId + " not found.");
     }
 
     public void removeDoctor(String doctorId) {

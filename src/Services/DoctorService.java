@@ -275,8 +275,7 @@ public class DoctorService extends Base implements Manageable, Searchable {
 
     public void displayDoctors(String departmentId, boolean showAvailableOnly) {
         for (Doctor d : doctors) {
-            if (d.getDepartmentId() != null && d.getDepartmentId().equalsIgnoreCase(departmentId)) {
-                d.displayInfo();
+            if (HelperUtils.isNotNull(d.getDepartmentId()) && d.getDepartmentId().equalsIgnoreCase(departmentId)) {                d.displayInfo();
             }
         }
     }
@@ -341,24 +340,27 @@ public class DoctorService extends Base implements Manageable, Searchable {
     public void search(String keyword) {
         boolean found = false;
         for (Doctor d : doctors) {
-            if (d.getFirstName().equalsIgnoreCase(keyword)
-                    || d.getLastName().equalsIgnoreCase(keyword)
-                    || d.getDoctorId().equalsIgnoreCase(keyword)
-                    || d.getSpecialization().equalsIgnoreCase(keyword)
-                    || d.getDepartmentId().equalsIgnoreCase(keyword)) {
-                d.displayInfo();
-                found = true;
+            if (HelperUtils.isNotNull(d)) {
+                if (d.getFirstName().equalsIgnoreCase(keyword)
+                        || d.getLastName().equalsIgnoreCase(keyword)
+                        || d.getDoctorId().equalsIgnoreCase(keyword)
+                        || d.getSpecialization().equalsIgnoreCase(keyword)
+                        || d.getDepartmentId().equalsIgnoreCase(keyword)) {
+                    d.displayInfo();
+                    found = true;
+                }
             }
         }
-        if (!found) {
-            System.out.println("No doctors found matching: " + keyword);
+            if (!found) {
+                System.out.println("No doctors found matching: " + keyword);
+            }
         }
-    }
+
 
     @Override
     public void searchById(String id) {
         Doctor d = getDoctorById(id);
-        if (d != null) {
+        if (HelperUtils.isNotNull(d)) {
             d.displayInfo();
         } else {
             System.out.println("No doctor found with ID: " + id);

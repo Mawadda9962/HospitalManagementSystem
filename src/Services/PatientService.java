@@ -18,10 +18,10 @@ import java.util.Scanner;
 
 public class PatientService extends Base implements Manageable, Searchable {
 
-    private static final Scanner scanner = new Scanner(System.in);
+    private static  Scanner scanner = new Scanner(System.in);
 
     // This list stores all patients in the system (acts as our in-memory database)
-    private static final List<patient> patients = new ArrayList<>();
+    private static  List<patient> patients = new ArrayList<>();
 
 
     public void addPatient() {

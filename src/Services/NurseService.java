@@ -12,9 +12,9 @@ import java.util.Scanner;
 
 public class NurseService extends Base implements Manageable, Searchable {
 
-    private static final Scanner scanner = new Scanner(System.in);
+    private static  Scanner scanner = new Scanner(System.in);
 
-    private static final List<Nurse> nurses = new ArrayList<>();
+    private static  List<Nurse> nurses = new ArrayList<>();
 
     public void addNurse() {
         System.out.println("********** Add New Nurse **********");
@@ -144,8 +144,7 @@ public class NurseService extends Base implements Manageable, Searchable {
     public void getNursesByShift(String shift) {
         boolean found = false;
         for (Nurse n : nurses) {
-            if (n.getShift().equalsIgnoreCase(shift)) {
-                n.displayInfo();
+            if (HelperUtils.isNotNull(n) && n.getShift().equalsIgnoreCase(shift)) {                n.displayInfo();
                 found = true;
             }
         }
@@ -206,6 +205,7 @@ public class NurseService extends Base implements Manageable, Searchable {
     public void search(String keyword) {
         boolean found = false;
         for (Nurse n : nurses) {
+            if (HelperUtils.isNotNull(n)) {
             if (n.getFirstName().equalsIgnoreCase(keyword)
                     || n.getLastName().equalsIgnoreCase(keyword)
                     || n.getNurseId().equalsIgnoreCase(keyword)
@@ -215,6 +215,7 @@ public class NurseService extends Base implements Manageable, Searchable {
                 found = true;
             }
         }
+    }
         if (!found) {
             System.out.println("No nurses found matching: " + keyword);
         }
@@ -223,7 +224,7 @@ public class NurseService extends Base implements Manageable, Searchable {
     @Override
     public void searchById(String id) {
         Nurse n = getNurseById(id);
-        if (n != null) {
+        if (HelperUtils.isNotNull(n)) {
             n.displayInfo();
         } else {
             System.out.println("No nurse found with ID: " + id);

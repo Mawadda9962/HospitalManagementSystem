@@ -87,7 +87,7 @@ public class DepartmentService extends Base implements Manageable, Searchable {
 
     public void removeDepartment(String id) {
         Department d = getDepartmentById(id);
-        if (d != null) {
+        if (HelperUtils.isNotNull(d)) {
             departments.remove(d);
             System.out.println("Department removed successfully.");
         } else {
@@ -114,7 +114,7 @@ public class DepartmentService extends Base implements Manageable, Searchable {
 
     public void assignDoctorToDepartment(Doctor doctor, String departmentId) {
         Department d = getDepartmentById(departmentId);
-        if (d != null && doctor != null) {
+        if (HelperUtils.isNotNull(d) && HelperUtils.isNotNull(doctor)) {
             d.assignDoctor(doctor);
         } else {
             System.out.println("Error: Department or Doctor not found.");
@@ -152,8 +152,10 @@ public class DepartmentService extends Base implements Manageable, Searchable {
     public void add(Object entity) {
         if (entity instanceof Department) {
             Department d = (Department) entity;
-            departments.add(d);
-            System.out.println("Department added: " + d.getDepartmentName());
+            if (HelperUtils.isNotNull(d)) {
+                departments.add(d);
+                System.out.println("Department added: " + d.getDepartmentName());
+            }
         } else {
             System.out.println("Invalid entity type. Expected a Department object.");
         }
@@ -173,15 +175,17 @@ public class DepartmentService extends Base implements Manageable, Searchable {
     public void search(String keyword) {
         boolean found = false;
         for (Department d : departments) {
-            if (d.getDepartmentId().equalsIgnoreCase(keyword)
-                    || d.getDepartmentName().equalsIgnoreCase(keyword)
-                    || d.getHeadDoctorId().equalsIgnoreCase(keyword)) {
-                System.out.println("-----------------------------------");
-                System.out.println("ID: " + d.getDepartmentId());
-                System.out.println("Name: " + d.getDepartmentName());
-                System.out.println("Head Doctor: " + d.getHeadDoctorId());
-                System.out.println("Beds: " + d.getAvailableBeds() + "/" + d.getBedCapacity());
-                found = true;
+            if (HelperUtils.isNotNull(d)) {
+                if (d.getDepartmentId().equalsIgnoreCase(keyword)
+                        || d.getDepartmentName().equalsIgnoreCase(keyword)
+                        || d.getHeadDoctorId().equalsIgnoreCase(keyword)) {
+                    System.out.println("-----------------------------------");
+                    System.out.println("ID: " + d.getDepartmentId());
+                    System.out.println("Name: " + d.getDepartmentName());
+                    System.out.println("Head Doctor: " + d.getHeadDoctorId());
+                    System.out.println("Beds: " + d.getAvailableBeds() + "/" + d.getBedCapacity());
+                    found = true;
+                }
             }
         }
         if (!found) {
@@ -192,7 +196,7 @@ public class DepartmentService extends Base implements Manageable, Searchable {
     @Override
     public void searchById(String id) {
         Department d = getDepartmentById(id);
-        if (d != null) {
+        if (HelperUtils.isNotNull(d)) {
             System.out.println("-----------------------------------");
             System.out.println("ID: " + d.getDepartmentId());
             System.out.println("Name: " + d.getDepartmentName());

@@ -29,7 +29,7 @@ public class HelperUtils {
     public static boolean isValidString(String str) {
         return isNotNull(str);
     }
-
+fg
     public static boolean isValidString(String str, int minLength) {
         return isNotNull(str) && str.trim().length() >= minLength;
     }

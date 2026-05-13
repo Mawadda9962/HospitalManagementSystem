@@ -109,7 +109,7 @@ public class PatientService extends Base implements Manageable, Searchable {
         System.out.println(Constant.PATIENT_ADDED_SUCCESSFULLY);
     }
 
-
+    //Implementing HelperUtils. isNotNull
     public patient getPatientById(String patientId) {
         for (patient p : patients) {
             if (HelperUtils.isNotNull(p.getPatientId()) && p.getPatientId().equals(patientId) ) {

@@ -11,6 +11,7 @@ import Utiles.Constant;
 import Utiles.HelperUtils;
 import Utiles.InputHandler;
 
+import java.lang.foreign.PaddingLayout;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -257,37 +258,26 @@ public class PatientService extends Base implements Manageable, Searchable {
         }
     }
 
+    public void addInPatient() {
+        System.out.println("********** Register InPatient **********");
+        // Collect common data first
+        String id = InputHandler.getStringInput("Enter Patient ID");
+        String fName = InputHandler.getStringInput("Enter First Name");
+        String lName = InputHandler.getStringInput("Enter Last Name");
 
-    public Boolean handlePatientsMenu(Integer PatientOption) {
-        switch (PatientOption) {
-            case 1 -> {
-                addPatient();
-            }
-            case 2 -> {
-                System.out.print("Enter Patient ID to edit: ");
-                String id = scanner.nextLine();
-                editPatient(id);
-            }
-            case 3 -> {
-                System.out.print("Enter Patient ID to remove: ");
-                String id = scanner.nextLine();
-                removePatient(id);
-            }
-            case 4 -> {
-                System.out.print("Enter name to search: ");
-                String name = scanner.nextLine();
-                searchPatientsByName(name);
-            }
-            case 5 -> {
-                displayAllPatients();
-            }
-            case 6 -> {
-                return false;
-            }
-            default -> System.out.println("Invalid option.");
-        }
-        return true;
+        // Collect InPatient specific data (e.g., Room Number)
+        String roomNumber = InputHandler.getStringInput("Enter Assigned Room Number");
+
+        InPatient ip = new InPatient();
+        ip.setPatientId(id);
+        ip.setFirstName(fName);
+        ip.setLastName(lName);
+        ip.setRoomNumber(roomNumber);
+
+        patients.add(ip);
+        System.out.println("InPatient registered successfully.");
     }
+
 
     //instanceof keyword acts a security guard
     @Override
@@ -343,5 +333,37 @@ public class PatientService extends Base implements Manageable, Searchable {
         } else {
             System.out.println("No patient found with ID: " + id);
         }
+    }
+
+    public Boolean handlePatientsMenu(Integer PatientOption) {
+        switch (PatientOption) {
+            case 1 -> {
+                addPatient();
+            }
+            case 2 -> {
+                addInPatient();
+            }
+            case 3 -> {
+                System.out.print("Enter Patient ID to remove: ");
+                String id = scanner.nextLine();
+                removePatient(id);
+            }
+            case 4 -> {
+                System.out.print("Enter name to search: ");
+                String name = scanner.nextLine();
+                searchPatientsByName(name);
+            }
+            case 5 -> {
+                displayAllPatients();
+            }
+            case 6 -> {
+                return false;
+            }
+            case 7 -> {
+
+            }
+            default -> System.out.println("Invalid option.");
+        }
+        return true;
     }
 }

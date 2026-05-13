@@ -375,7 +375,6 @@ public class PatientService extends Base implements Manageable, Searchable {
             }
             case 3 -> {
 
-
             }
             case 4 -> {
                 addEmergencyPatient();
@@ -384,9 +383,14 @@ public class PatientService extends Base implements Manageable, Searchable {
                 displayAllPatients();
             }
             case 6 -> {
-                return false;
+                String keyword = InputHandler.getStringInput("Enter Name or ID to search");
+                search(keyword);
             }
             case 7 -> {
+                String id = InputHandler.getStringInput("Enter Patient ID to edit");
+                editPatient(id);
+            }
+            case 8 -> {
 
             }
             default -> System.out.println("Invalid option.");

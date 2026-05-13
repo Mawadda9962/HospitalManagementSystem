@@ -34,9 +34,11 @@ public class InputHandler {
             if (HelperUtils.isValidNumber(num, min, max)){
                 return num;
             }
-            System.out.println("Please ");
+            System.out.println("Please Enter a number between " + min + max);
         }
     }
+
+
 
 
 }

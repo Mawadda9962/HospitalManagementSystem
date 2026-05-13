@@ -391,7 +391,15 @@ public class PatientService extends Base implements Manageable, Searchable {
                 editPatient(id);
             }
             case 8 -> {
-
+                String id = InputHandler.getStringInput("Enter Patient ID to view history");
+                viewMedicalHistory(id);
+            }
+            case 9 -> {
+                String id = InputHandler.getStringInput("Enter Patient ID to view history");
+                viewMedicalHistory(id);
+            }
+            case 10 ->{
+                return false;
             }
             default -> System.out.println("Invalid option.");
         }

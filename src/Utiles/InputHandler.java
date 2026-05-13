@@ -60,6 +60,7 @@ public class InputHandler {
             System.out.println(prompt);
             String input = scanner.nextLine();
             try {
+                //method that reads text and tries to convert it into date
                 return LocalDate.parse(input, formatter);
             }
         }

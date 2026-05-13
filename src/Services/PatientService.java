@@ -345,13 +345,14 @@ public class PatientService extends Base implements Manageable, Searchable {
     @Override
     public void add(Object entity) {
         if (entity instanceof patient) {
-            patient p = (patient) entity; // cast Object → patient
-            patients.add(p);
-            System.out.println("Patient added via interface: " + p.getFirstName());
+            patient p = (patient) entity;
+            if (HelperUtils.isNotNull(p)) {
+                patients.add(p);
+                System.out.println("Patient added via interface: " + p.getFirstName());
+            }
         } else {
-            System.out.println("Invalid entity type. Expected a Patient object.");
+            System.out.println("Invalid entity type.");
         }
-
     }
 
     @Override
@@ -389,7 +390,7 @@ public class PatientService extends Base implements Manageable, Searchable {
     @Override
     public void searchById(String id) {
         patient p = getPatientById(id);
-        if (p != null) {
+        if (HelperUtils.isNotNull(p)) {
             p.displayInfo();
         } else {
             System.out.println("No patient found with ID: " + id);

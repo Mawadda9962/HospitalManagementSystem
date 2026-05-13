@@ -38,6 +38,16 @@ public class InputHandler {
         }
     }
 
+    public static double getDoubleInput(String prompt){
+        while(true){
+            System.out.println(prompt);
+            try{
+                return Double.parseDouble(scanner.nextLine());
+            }catch (NumberFormatException e){
+                System.out.println("Please enter a valid decimal number");
+            }
+        }
+    }
 
 
 

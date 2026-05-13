@@ -95,7 +95,7 @@ public class AppointmentService extends Base implements Manageable, Searchable, 
 
     public void removeAppointment(String id) {
         Appointment a = getAppointmentById(id);
-        if (a != null) {
+        if (HelperUtils.isNotNull(a)) {
             appointments.remove(a);
             System.out.println(Constant.APPOINTMENT_REMOVE_SUCCESSFULLY);
         } else {
@@ -107,7 +107,7 @@ public class AppointmentService extends Base implements Manageable, Searchable, 
         System.out.println(" Appointments for Patient: " + patientId);
         boolean found = false;
         for (Appointment a : appointments) {
-            if (a.getPatientId().equalsIgnoreCase(patientId)) {
+            if (HelperUtils.isNotNull(a) && a.getPatientId().equalsIgnoreCase(patientId)) {
                 a.displayInfo();
                 found = true;
             }
@@ -119,7 +119,7 @@ public class AppointmentService extends Base implements Manageable, Searchable, 
         System.out.println("Appointments for Doctor: " + doctorId);
         boolean found = false;
         for (Appointment a : appointments) {
-            if (a.getDoctorId().equalsIgnoreCase(doctorId)) {
+            if (HelperUtils.isNotNull(a) && a.getDoctorId().equalsIgnoreCase(doctorId)) {
                 a.displayInfo();
                 found = true;
             }
@@ -131,7 +131,7 @@ public class AppointmentService extends Base implements Manageable, Searchable, 
         System.out.println("\n--- Appointments on Date: " + date + " ---");
         boolean found = false;
         for (Appointment a : appointments) {
-            if (a.getAppointmentDate().equals(date)) {
+            if (HelperUtils.isNotNull(a) && a.getAppointmentDate().equals(date)) {
                 a.displayInfo();
                 found = true;
             }
@@ -145,7 +145,9 @@ public class AppointmentService extends Base implements Manageable, Searchable, 
             return;
         }
         for (Appointment a : appointments) {
-            a.displayInfo();
+            if (HelperUtils.isNotNull(a)){
+                a.displayInfo();
+            }
         }
     }
 

@@ -15,9 +15,9 @@ import java.util.Scanner;
 
 public class AppointmentService extends Base implements Manageable, Searchable, Appointable {
 
-    private static final Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
 
-    private static final List<Appointment> appointments = new ArrayList<>();
+    private static List<Appointment> appointments = new ArrayList<>();
 
     public void addAppointment() {
         System.out.println("********** Schedule New Appointment **********");

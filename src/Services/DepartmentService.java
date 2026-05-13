@@ -12,10 +12,10 @@ import java.util.Scanner;
 
 public class DepartmentService extends Base implements Manageable, Searchable {
 
-    private static final Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
 
     // In-memory list to store all departments
-    private static final List<Department> departments = new ArrayList<>();
+    private static List<Department> departments = new ArrayList<>();
 
     public void addDepartment() {
         System.out.println("********** Add New Department **********");

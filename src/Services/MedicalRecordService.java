@@ -4,6 +4,7 @@ import Entities.MedicalRecord;
 import Interfaces.Manageable;
 import Interfaces.Searchable;
 import Utiles.Constant;
+import Utiles.HelperUtils;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class MedicalRecordService extends Base implements Manageable, Searchable
         System.out.print("Enter Record ID: ");
         String recordId = scanner.nextLine().trim();
 
-        if (getRecordById(recordId) != null) {
+        if (HelperUtils.isNotNull(getRecordById(recordId))) {
             System.out.println("A record with this ID already exists.");
             return;
         }
@@ -64,7 +65,7 @@ public class MedicalRecordService extends Base implements Manageable, Searchable
 
     public MedicalRecord getRecordById(String recordId) {
         for (MedicalRecord mr : medicalRecords) {
-            if (mr.getRecordId().equals(recordId)) {
+            if (HelperUtils.isNotNull(mr) && mr.getRecordId().equals(recordId)) {
                 return mr;
             }
         }
@@ -151,7 +152,9 @@ public class MedicalRecordService extends Base implements Manageable, Searchable
                 System.out.print("Enter Doctor ID to view records: ");
                 getRecordsByDoctorId(scanner.nextLine().trim());
             }
-            case 6 -> { return false; }
+            case 6 -> {
+                return false;
+            }
             default -> System.out.println("Invalid option.");
         }
         return true;

@@ -80,7 +80,13 @@ public class MenuMassage {
            7- View Department Statistics\s
            """;
 
-
+        public static String REPORTS_AND_STATISTICS = """
+           1- Daily Appointments Report
+           2- Doctor Performance Report\s
+           3- Department Occupancy Report
+           4- Patient Statistics
+           5- Emergency Cases Report
+           """;
     }
 //
 

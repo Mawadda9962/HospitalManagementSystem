@@ -367,14 +367,16 @@ public class PatientService extends Base implements Manageable, Searchable {
 
     @Override
     public void search(String keyword) {
+        if (HelperUtils.isNull(keyword)) {
+            System.out.println("Keyword is empty.");
+            return;
+        }
         System.out.println("Searching for: " + keyword);
         boolean found = false;
         for (patient p : patients) {
-            if (p.getFirstName().equalsIgnoreCase(keyword)
+            if (HelperUtils.isNotNull(p) && (p.getFirstName().equalsIgnoreCase(keyword)
                     || p.getLastName().equalsIgnoreCase(keyword)
-                    || p.getPatientId().equalsIgnoreCase(keyword)
-                    || p.getBloodGroup().equalsIgnoreCase(keyword)
-                    || p.getEmail().equalsIgnoreCase(keyword)) {
+                    || p.getPatientId().equalsIgnoreCase(keyword))) {
                 p.displayInfo();
                 found = true;
             }

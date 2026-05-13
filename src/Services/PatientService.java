@@ -318,17 +318,17 @@ public class PatientService extends Base implements Manageable, Searchable {
             }
             case 2 -> {
                 System.out.print("Enter Patient ID to edit: ");
-                String id = scanner.nextLine().trim();
+                String id = scanner.nextLine();
                 editPatient(id);
             }
             case 3 -> {
                 System.out.print("Enter Patient ID to remove: ");
-                String id = scanner.nextLine().trim();
+                String id = scanner.nextLine();
                 removePatient(id);
             }
             case 4 -> {
                 System.out.print("Enter name to search: ");
-                String name = scanner.nextLine().trim();
+                String name = scanner.nextLine();
                 searchPatientsByName(name);
             }
             case 5 -> {
@@ -342,16 +342,17 @@ public class PatientService extends Base implements Manageable, Searchable {
         return true;
     }
 
+    //instanceof keyword acts a security guard
     @Override
     public void add(Object entity) {
         if (entity instanceof patient) {
             patient p = (patient) entity;
             if (HelperUtils.isNotNull(p)) {
                 patients.add(p);
-                System.out.println("Patient added via interface: " + p.getFirstName());
+                System.out.println("Patient added: " + p.getFirstName());
             }
         } else {
-            System.out.println("Invalid entity type.");
+            System.out.println("Invalid");
         }
     }
 

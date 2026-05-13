@@ -58,7 +58,7 @@ public class DepartmentService extends Base implements Manageable, Searchable {
 
     public Department getDepartmentById(String id) {
         for (Department d : departments) {
-            if (d.getDepartmentId().equals(id)) {
+            if (HelperUtils.isNotNull(d) && d.getDepartmentId().equals(id)) {
                 return d;
             }
         }
@@ -67,7 +67,7 @@ public class DepartmentService extends Base implements Manageable, Searchable {
 
     public void editDepartment(String id) {
         Department d = getDepartmentById(id);
-        if (d == null) {
+        if (HelperUtils.isNull(d)) {
             System.out.println("Department not found.");
             return;
         }

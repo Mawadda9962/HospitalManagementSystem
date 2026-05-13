@@ -5,6 +5,7 @@ import Entities.Doctor;
 import Interfaces.Manageable;
 import Interfaces.Searchable;
 import Utiles.Constant;
+import Utiles.HelperUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +24,7 @@ public class DepartmentService extends Base implements Manageable, Searchable {
         System.out.print("Enter Department ID: ");
         String id = scanner.nextLine().trim();
 
-        if (getDepartmentById(id) != null) {
+        if (HelperUtils.isNotNull(getDepartmentById(id))) {
             System.out.println("A department with this ID already exists.");
             return;
         }

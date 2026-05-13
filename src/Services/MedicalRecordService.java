@@ -178,16 +178,40 @@ public class MedicalRecordService extends Base implements Manageable, Searchable
 
     @Override
     public void getAll() {
-
+        if (medicalRecords.isEmpty()) {
+            System.out.println("No medical records found.");
+            return;
+        }
+        for (MedicalRecord mr : medicalRecords) {
+            if (HelperUtils.isNotNull(mr)) {
+                mr.displayInfo();
+            }
+        }
     }
 
     @Override
     public void search(String keyword) {
-
+        boolean found = false;
+        for (MedicalRecord mr : medicalRecords) {
+            if (HelperUtils.isNotNull(mr)) {
+                if (mr.getPatientId().equalsIgnoreCase(keyword)
+                        || mr.getRecordId().equalsIgnoreCase(keyword)
+                        || mr.getDiagnosis().contains(keyword)) {
+                    mr.displayInfo();
+                    found = true;
+                }
+            }
+        }
+        if (!found) System.out.println("No matching records found for keyword: " + keyword);
     }
 
     @Override
     public void searchById(String id) {
-
+        MedicalRecord mr = getRecordById(id);
+        if (HelperUtils.isNotNull(mr)) {
+            mr.displayInfo();
+        } else {
+            System.out.println("No record found with ID: " + id);
+        }
     }
 }

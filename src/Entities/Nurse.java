@@ -2,6 +2,7 @@ package Entities;
 
 import Interfaces.Displayable;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class Nurse extends Person implements Displayable {
@@ -13,12 +14,12 @@ public class Nurse extends Person implements Displayable {
     private List<String> assignedPatients;
 
 
-    public Nurse(String id, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address, String specialization, String qualification, int experienceYears, String departmentId, double consultationFee, List<String> availableSlots, List<String> assignedPatients, String nurseId, String departmentId1, String shift, String qualification1, List<String> assignedPatients1) {
+    public Nurse(String id, String firstName, String lastName, LocalDate dateOfBirth, String gender, String phoneNumber, String email, String address, String specialization, String qualification, int experienceYears, String departmentId, double consultationFee, List<String> availableSlots, List<String> assignedPatients, String qualification1, String nurseId, String departmentId1, String shift, List<String> assignedPatients1) {
         super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address, specialization, qualification, experienceYears, departmentId, consultationFee, availableSlots, assignedPatients);
+        this.qualification = qualification1;
         this.nurseId = nurseId;
         this.departmentId = departmentId1;
         this.shift = shift;
-        this.qualification = qualification1;
         this.assignedPatients = assignedPatients1;
     }
 

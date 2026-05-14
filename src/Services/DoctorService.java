@@ -8,6 +8,7 @@ import Utiles.Constant;
 import Utiles.HelperUtils;
 import Utiles.InputHandler;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -33,7 +34,7 @@ public class DoctorService extends Base implements Manageable, Searchable {
         String firstName = InputHandler.getStringInput("Enter First Name");
         String lastName = InputHandler.getStringInput("Enter Last Name");
 
-        String dateOfBirth = InputHandler.getDateInput("Enter Date of Birth").toString();
+        LocalDate dateOfBirth = InputHandler.getDateInput("Enter Date of Birth");
 
         String gender = InputHandler.getStringInput("Enter Gender (Male/Female/Other)");
         String phoneNumber = InputHandler.getStringInput("Enter Phone Number");
@@ -52,22 +53,30 @@ public class DoctorService extends Base implements Manageable, Searchable {
 
 
         Doctor newDoctor = new Doctor(
-                doctorId,
-                firstName,
-                lastName,
-                dateOfBirth,
-                gender,
-                phoneNumber,
-                email,
-                address,
-                doctorId,
-                specialization,
-                qualification,
-                experienceYears,
-                departmentId,
-                consultationFee,
-                availableSlots,
-                assignedPatients
+                null,             // id (for Person)
+                firstName,        // firstName
+                lastName,         // lastName
+                dateOfBirth,      // dateOfBirth
+                gender,           // gender
+                phoneNumber,      // phoneNumber
+                email,            // email
+                address,          // address
+                null,             // specialization (for Person/Super)
+                null,             // qualification (for Person/Super)
+                0,                // experienceYears (for Person/Super)
+                null,             // departmentId (for Person/Super)
+                0.0,              // consultationFee (for Person/Super)
+                null,             // availableSlots (for Person/Super)
+                null,             // assignedPatients (for Person/Super)
+                doctorId,         // doctorId (this.doctorId)
+                specialization,   // specialization1 (this.specialization)
+                qualification,    // qualification1 (this.qualification)
+                experienceYears,  // experienceYears1 (this.experienceYears)
+                departmentId,     // departmentId1 (this.departmentId)
+                consultationFee,  // consultationFee1 (this.consultationFee)
+                availableSlots,   // availableSlots1 (this.availableSlots)
+                assignedPatients, // assignedPatients1 (this.assignedPatients)
+                true              // available (boolean)
         );
 
         doctors.add(newDoctor);
@@ -90,7 +99,7 @@ public class DoctorService extends Base implements Manageable, Searchable {
 
                 D.setFirstName(InputHandler.getStringInput("Enter updated First Name"));
                 D.setLastName(InputHandler.getStringInput("Enter updated Last Name"));
-                D.setDateOfBirth(InputHandler.getDateInput("Enter updated DOB").toString());
+                D.setDateOfBirth(InputHandler.getDateInput("Enter updated DOB"));
                 D.setGender(InputHandler.getStringInput("Enter updated Gender"));
                 D.setPhoneNumber(InputHandler.getStringInput("Enter updated Phone Number"));
                 D.setEmail(InputHandler.getStringInput("Enter updated Email"));
@@ -230,35 +239,24 @@ public class DoctorService extends Base implements Manageable, Searchable {
         }
     }
 
-
-    public Boolean handleDoctorMenu(Integer doctorOption) {
-        switch (doctorOption) {
-            case 1 -> addDoctor();
-            case 3 -> {
-                System.out.print("Enter Doctor ID to remove: ");
-                String id = scanner.nextLine().trim();
-                removeDoctor(id);
-            }
-            case 4 -> {
-                System.out.print("Enter Doctor ID to search: ");
-                String id = scanner.nextLine().trim();
-                Doctor d = getDoctorById(id);
-                if (d != null) d.displayInfo();
-                else System.out.println("Doctor not found.");
-            }
-            case 5 -> {
-                System.out.print("Enter specialization to search: ");
-                String spec = scanner.nextLine().trim();
-                getDoctorsBySpecialization(spec);
-            }
-            case 6 -> displayAllDoctors();
-            case 7 -> {
-                return false; // Exit back to Main Menu
-            }
-            default -> System.out.println("Invalid option. Please choose 1-7.");
-        }
-        return true;
+    public void addSurgeon() {
+        System.out.println("Adding a Surgeon...");
+        addDoctor(); // Call the main form
+        doctors.get(doctors.size() - 1).setSpecialization("Surgeon");
     }
+
+    public void addConsultant() {
+        System.out.println("Adding a Consultant...");
+        addDoctor();
+        doctors.get(doctors.size() - 1).setSpecialization("Consultant");
+    }
+
+    public void addGeneralPractitioner() {
+        System.out.println("Adding a General Practitioner...");
+        addDoctor();
+        doctors.get(doctors.size() - 1).setSpecialization("General Practitioner");
+    }
+
 
     @Override
     public void add(Object entity) {
@@ -310,6 +308,41 @@ public class DoctorService extends Base implements Manageable, Searchable {
         } else {
             System.out.println("No doctor found with ID: " + id);
         }
+    }
+
+    public Boolean handleDoctorMenu(Integer doctorOption) {
+        switch (doctorOption) {
+            case 1 -> addDoctor();
+            case 2 -> addSurgeon();
+            case 3 -> addConsultant();
+            case 4 -> {
+                addGeneralPractitioner();
+            }
+            case 5 -> displayAllDoctors();
+            case 6 -> {
+                String spec = InputHandler.getStringInput("Enter specialization to search");
+                getDoctorsBySpecialization(spec);
+            }
+            case 7 -> displayDoctors(null, true);
+            case 8 -> {
+                String dId = InputHandler.getStringInput("Enter Doctor ID");
+                String pId = InputHandler.getStringInput("Enter Patient ID");
+                assignPatient(dId, pId);
+            }
+            case 9 -> {
+                String dId = InputHandler.getStringInput("Enter Doctor ID to edit");
+                editDoctor(dId);
+            }
+            case 10 -> {
+                String dId = InputHandler.getStringInput("Enter Doctor ID to remove");
+                removeDoctor(dId);
+            }
+            case 11 -> {
+                return false;
+            }
+            default -> System.out.println("Invalid option. Please choose 1-7.");
+        }
+        return true;
     }
 
     

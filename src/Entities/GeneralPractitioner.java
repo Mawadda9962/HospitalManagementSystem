@@ -3,6 +3,7 @@ package Entities;
 import Interfaces.Displayable;
 
 import javax.tools.Diagnostic;
+import java.time.LocalDate;
 import java.util.List;
 
 public class GeneralPractitioner extends Doctor  {
@@ -10,8 +11,8 @@ public class GeneralPractitioner extends Doctor  {
     private boolean homeVisitAvailable;
     private boolean vaccinationCertified;
 
-    public GeneralPractitioner(String id, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address, String doctorId, String specialization, String qualification, int experienceYears, String departmentId, double consultationFee, List<String> availableSlots, List<String> assignedPatients, boolean walkinAvailable, boolean homeVisitAvailable, boolean vaccinationCertified) {
-        super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address, doctorId, specialization, qualification, experienceYears, departmentId, consultationFee, availableSlots, assignedPatients);
+    public GeneralPractitioner(String id, String firstName, String lastName, LocalDate dateOfBirth, String gender, String phoneNumber, String email, String address, String specialization, String qualification, int experienceYears, String departmentId, double consultationFee, List<String> availableSlots, List<String> assignedPatients, String doctorId, String specialization1, String qualification1, int experienceYears1, String departmentId1, double consultationFee1, List<String> availableSlots1, List<String> assignedPatients1, boolean available, boolean walkinAvailable, boolean homeVisitAvailable, boolean vaccinationCertified) {
+        super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address, specialization, qualification, experienceYears, departmentId, consultationFee, availableSlots, assignedPatients, doctorId, specialization1, qualification1, experienceYears1, departmentId1, consultationFee1, availableSlots1, assignedPatients1, available);
         this.walkinAvailable = walkinAvailable;
         this.homeVisitAvailable = homeVisitAvailable;
         this.vaccinationCertified = vaccinationCertified;

@@ -7,6 +7,7 @@ import Utiles.Constant;
 import Utiles.HelperUtils;
 import Utiles.InputHandler;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -31,7 +32,7 @@ public class NurseService extends Base implements Manageable, Searchable {
         String firstName = InputHandler.getStringInput("Enter First Name");
         String lastName = InputHandler.getStringInput("Enter Last Name");
 
-        String dob = InputHandler.getDateInput("Enter Date of Birth").toString();
+        LocalDate dob = InputHandler.getDateInput("Enter Date of Birth");
 
         String gender = InputHandler.getStringInput("Enter Gender");
         String phone = InputHandler.getStringInput("Enter Phone Number");
@@ -83,12 +84,17 @@ public class NurseService extends Base implements Manageable, Searchable {
     }
 
     public void removeNurse(String nurseId) {
+        if (!HelperUtils.isNotNull(nurseId)) {
+            System.out.println("Invalid Nurse ID provided.");
+            return;
+        }
+
         Nurse n = getNurseById(nurseId);
         if (HelperUtils.isNotNull(n)) {
             nurses.remove(n);
             System.out.println(Constant.NURSE_REMOVE_SUCCESSFULLY);
         } else {
-            System.out.println("Nurse not found.");
+            System.out.println("Nurse with ID " + nurseId + " not found.");
         }
     }
 
@@ -127,32 +133,19 @@ public class NurseService extends Base implements Manageable, Searchable {
         if (!found) System.out.println("No nurses found working the " + shift + " shift.");
     }
 
-    public Boolean handleNurseMenu(Integer option) {
-        switch (option) {
-            case 1 -> addNurse();
-            case 2 -> {
-                System.out.print("Enter Nurse ID to edit: ");
-                editNurse(scanner.nextLine().trim());
-            }
-            case 3 -> {
-                System.out.print("Enter Nurse ID to remove: ");
-                removeNurse(scanner.nextLine().trim());
-            }
-            case 4 -> {
-                System.out.print("Enter Department ID to filter: ");
-                getNursesByDepartment(scanner.nextLine().trim());
-            }
-            case 5 -> {
-                System.out.print("Enter Shift to filter: ");
-                getNursesByShift(scanner.nextLine().trim());
-            }
-            case 6 -> displayAllNurses();
-            case 7 -> {
-                return false;
-            }
-            default -> System.out.println("Invalid option.");
+    public void  AssignNursetoPatient(){
+
+        String nurseId = InputHandler.getStringInput("Enter Nurse ID: ");
+        Nurse nurse = getNurseById(nurseId);
+
+        if (HelperUtils.isNotNull(nurse)) {
+            String patientId = InputHandler.getStringInput("Enter Patient ID to assign: ");
+
+            nurse.getAssignedPatients().add(patientId);
+            System.out.println("Success: Patient " + patientId + " assigned to Nurse " + nurse.getLastName());
+        } else {
+            System.out.println("Error: Nurse not found.");
         }
-        return true;
     }
 
     @Override
@@ -206,4 +199,35 @@ public class NurseService extends Base implements Manageable, Searchable {
             System.out.println("No nurse found with ID: " + id);
         }
     }
+
+    public Boolean handleNurseMenu(Integer option) {
+        switch (option) {
+            case 1 -> addNurse();
+            case 2 -> displayAllNurses();
+            case 3 -> {
+                String deptId = InputHandler.getStringInput("Enter Department ID to filter");
+                getNursesByDepartment(deptId);
+            }
+            case 4 -> {
+                String shift = InputHandler.getStringInput("Enter Shift (Morning/Evening/Night) to filter");
+                getNursesByShift(shift);
+            }
+            case 5 -> {
+                System.out.print("Enter Shift to filter: ");
+                getNursesByShift(scanner.nextLine().trim());
+            }
+            case 6 -> displayAllNurses();
+
+            case 7 -> {
+                String idToRemove = InputHandler.getStringInput("Enter Nurse ID to remove");
+                removeNurse(idToRemove);
+             }
+            case 8 -> {
+                return false;
+            }
+            default -> System.out.println("Invalid option.");
+        }
+        return true;
+    }
+
 }

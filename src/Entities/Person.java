@@ -1,7 +1,6 @@
 package Entities;
 
 import Interfaces.Displayable;
-import Utiles.HelperUtils;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -11,14 +10,14 @@ public class Person implements Displayable {
     private String id;
     private  String firstName;
     private  String lastName;
-    private String dateOfBirth;
+    private LocalDate dateOfBirth;
     private String gender;
     private String phoneNumber;
     private String email;
     private String address;
 
-    public Person(String id, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address, String specialization, String qualification, int experienceYears, String departmentId, double consultationFee, List<String> availableSlots, List<String> assignedPatients) {
-        this.id = HelperUtils.generateId();
+    public Person(String id, String firstName, String lastName, LocalDate dateOfBirth, String gender, String phoneNumber, String email, String address, String specialization, String qualification, int experienceYears, String departmentId, double consultationFee, List<String> availableSlots, List<String> assignedPatients) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
@@ -56,11 +55,11 @@ public class Person implements Displayable {
         this.firstName = firstName;
     }
 
-    public String getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

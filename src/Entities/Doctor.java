@@ -2,6 +2,7 @@ package Entities;
 
 import Interfaces.Displayable;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class Doctor extends Person implements Displayable {
@@ -15,18 +16,17 @@ public class Doctor extends Person implements Displayable {
     private List<String> assignedPatients;
     private boolean available;
 
-    public Doctor(String id, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address, String doctorId, String specialization, String qualification, int experienceYears, String departmentId, double consultationFee, List<String> availableSlots, List<String> assignedPatients) {
+    public Doctor(String id, String firstName, String lastName, LocalDate dateOfBirth, String gender, String phoneNumber, String email, String address, String specialization, String qualification, int experienceYears, String departmentId, double consultationFee, List<String> availableSlots, List<String> assignedPatients, String doctorId, String specialization1, String qualification1, int experienceYears1, String departmentId1, double consultationFee1, List<String> availableSlots1, List<String> assignedPatients1, boolean available) {
         super(id, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address, specialization, qualification, experienceYears, departmentId, consultationFee, availableSlots, assignedPatients);
-
-        //Saving the data to the Doctor object.
         this.doctorId = doctorId;
-        this.specialization = specialization;
-        this.qualification = qualification;
-        this.experienceYears = experienceYears;
-        this.departmentId = departmentId;
-        this.consultationFee = consultationFee;
-        this.availableSlots = availableSlots;
-        this.assignedPatients = assignedPatients;
+        this.specialization = specialization1;
+        this.qualification = qualification1;
+        this.experienceYears = experienceYears1;
+        this.departmentId = departmentId1;
+        this.consultationFee = consultationFee1;
+        this.availableSlots = availableSlots1;
+        this.assignedPatients = assignedPatients1;
+        this.available = available;
     }
 
     public Doctor() {

@@ -42,7 +42,7 @@ public class PatientService extends Base implements Manageable, Searchable {
         String firstName = InputHandler.getStringInput("Enter First Name: ");
         String lastName = InputHandler.getStringInput("Enter Last Name: ");
 
-        String dateOfBirth = InputHandler.getDateInput("Enter Date of Birth (YYYY-MM-DD): ").toString();
+        LocalDate dateOfBirth = InputHandler.getDateInput("Enter Date of Birth (YYYY-MM-DD): ");
 
         String gender = InputHandler.getStringInput("Enter Gender (Male/Female/Other)");
         String phoneNumber = InputHandler.getStringInput("Enter Phone Number");
@@ -113,7 +113,7 @@ public class PatientService extends Base implements Manageable, Searchable {
                 p.setLastName(InputHandler.getStringInput("Enter updated patient last name"));
 
                 LocalDate dob = InputHandler.getDateInput("Enter updated patient DOB (dd-MM-yyyy)");
-                p.setDateOfBirth(dob.toString());
+                p.setDateOfBirth(dob);
 
                 p.setGender(InputHandler.getStringInput("Enter updated patient gender"));
                 p.setPhoneNumber(InputHandler.getStringInput("Enter updated patient phone number"));

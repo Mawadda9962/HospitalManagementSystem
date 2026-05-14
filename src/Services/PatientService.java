@@ -23,7 +23,7 @@ public class PatientService extends Base implements Manageable, Searchable {
     private static Scanner scanner = new Scanner(System.in);
 
     // This list stores all patients in the system
-    private static List<patient> patients = new ArrayList<>();
+    public static List<patient> patients = new ArrayList<>();
 
 
     public void addPatient() {

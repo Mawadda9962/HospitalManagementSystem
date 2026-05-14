@@ -19,7 +19,7 @@ public class AppointmentService extends Base implements Manageable, Searchable, 
 
     private static Scanner scanner = new Scanner(System.in);
 
-    private static List<Appointment> appointments = new ArrayList<>();
+    public static List<Appointment> appointments = new ArrayList<>();
 
     public void addAppointment() {
         System.out.println("********** Schedule New Appointment **********");

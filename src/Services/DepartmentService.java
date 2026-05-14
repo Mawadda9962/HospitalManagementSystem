@@ -17,7 +17,7 @@ public class DepartmentService extends Base implements Manageable, Searchable {
     private static Scanner scanner = new Scanner(System.in);
 
     // In-memory list to store all departments
-    private static List<Department> departments = new ArrayList<>();
+    public static List<Department> departments = new ArrayList<>();
 
     public void addDepartment() {
         System.out.println("********** Add New Department **********");

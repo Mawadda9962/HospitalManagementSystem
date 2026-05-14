@@ -234,7 +234,6 @@ public class DoctorService extends Base implements Manageable, Searchable {
     public Boolean handleDoctorMenu(Integer doctorOption) {
         switch (doctorOption) {
             case 1 -> addDoctor();
-            case 2 -> addSurgon();
             case 3 -> {
                 System.out.print("Enter Doctor ID to remove: ");
                 String id = scanner.nextLine().trim();

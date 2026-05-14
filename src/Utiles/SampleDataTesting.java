@@ -1,14 +1,12 @@
 package Utiles;
 
-import Entities.Department;
-import Entities.EmergencyPatient;
-import Entities.InPatient;
-import Entities.OutPatient;
+import Entities.*;
 import Services.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class SampleDataTesting {
     public static void Testing(){
@@ -32,9 +30,6 @@ public class SampleDataTesting {
                 LocalDate.of(2026, 5, 1), LocalDate.of(2026, 5, 10),
                 "Room-105", "Bed-A2", "DOC-101", 25.5
         );
-        patientService.add(ip1);
-
-
 
         OutPatient op2 = new OutPatient(
                 "P200", "Fatma", "Al-Zadjali", "1992-11-05", "Female",
@@ -43,7 +38,6 @@ public class SampleDataTesting {
                 LocalDate.now(), "OmanIns-102", null, null,
                 5, LocalDate.of(2026, 4, 10), "DOC-101"
         );
-        patientService.add(op2);
 
         // This uses your 32-parameter constructor matching the EmergencyPatient class
         EmergencyPatient ep1 = new EmergencyPatient(
@@ -80,7 +74,35 @@ public class SampleDataTesting {
                 1,                      // triageLevel (Level 1 = Critical)
                 true                    // admittedViaER
         );
+        patientService.add(ip1);
+        patientService.add(op2);
         patientService.add(ep1);
+
+        List<String> surgerieTypes = new ArrayList<>(Arrays.asList("Bypass", "Angioplasty"));
+        Surgeon s1 = new Surgeon(
+                "D101", "Mazen", "Al-Riyami", "1980-01-01", "Male", "98881122", "mazen@hosp.om", "Seeb",
+                "DOC-101", "Cardiology", "PhD Surgery", 15, "DEP-01", 50.0,
+                new ArrayList<>(Arrays.asList("08:00 AM", "10:00 AM")), // availableSlots
+                new ArrayList<>(), // assignedPatients
+                45, // surgeriesPerformed
+                surgerieTypes, // surgeryTypes
+                true // operationTheatreAccess
+        );
+
+        List<String> consultTypes = new ArrayList<>(Arrays.asList("General Checkup", "Chronic Pain"));
+        Consultant c1 = new Consultant(
+                "D102", "Muna", "Al-Zadjali", "1985-05-12", "Female", "94443322", "muna@hosp.om", "Qurum",
+                "DOC-102", "Neurology", "MD Neurology", 12, "DEP-02", 40.0,
+                new ArrayList<>(Arrays.asList("01:00 PM", "03:00 PM")), // availableSlots
+                new ArrayList<>(), // assignedPatients
+                consultTypes, // consultationTypes
+                true, // onlineConsultationAvailable
+                45 // consultationDuration
+        );
+        doctorService.add(s1);
+        doctorService.add(c1);
+
+
 
 
     }

@@ -84,6 +84,29 @@ public class SampleDataTesting {
         medicalRecordService.add(new MedicalRecord("P200", "REC-787", "DOC-105", LocalDate.of(2026, 1, 20), "Checkup", "None", "Healthy", "Clear"));
         medicalRecordService.add(new MedicalRecord("P201", "REC-788", "DOC-106", LocalDate.of(2026, 2, 10), "Diabetes", "Metformin", "Diet control", "HbA1c 7.5"));
 
+        nurseService.add(new Nurse(
+                null,
+                "Aisha",
+                "Al-Hinai",
+                LocalDate.of(1990, 4, 12),
+                "Female",
+                "94445566",
+                "aisha@hosp.om",
+                "Muscat",
+                null,
+                null,
+                0,
+                null,
+                0.0,
+                null,
+                null,
+                "BSc Nursing",
+                "NUR-201",
+                "DEP-01",
+                "Morning",
+                new ArrayList<>(Arrays.asList("P300", "P302"))
+        ));
+
         System.out.println(medicalRecordService);
         System.out.println(patientService);
         System.out.println(departmentService);

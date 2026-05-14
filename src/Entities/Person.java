@@ -3,6 +3,7 @@ package Entities;
 import Interfaces.Displayable;
 import Utiles.HelperUtils;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
@@ -10,7 +11,7 @@ public class Person implements Displayable {
     private String id;
     private  String firstName;
     private  String lastName;
-    private  String dateOfBirth;
+    private String dateOfBirth;
     private String gender;
     private String phoneNumber;
     private String email;

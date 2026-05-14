@@ -1,6 +1,7 @@
 import Services.*;
 import Utiles.InputHandler;
 import Utiles.MenuMassage;
+import jdk.jshell.execution.Util;
 
 import java.util.Scanner;
 
@@ -9,6 +10,8 @@ public class MainApp {
     static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
+
+        Utiles.SampleDataTesting.Testing();
 
         PatientService patientService = new PatientService();
         DoctorService doctorService = new DoctorService();

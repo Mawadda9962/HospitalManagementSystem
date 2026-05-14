@@ -4,6 +4,7 @@ import Entities.*;
 import Services.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -103,7 +104,35 @@ public class SampleDataTesting {
         doctorService.add(c1);
 
 
+        Appointment app1 = new Appointment(
+                "APP-001",
+                "P300",          // Linked to Salim
+                "DOC-101",       // Linked to Dr. Mazen
+                LocalDate.of(2026, 5, 20),
+                "10:30 AM",
+                "Scheduled",
+                "Post-Surgery Follow-up",
+                "Check heart rate stability"
+        );
 
+        // Testing your Method Overloading for notes
+        app1.addNotes("Patient arrived 5 minutes early", "Receptionist", LocalDateTime.now());
+
+        appointmentService.add(app1);
+
+
+        MedicalRecord rec1 = new MedicalRecord(
+                "P300",
+                "REC-777",
+                "DOC-101",
+                LocalDate.of(2026, 5, 1),
+                "Mild Hypertension",
+                "Lisinopril 10mg",
+                "Patient advised to reduce salt intake",
+                "ECG showed normal rhythm"
+        );
+
+        medicalRecordService.add(rec1);
 
     }
 

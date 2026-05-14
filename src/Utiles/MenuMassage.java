@@ -71,6 +71,7 @@ public class MenuMassage {
             7- Cancel Appointment
             8- Complete Appointment
             9- View Upcoming Appointments
+            10- Exit
             """;
 
         public static String DEPARTMENT_MENU_MESSAGE = """
@@ -81,6 +82,7 @@ public class MenuMassage {
            5- Assign Nurse to Department
            6- Update Department Information
            7- View Department Statistics
+           8- Exit
            """;
 
         public static String REPORTS_AND_STATISTICS = """

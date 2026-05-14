@@ -19,6 +19,7 @@ public class MainApp {
         MedicalRecordService medicalRecordService = new MedicalRecordService();
         DepartmentService departmentService = new DepartmentService();
         AppointmentService appointmentService = new AppointmentService();
+        ReportsStatistics reportService = new ReportsStatistics();
 
 
         Boolean mainMenuContinue = true;
@@ -87,6 +88,15 @@ public class MainApp {
                     }
                 }
                 case 7 -> {
+                    Boolean ReportsStatisticsMenu = true;
+                    while (ReportsStatisticsMenu) {
+                        System.out.println("*********** Reports and Statistics Menu ***********");
+                        System.out.print(MenuMassage.REPORTS_AND_STATISTICS);
+                        Integer deptOption = InputHandler.getIntInput("Enter your Choice");
+                        ReportsStatisticsMenu = reportService.handleReportMenu(option);
+                    }
+                }
+                case 8 -> {
                     System.out.println("Exiting System...");
                     mainMenuContinue = false;
                 }

@@ -117,6 +117,10 @@ public class DepartmentService extends Base implements Manageable, Searchable {
 
     }
 
+    public void viewDepartmentStatistics(){
+
+    }
+
     @Override
     public void add(Object entity) {
         if (entity instanceof Department) {
@@ -193,7 +197,7 @@ public class DepartmentService extends Base implements Manageable, Searchable {
                 editDepartment(id);
             }
             case 7 -> {
-                //viewDepartmentStatistics();
+                viewDepartmentStatistics();
             }
             case 8 -> {
             return false; }

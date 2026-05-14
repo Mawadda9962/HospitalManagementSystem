@@ -23,14 +23,23 @@ public class ReportsStatistics {
 
     public void DoctorPerformanceReport() {
         String id = InputHandler.getStringInput("Enter Dr ID");
-        int total = 0;
 
+        int totalCount = 0;
+
+        if (AppointmentService.appointments.isEmpty()) {
+            System.out.println("No appointments found in the system.");
+            return;
+        }
         for (Appointment a : AppointmentService.appointments) {
-            if (a.getDoctorId().equalsIgnoreCase(id)) {
-                total++;
+            if (a != null && a.getDoctorId() != null && a.getDoctorId().equalsIgnoreCase(id)) {
+                totalCount++;
             }
         }
-        System.out.println("Doctor " + id + " has " + total + " total appointments.");
+        if (totalCount == 0) {
+            System.out.println("No appointments found for Doctor ID: " + id);
+        } else {
+            System.out.println("Performance Summary for Doctor [" + id + "]: " + totalCount + " Appointments.");
+        }
     }
 
 
@@ -42,7 +51,7 @@ public class ReportsStatistics {
     }
 
     public void PatientStatistics() {
-        System.out.println("Total Patients in System: " + PatientService.patients.size());
+
     }
 
     public void EmergencyCasesReport() {
@@ -53,14 +62,20 @@ public class ReportsStatistics {
         }
     }
 
-    public
-
-
-
-
-
-
-
+    public boolean handleReportMenu(Integer option){
+        switch (option){
+            case 1 -> DailyAppointmentsReport();
+            case 2 -> DoctorPerformanceReport();
+            case 3 -> DepartmentOccupancyReport();
+            case 4 -> PatientStatistics();
+            case 5 -> EmergencyCasesReport();
+            case 6 -> {
+                return false;
+            }
+            default -> System.out.println("Action not recognized");
+        }
+        return true;
+    }
 
 }
 

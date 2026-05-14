@@ -51,7 +51,7 @@ public class MainApp {
                     while (nurseMenuContinue) {
                         System.out.println("*********** Nurse Menu ***********");
                         System.out.print(MenuMassage.NURSE_MENU_MESSAGE);
-                        Integer nurseOption = Integer.parseInt(input.nextLine());
+                        Integer nurseOption = InputHandler.getIntInput("Enter your choice");
                         nurseMenuContinue = nurseService.handleNurseMenu(nurseOption);
                     }
                 }

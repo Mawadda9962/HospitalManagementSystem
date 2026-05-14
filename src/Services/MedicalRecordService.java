@@ -113,32 +113,21 @@ public class MedicalRecordService extends Base implements Manageable, Searchable
         if (!found) System.out.println("No records found for this Doctor.");
     }
 
-    public Boolean handleMedicalRecordMenu(Integer option) {
-        switch (option) {
-            case 1 -> addMedicalRecord();
-            case 2 -> {
-                System.out.print("Enter Record ID to edit: ");
-                editMedicalRecord(scanner.nextLine().trim());
+    public void generateHistoryReport(String patientId) {
+        System.out.println("Date: " + LocalDate.now());
+        System.out.println("Patient ID: " + patientId);
+        boolean found = false;
+        for (MedicalRecord mr : medicalRecords) {
+            if (HelperUtils.isNotNull(mr) && mr.getPatientId().equalsIgnoreCase(patientId)) {
+                mr.displayInfo();
+                found = true;
             }
-            case 3 -> {
-                System.out.print("Enter Record ID to remove: ");
-                removeMedicalRecord(scanner.nextLine().trim());
-            }
-            case 4 -> {
-                System.out.print("Enter Patient ID to view history: ");
-                displayPatientHistory(scanner.nextLine().trim());
-            }
-            case 5 -> {
-                System.out.print("Enter Doctor ID to view records: ");
-                getRecordsByDoctorId(scanner.nextLine().trim());
-            }
-            case 6 -> {
-                return false;
-            }
-            default -> System.out.println("Invalid option.");
         }
-        return true;
+        if (!found) {
+            System.out.println("No history records found for this patient.");
+        }
     }
+
 
     @Override
     public void add(Object entity) {
@@ -195,5 +184,37 @@ public class MedicalRecordService extends Base implements Manageable, Searchable
         } else {
             System.out.println("No record found with ID: " + id);
         }
+    }
+
+    public Boolean handleMedicalRecordMenu(Integer option) {
+        switch (option) {
+            case 1 -> addMedicalRecord();
+            case 2 -> getAll();
+            case 3 -> {
+                String pId = InputHandler.getStringInput("Enter Patient ID");
+                displayPatientHistory(pId);
+            }
+            case 4 ->{
+                String dId = InputHandler.getStringInput("Enter Doctor ID");
+                getRecordsByDoctorId(dId);
+            }
+            case 5 -> {
+                String rId = InputHandler.getStringInput("Enter Record ID to update");
+                editMedicalRecord(rId);
+            }
+            case 6 -> {
+                String rId = InputHandler.getStringInput("Enter Record ID to delete");
+                removeMedicalRecord(rId);
+            }
+            case 7 -> { // 5.7 Generate Patient History Report
+                String pId = InputHandler.getStringInput("Enter Patient ID for Report");
+                generateHistoryReport(pId);
+            }
+            case 8 -> {
+                return false;
+            }
+            default -> System.out.println("Invalid option.");
+        }
+        return true;
     }
 }

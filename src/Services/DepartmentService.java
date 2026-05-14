@@ -113,31 +113,8 @@ public class DepartmentService extends Base implements Manageable, Searchable {
         }
     }
 
-    public Boolean handleDepartmentMenu(Integer option) {
-        switch (option) {
-            case 1 -> addDepartment();
-            case 2 -> {
-                System.out.print("Enter ID to edit: ");
-                editDepartment(scanner.nextLine().trim());
-            }
-            case 3 -> {
-                System.out.print("Enter ID to remove: ");
-                removeDepartment(scanner.nextLine().trim());
-            }
-            case 4 -> displayAllDepartments();
-            case 5 -> {
-                System.out.print("Enter Department ID to view details: ");
-                Department d = getDepartmentById(scanner.nextLine().trim());
-                if (d != null) {
-                    System.out.println("Found: " + d.getDepartmentName());
-                } else {
-                    System.out.println("Not found.");
-                }
-            }
-            case 6 -> { return false; }
-            default -> System.out.println("Invalid option.");
-        }
-        return true;
+    public void assignNurseToDepartment() {
+
     }
 
     @Override
@@ -200,6 +177,31 @@ public class DepartmentService extends Base implements Manageable, Searchable {
             System.out.println("No department found with ID: " + id);
           }
        }
+
+    public Boolean handleDepartmentMenu(Integer option) {
+        switch (option) {
+            case 1 -> addDepartment();
+            case 2 -> displayAllDepartments();
+            case 3 -> {
+                String id = InputHandler.getStringInput("Enter Department ID");
+                searchById(id);
+            }
+            case 4 -> displayAllDepartments();
+            case 5 -> assignNurseToDepartment();
+            case 6 ->{
+                String id = InputHandler.getStringInput("Enter Department ID to edit");
+                editDepartment(id);
+            }
+            case 7 -> {
+                //viewDepartmentStatistics();
+            }
+            case 8 -> {
+            return false; }
+            default -> System.out.println("Invalid option.");
+        }
+        return true;
     }
+
+}
 
 

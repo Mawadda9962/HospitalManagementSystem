@@ -324,7 +324,6 @@ public class PatientService extends Base implements Manageable, Searchable {
         }
     }
 
-    //instanceof keyword acts a security guard
     @Override
     public void add(Object entity) {
         if (entity instanceof patient) {

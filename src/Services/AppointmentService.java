@@ -151,6 +151,7 @@ public class AppointmentService extends Base implements Manageable, Searchable, 
         }
     }
 
+
     public void createAppointment(String patientId, String doctorId, LocalDate date, String time) {
         if (HelperUtils.isNotNull(patientId) && HelperUtils.isNotNull(doctorId)) {
             Appointment appointment = new Appointment();
@@ -178,42 +179,38 @@ public class AppointmentService extends Base implements Manageable, Searchable, 
     public void rescheduleAppointment(String appointmentId, LocalDate newDate) {
         Appointment appointment = new Appointment();
 
-        System.out.println("Please enter appointment Id ");
-        appointmentId = scanner.nextLine();
+        appointmentId = InputHandler.getStringInput("Please enter appointment Id");
         appointment.setAppointmentId(appointmentId);
 
-        System.out.println("Please enter appointment Date ");
-        newDate = LocalDate.parse(scanner.nextLine());
+        newDate = InputHandler.getDateInput("Please enter appointment Date");
         appointment.setAppointmentDate(newDate);
+
+        appointments.add(appointment);
+        System.out.println("Appointment rescheduled successfully.");
     }
 
     public void rescheduleAppointments(String appointmentId, LocalDate newDate, String newTime) {
         Appointment appointment = new Appointment();
 
-        System.out.println("Please enter appointment Id ");
-        appointmentId = scanner.nextLine();
+        appointmentId = InputHandler.getStringInput("Please enter appointment Id");
         appointment.setAppointmentId(appointmentId);
 
-        System.out.println("Please enter appointment Date ");
-        newDate = LocalDate.parse(scanner.nextLine());
+        newDate = InputHandler.getDateInput("Please enter appointment Date");
         appointment.setAppointmentDate(newDate);
 
-        System.out.println("Please enter appointment time ");
-        newTime = scanner.nextLine();
+        newTime = InputHandler.getStringInput("Please enter appointment time");
         appointment.setAppointmentTime(newTime);
     }
 
     public void rescheduleAppointment(Appointment appointment, LocalDate newDate, String newTime, String reason) {
-        System.out.println("Please enter appointment Date ");
-        newDate = LocalDate.parse(scanner.nextLine());
+
+        newDate = InputHandler.getDateInput("Please enter appointment Date");
         appointment.setAppointmentDate(newDate);
 
-        System.out.println("Please enter appointment time ");
-        newTime = scanner.nextLine();
+        newTime = InputHandler.getStringInput("Please enter appointment time");
         appointment.setAppointmentTime(newTime);
 
-        System.out.println("Please enter reason ");
-        reason = scanner.nextLine();
+        reason = InputHandler.getStringInput("Please enter reason");
         appointment.setReason(reason);
     }
 
@@ -227,49 +224,15 @@ public class AppointmentService extends Base implements Manageable, Searchable, 
         System.out.println("Start Date: " + appointment.getAppointmentDate());
     }
 
-    public Boolean handleAppointmentMenu(Integer option) {
-        switch (option) {
-            case 1 -> addAppointment();
-            case 2 -> {
-                System.out.print("Enter ID to reschedule: ");
-                String id = scanner.nextLine().trim();
-                System.out.print("Enter New Date (YYYY-MM-DD): ");
-                String dateStr = scanner.nextLine().trim();
-                LocalDate d = (dateStr.length() == 10 && dateStr.charAt(4) == '-' && dateStr.charAt(7) == '-')
-                        ? LocalDate.parse(dateStr) : LocalDate.now();
-                System.out.print("Enter New Time: ");
-                String t = scanner.nextLine().trim();
-                rescheduleAppointment(id, d, t);
-            }
-            case 3 -> {
-                System.out.print("Enter ID to cancel: ");
-                cancelAppointment(scanner.nextLine().trim());
-            }
-            case 4 -> {
-                System.out.print("Enter Patient ID: ");
-                getAppointmentsByPatientId(scanner.nextLine().trim());
-            }
-            case 5 -> {
-                System.out.print("Enter Doctor ID: ");
-                getAppointmentsByDoctor(scanner.nextLine().trim());
-            }
-            case 6 -> {
-                System.out.print("Enter Date (YYYY-MM-DD): ");
-                String dateStr = scanner.nextLine().trim();
-                if (dateStr.length() == 10 && dateStr.charAt(4) == '-' && dateStr.charAt(7) == '-') {
-                    getAppointmentsByDate(LocalDate.parse(dateStr));
-                } else {
-                    System.out.println("Invalid date format.");
-                }
-            }
-            case 7 -> displayAllAppointments();
-            case 8 -> {
-                return false;
-            }
-            default -> System.out.println("Invalid option.");
-        }
-        return true;
+
+    public void completeAppointment(){
+
     }
+
+    public void viewUpcomingAppointments(){
+
+    }
+
 
     @Override
     public void add(Object entity) {
@@ -332,4 +295,42 @@ public class AppointmentService extends Base implements Manageable, Searchable, 
     }
 
     //Two methods left to add
+    public Boolean handleAppointmentMenu(Integer option) {
+        switch (option) {
+            case 1 -> addAppointment();
+            case 2 -> displayAllAppointments();
+            case 3 -> {
+                String pId = InputHandler.getStringInput("Enter Patient ID");
+                getAppointmentsByPatientId(pId);
+            }
+            case 4 -> {
+                String dId = InputHandler.getStringInput("Enter Doctor ID");
+                getAppointmentsByDoctor(dId);
+            }
+            case 5 -> {
+                LocalDate date = InputHandler.getDateInput("Enter Date (YYYY-MM-DD)");
+                getAppointmentsByDate(date);
+            }
+            case 6 -> {
+                rescheduleAppointment(null, null);
+            }
+            case 7 -> {
+                String id = InputHandler.getStringInput("Enter Appointment ID to cancel");
+                cancelAppointment(id);
+            }
+            case 8 -> {
+                String id = InputHandler.getStringInput("Enter Appointment ID to mark as Complete");
+                completeAppointment();
+            }
+            case 9 -> {
+                viewUpcomingAppointments();
+            }
+            case 10 -> {
+                return false;
+            }
+            default -> System.out.println("Invalid option.");
+        }
+        return true;
+    }
+
 }

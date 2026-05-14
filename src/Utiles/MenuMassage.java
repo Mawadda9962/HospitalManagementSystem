@@ -22,6 +22,7 @@ public class MenuMassage {
             7- Update Patient Information
             8- Remove Patient
             9- View Patient Medical History
+            10- Exit
             """;
 
         public static String DOCTOR_MENU_MESSAGE = """
@@ -29,11 +30,13 @@ public class MenuMassage {
             2- Add Surgeon
             3- Add Consultant
             4- Add General Practitioner
-            5- Search Doctor by Specialization
-            6- View Available Doctors
-            7- Assign Patient to Doctor
-            8- Update Doctor Information
-            9- Remove Doctor
+            5- View All Doctors
+            6- Search Doctor by Specialization
+            7- View Available Doctors
+            8- Assign Patient to Doctor
+            9- Update Doctor Information
+            10- Remove Doctor
+            11- Exit
             """;
 
         public static String NURSE_MENU_MESSAGE = """
@@ -44,6 +47,7 @@ public class MenuMassage {
             5- Assign Nurse to Patient
             5- Update Nurse Information 
             6- Remove Nurse
+            7- Exit
             """;
 
         public static String MEDICAL_RECORD_MENU_MESSAGE = """
@@ -54,6 +58,7 @@ public class MenuMassage {
             5- Update Medical Record
             6- Delete Medical Record
             7- Generate Patient History Report
+            8- Exit
             """;
 
         public static String APPOINTMENT_MENU_MESSAGE = """

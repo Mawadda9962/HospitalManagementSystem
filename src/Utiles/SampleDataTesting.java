@@ -17,6 +17,7 @@ public class SampleDataTesting {
         PatientService patientService = new PatientService();
         MedicalRecordService medicalRecordService = new MedicalRecordService();
         AppointmentService appointmentService = new AppointmentService();
+        NurseService nurseService = new NurseService();
 
 
         // DEPARTMENTS
@@ -83,5 +84,10 @@ public class SampleDataTesting {
         medicalRecordService.add(new MedicalRecord("P200", "REC-787", "DOC-105", LocalDate.of(2026, 1, 20), "Checkup", "None", "Healthy", "Clear"));
         medicalRecordService.add(new MedicalRecord("P201", "REC-788", "DOC-106", LocalDate.of(2026, 2, 10), "Diabetes", "Metformin", "Diet control", "HbA1c 7.5"));
 
+        System.out.println(medicalRecordService);
+        System.out.println(patientService);
+        System.out.println(departmentService);
+        System.out.println(doctorService);
+        System.out.println(nurseService);
     }
 }
